@@ -178,6 +178,14 @@ module.exports = {
           jsx: `react`
         } // default
       }
+    },
+    {
+      resolve: `gatsby-plugin-emotion`,
+      options: {
+        // Accepts all options defined by `babel-plugin-emotion` plugin.
+        sourceMap: true,
+        autoLabel: true
+      }
     }
   ]
 };
