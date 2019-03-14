@@ -186,6 +186,12 @@ module.exports = {
         sourceMap: true,
         autoLabel: true
       }
+    },
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`
+      }
     }
   ]
 };
