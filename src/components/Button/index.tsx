@@ -30,7 +30,7 @@ const Button = styled("button")`
     }
   }};
   background-color: ${(props: ButtonStyle) =>
-    props.primary ? colors.secondary : null};
+    props.primary ? colors.accent : null};
   border-color: ${(props: ButtonStyle) =>
     props.secondary ? colors.secondary : null};
   transition: box-shadow 200ms ease, background-color 100ms ease-out;
@@ -38,9 +38,9 @@ const Button = styled("button")`
   &:hover,
   &:focus {
     background-color: ${(props: ButtonStyle) =>
-      props.primary ? colors.primaryAccent : null};
+      props.primary ? colors.accent : null};
     border-color: ${(props: ButtonStyle) =>
-      props.secondary ? colors.primaryAccent : null};
+      props.secondary ? colors.accent : null};
     outline: 0;
     box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
       0 3px 1px -2px rgba(0, 0, 0, 0.12);
