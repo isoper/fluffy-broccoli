@@ -5,5 +5,8 @@ export const colors = {
   primaryDark: "#1793ba",
   secondaryLight: "#195395",
   secondary: "#152367",
-  secondaryDark: "#120d34"
+  secondaryDark: "#120d34",
+  accentLight: "#e58e26",
+  accent: "#e58e26",
+  accentDark: "#e58e26"
 };
