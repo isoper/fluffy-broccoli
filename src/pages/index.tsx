@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 import Layout from "../layout";
 import Header from "../components/Header";
+import Methodology from "../components/Methodology";
 import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
@@ -15,6 +16,7 @@ class Index extends React.Component {
         <div className="index-container">
           <Helmet title={config.siteTitle} />
           <Header />
+          <Methodology />
           <SEO />
           <PostListing postEdges={postEdges} />
         </div>
