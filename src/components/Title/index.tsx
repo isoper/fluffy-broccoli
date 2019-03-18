@@ -8,6 +8,7 @@ import { colors } from "./../../utils/theme";
 interface TitleProps {
   content: string;
   primary: boolean;
+  color: string;
 }
 
 export default class extends React.Component<TitleProps, {}> {
@@ -20,7 +21,8 @@ export default class extends React.Component<TitleProps, {}> {
     `;
     const H1 = styled("h1")`
       display: inline-block;
-      color: ${colors.white};
+      color: ${(props: { color: string }) =>
+        props.color ? props.color : "white"};
       height: ${rem("45px")};
       border-bottom: 7px solid
         ${(props: { primary: boolean }) =>
@@ -31,7 +33,9 @@ export default class extends React.Component<TitleProps, {}> {
 
     return (
       <Title>
-        <H1 primary={this.props.primary}>{this.props.content}</H1>
+        <H1 primary={this.props.primary} color={this.props.color}>
+          {this.props.content}
+        </H1>
       </Title>
     );
   }

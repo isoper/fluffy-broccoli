@@ -4,6 +4,7 @@ import { graphql } from "gatsby";
 import Layout from "../layout";
 import Header from "../components/Header";
 import Methodology from "../components/Methodology";
+import WhoIs from "../components/WhoIs";
 import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
@@ -17,6 +18,7 @@ class Index extends React.Component {
           <Helmet title={config.siteTitle} />
           <Header />
           <Methodology />
+          <WhoIs />
           <SEO />
           <PostListing postEdges={postEdges} />
         </div>
