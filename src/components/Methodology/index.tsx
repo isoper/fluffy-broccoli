@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import { css } from "emotion";
 
 import { colors } from "./../../utils/theme";
+import Title from "./../../components/Title";
 import build from "./img/build.png";
 import innovate from "./img/innovate.png";
 import run from "./img/run.png";
@@ -30,19 +31,6 @@ export default class extends React.Component<MethodologyProps, {}> {
       padding: ${rem("40px")} ${rem("100px")};
       border-bottom-left-radius: 50% 10%;
       border-bottom-right-radius: 50% 10%;
-    `;
-
-    const Title = styled("div")`
-      display: inline-block;
-    `;
-    const H1 = styled("h1")`
-      display: inline-block;
-      color: ${colors.white};
-      height: ${rem("45px")};
-      border-bottom: 7px solid
-        ${(props: { primary: boolean }) =>
-          props.primary ? colors.accent : "#508aa8"};
-      padding-right: ${rem("40px")};
     `;
 
     const Img = styled("img")`
@@ -90,9 +78,7 @@ export default class extends React.Component<MethodologyProps, {}> {
 
     return (
       <Container>
-        <Title>
-          <H1>Methodology</H1>
-        </Title>
+        <Title content={"Methodology"} primary={true} />
         <Grid>
           <HighlightedItem>
             <HighlightedImg src={build} />
@@ -115,9 +101,7 @@ export default class extends React.Component<MethodologyProps, {}> {
           </Item>
         </Grid>
         <CustomerContainer>
-          <Title>
-            <H1>Who we work with</H1>
-          </Title>
+          <Title content={"Who we work with"} />
           <CustomerIcons>
             <CustomerIcon src={corporates} />
             <CustomerIcon src={sme} />
