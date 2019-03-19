@@ -33,6 +33,12 @@ export default class extends React.Component<HeaderProps, {}> {
     `;
 
     const Motto = styled("div")`
+      & h1 {
+        font-size: 5rem;
+      }
+      & p {
+        font-size: 2rem;
+      }
       & h1,
       p {
         color: white;
