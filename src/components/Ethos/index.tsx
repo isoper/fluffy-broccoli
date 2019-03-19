@@ -108,7 +108,7 @@ export default class extends React.Component<EthosProps, {}> {
     return (
       <Section>
         <Container>
-          <Title primary={true}>Ethos</Title>
+          <Title primary>Ethos</Title>
           <Grid>
             <HighlightedItem>
               <HighlightedImg src={Leadership} />

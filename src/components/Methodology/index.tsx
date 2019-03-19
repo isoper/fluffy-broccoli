@@ -93,7 +93,7 @@ export default class extends React.Component<MethodologyProps, {}> {
     return (
       <Section>
         <Container>
-          <Title primary={true}>Methodology</Title>
+          <Title primary>Methodology</Title>
           <Grid>
             <HighlightedItem>
               <HighlightedImg src={build} />
