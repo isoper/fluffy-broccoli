@@ -43,6 +43,7 @@
     "react-share": "^2.4.0",
     "react-twitter-widgets": "^1.7.1",
     "react-typography": "^0.16.19",
+    "styled-map": "^3.2.0-rc.1",
     "typography": "^0.16.19",
     "url-join": "^4.0.0"
   },
