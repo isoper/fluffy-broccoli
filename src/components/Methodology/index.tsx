@@ -93,7 +93,7 @@ export default class extends React.Component<MethodologyProps, {}> {
     return (
       <Section>
         <Container>
-          <Title content={"Methodology"} primary={true} />
+          <Title primary={true}>Methodology</Title>
           <Grid>
             <HighlightedItem>
               <HighlightedImg src={build} />
@@ -116,7 +116,7 @@ export default class extends React.Component<MethodologyProps, {}> {
             </Item>
           </Grid>
           <CustomerContainer>
-            <Title content={"Who we work with"} />
+            <Title>Who we work with</Title>
             <CustomerIcons>
               <RoundImage
                 content={<CustomerIcon src={corporates} />}

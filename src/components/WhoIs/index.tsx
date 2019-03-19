@@ -36,7 +36,9 @@ export default class extends React.Component<WhoIsProps, {}> {
     return (
       <Section>
         <Container>
-          <Title content={"Who is LUDŌ?"} primary={true} color={"black"} />
+          <Title primary={true} color={"black"}>
+            Who is LUDŌ?
+          </Title>
           <Content>Lorem ipsum</Content>
           <TeamLink>Our team & jobs</TeamLink>
         </Container>

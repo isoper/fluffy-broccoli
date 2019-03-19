@@ -6,7 +6,6 @@ import { css } from "emotion";
 import { colors } from "./../../utils/theme";
 
 interface TitleProps {
-  content: string;
   primary: boolean;
   color: string;
 }
@@ -34,7 +33,7 @@ export default class extends React.Component<TitleProps, {}> {
     return (
       <Title>
         <H1 primary={this.props.primary} color={this.props.color}>
-          {this.props.content}
+          {this.props.children}
         </H1>
       </Title>
     );
