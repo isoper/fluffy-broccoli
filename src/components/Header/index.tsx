@@ -6,6 +6,7 @@ import { FaArrowDown } from "react-icons/fa";
 
 import { colors } from "./../../utils/theme";
 import Button from "./../Button";
+import Container from "./../../components/Container";
 
 interface HeaderProps {}
 
@@ -14,20 +15,16 @@ export default class extends React.Component<HeaderProps, {}> {
     super(props, context);
   }
   public render() {
-    const Container = styled("div")`
+    const Section = styled("section")`
       display: flex;
-      flex-direction: column;
+      align-items: center;
+      min-height: 80vh;
+      padding-top: ${rem("90px")};
       background-image: linear-gradient(
         153deg,
         ${colors.primary} 0%,
         ${colors.secondary} 100%
       );
-      background-position: center, top;
-      background-repeat: repeat;
-      background-size: cover, cover;
-      height: ${rem("768px")};
-      padding: 0 100px;
-      padding-top: 125px;
     `;
 
     const HeaderText = styled("div")`
@@ -60,21 +57,23 @@ export default class extends React.Component<HeaderProps, {}> {
     `;
 
     return (
-      <Container>
-        <HeaderText>
-          <Motto>
-            <h1>A tech team that flows</h1>
-            <p>
-              Focus on your business, we scale your team up on demand. We are
-              your partner in technology.
-            </p>
-          </Motto>
-        </HeaderText>
-        <Button value="Work with us" primary={true} />
-        <MoreButton>
-          <FaArrowDown />
-        </MoreButton>
-      </Container>
+      <Section>
+        <Container>
+          <HeaderText>
+            <Motto>
+              <h1>A tech team that flows</h1>
+              <p>
+                Focus on your business, we scale your team up on demand. We are
+                your partner in technology.
+              </p>
+            </Motto>
+          </HeaderText>
+          <Button value="Work with us" primary={true} />
+          <MoreButton>
+            <FaArrowDown />
+          </MoreButton>
+        </Container>
+      </Section>
     );
   }
 }

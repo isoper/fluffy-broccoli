@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import { css } from "emotion";
 
 import { colors } from "./../../utils/theme";
+import Container from "./../../components/Container";
 import Title from "./../../components/Title";
 import { FaArrowRight } from "react-icons/fa";
 
@@ -14,15 +15,17 @@ export default class extends React.Component<WhoIsProps, {}> {
     super(props, context);
   }
   public render() {
-    const Container = styled("div")`
+    const Section = styled("section")`
       display: flex;
-      flex-direction: column;
-      height: ${rem("768px")};
-      padding: ${rem("40px")} ${rem("100px")};
+      align-items: center;
+      padding-top: ${rem("150px")};
+      padding-bottom: ${rem("80px")};
       border-bottom-left-radius: 50% 10%;
       border-bottom-right-radius: 50% 10%;
     `;
+
     const Content = styled("p")``;
+
     const TeamLink = styled("a")`
       text-transform: uppercase;
       color: ${colors.accent};
@@ -31,11 +34,13 @@ export default class extends React.Component<WhoIsProps, {}> {
     `;
 
     return (
-      <Container>
-        <Title content={"Who is LUDŌ?"} primary={true} color={"black"} />
-        <Content>Lorem ipsum</Content>
-        <TeamLink>Our team & jobs</TeamLink>
-      </Container>
+      <Section>
+        <Container>
+          <Title content={"Who is LUDŌ?"} primary={true} color={"black"} />
+          <Content>Lorem ipsum</Content>
+          <TeamLink>Our team & jobs</TeamLink>
+        </Container>
+      </Section>
     );
   }
 }

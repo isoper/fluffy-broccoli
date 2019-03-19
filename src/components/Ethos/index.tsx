@@ -5,6 +5,7 @@ import { css } from "emotion";
 import { FaReact, FaPython, FaAws } from "react-icons/fa";
 
 import { colors } from "./../../utils/theme";
+import Container from "./../../components/Container";
 import RoundImage from "./../../components/RoundImage";
 import Title from "./../../components/Title";
 import ContinuousLearning from "./img/continuous_learning.png";
@@ -18,59 +19,66 @@ export default class extends React.Component<EthosProps, {}> {
     super(props, context);
   }
   public render() {
-    const Container = styled("div")`
+    const Section = styled("section")`
       display: flex;
-      flex-direction: column;
-      height: ${rem("768px")};
+      align-items: center;
+      padding-top: ${rem("90px")};
       background-image: linear-gradient(
         180deg,
         ${colors.secondary} 0%,
         ${colors.secondaryDark} 100%
       );
-      padding: ${rem("40px")} ${rem("100px")};
       border-bottom-left-radius: 50% 10%;
       border-bottom-right-radius: 50% 10%;
     `;
 
     const Img = styled("img")`
-      height: ${rem("200px")};
-      width: ${rem("200px")};
+      max-height: ${rem("250px")};
+      max-width: ${rem("300px")};
     `;
+
     const HighlightedImg = styled("img")`
-      height: ${rem("350px")};
-      width: ${rem("350px")};
+      max-height: ${rem("380px")};
+      max-width: ${rem("300px")};
     `;
+
     const Grid = styled("div")`
       display: grid;
-      grid-template-columns: 75% 25%;
+      grid-template-columns: 60% 40%;
     `;
+
     const HighlightedItem = styled("div")`
       display: flex;
       align-self: center;
       grid-row-end: span 2;
     `;
+
     const Item = styled("div")`
       display: flex;
     `;
+
     const Step = styled("h2")`
       color: white;
     `;
+
     const Content = styled("div")`
       color: white;
     `;
 
-    const CustomerContainer = styled("div")`
+    const TechnologiesContainer = styled("div")`
       display: flex;
       flex-direction: column;
       align-items: center;
       position: relative;
-      top: 50px;
+      top: 95px;
     `;
 
-    const CustomerIcons = styled("div")`
+    const TechnologiesIcons = styled("div")`
       display: flex;
       justify-content: space-evenly;
-      width: 700px;
+      align-items: center;
+      height: ${rem("200px")};
+      width: ${rem("700px")};
     `;
 
     const CustomerIcon = styled("img")`
@@ -98,50 +106,52 @@ export default class extends React.Component<EthosProps, {}> {
     `;
 
     return (
-      <Container>
-        <Title content={"Ethos"} primary={true} />
-        <Grid>
-          <HighlightedItem>
-            <HighlightedImg src={Leadership} />
-            <Content>
-              <Step>Strong leadership</Step>
-              <p>Lorem ispum</p>
-            </Content>
-          </HighlightedItem>
-          <Item>
-            <Img src={ContinuousLearning} />
-            <Content>
-              <Step>Continuous learning</Step>
-            </Content>
-          </Item>
-          <Item>
-            <Img src={TopTalent} />
-            <Content>
-              <Step>Top talent</Step>
-            </Content>
-          </Item>
-        </Grid>
-        <CustomerContainer>
-          <Title content={"Core Technologies"} />
-          <CustomerIcons>
-            <RoundImage
-              content={<ReactIcon />}
-              firstColor={"#c8dff4"}
-              secondColor={"#64707a"}
-            />
-            <RoundImage
-              content={<PythonIcon />}
-              firstColor={"#508AA8"}
-              secondColor={"#284554"}
-            />
-            <RoundImage
-              content={<AwsIcon />}
-              firstColor={"#1E4396"}
-              secondColor={"#0F224B"}
-            />
-          </CustomerIcons>
-        </CustomerContainer>
-      </Container>
+      <Section>
+        <Container>
+          <Title content={"Ethos"} primary={true} />
+          <Grid>
+            <HighlightedItem>
+              <HighlightedImg src={Leadership} />
+              <Content>
+                <Step>Strong leadership</Step>
+                <p>Lorem ispum</p>
+              </Content>
+            </HighlightedItem>
+            <Item>
+              <Content>
+                <Step>Continuous learning</Step>
+              </Content>
+              <Img src={ContinuousLearning} />
+            </Item>
+            <Item>
+              <Content>
+                <Step>Top talent</Step>
+              </Content>
+              <Img src={TopTalent} />
+            </Item>
+          </Grid>
+          <TechnologiesContainer>
+            <Title content={"Core Technologies"} />
+            <TechnologiesIcons>
+              <RoundImage
+                content={<ReactIcon />}
+                firstColor={"#c8dff4"}
+                secondColor={"#64707a"}
+              />
+              <RoundImage
+                content={<PythonIcon />}
+                firstColor={"#508AA8"}
+                secondColor={"#284554"}
+              />
+              <RoundImage
+                content={<AwsIcon />}
+                firstColor={"#1E4396"}
+                secondColor={"#0F224B"}
+              />
+            </TechnologiesIcons>
+          </TechnologiesContainer>
+        </Container>
+      </Section>
     );
   }
 }

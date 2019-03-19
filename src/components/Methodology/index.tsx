@@ -4,6 +4,8 @@ import styled from "@emotion/styled";
 import { css } from "emotion";
 
 import { colors } from "./../../utils/theme";
+import RoundImage from "./../../components/RoundImage";
+import Container from "./../../components/Container";
 import Title from "./../../components/Title";
 import build from "./img/build.png";
 import innovate from "./img/innovate.png";
@@ -19,43 +21,48 @@ export default class extends React.Component<MethodologyProps, {}> {
     super(props, context);
   }
   public render() {
-    const Container = styled("div")`
+    const Section = styled("section")`
       display: flex;
-      flex-direction: column;
-      height: ${rem("768px")};
+      align-items: center;
+      padding-top: ${rem("90px")};
       background-image: linear-gradient(
         180deg,
         ${colors.secondary} 0%,
         ${colors.secondaryDark} 100%
       );
-      padding: ${rem("40px")} ${rem("100px")};
       border-bottom-left-radius: 50% 10%;
       border-bottom-right-radius: 50% 10%;
     `;
 
     const Img = styled("img")`
-      height: ${rem("200px")};
-      width: ${rem("200px")};
+      max-height: ${rem("250px")};
+      max-width: ${rem("300px")};
     `;
+
     const HighlightedImg = styled("img")`
-      height: ${rem("350px")};
-      width: ${rem("350px")};
+      max-height: ${rem("380px")};
+      max-width: ${rem("300px")};
     `;
+
     const Grid = styled("div")`
       display: grid;
-      grid-template-columns: 75% 25%;
+      grid-template-columns: 60% 40%;
     `;
+
     const HighlightedItem = styled("div")`
       display: flex;
       align-self: center;
       grid-row-end: span 2;
     `;
+
     const Item = styled("div")`
       display: flex;
     `;
+
     const Step = styled("h2")`
       color: white;
     `;
+
     const Content = styled("div")`
       color: white;
     `;
@@ -65,50 +72,71 @@ export default class extends React.Component<MethodologyProps, {}> {
       flex-direction: column;
       align-items: center;
       position: relative;
-      top: 85px;
+      top: 95px;
     `;
 
-    const CustomerIcons = styled("div")``;
+    const CustomerIcons = styled("div")`
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      height: ${rem("200px")};
+      width: ${rem("700px")};
+    `;
 
     const CustomerIcon = styled("img")`
-      width: ${rem("70px")};
-      height: ${rem("70px")};
+      width: ${rem("30px")};
+      height: ${rem("30px")};
       margin: 0 20px;
+      background-color: transparent;
     `;
 
     return (
-      <Container>
-        <Title content={"Methodology"} primary={true} />
-        <Grid>
-          <HighlightedItem>
-            <HighlightedImg src={build} />
-            <Content>
-              <Step>Build</Step>
-              <p>Lorem ispum</p>
-            </Content>
-          </HighlightedItem>
-          <Item>
-            <Img src={run} />
-            <Content>
-              <Step>Run</Step>
-            </Content>
-          </Item>
-          <Item>
-            <Img src={innovate} />
-            <Content>
-              <Step>Innovate</Step>
-            </Content>
-          </Item>
-        </Grid>
-        <CustomerContainer>
-          <Title content={"Who we work with"} />
-          <CustomerIcons>
-            <CustomerIcon src={corporates} />
-            <CustomerIcon src={sme} />
-            <CustomerIcon src={startup} />
-          </CustomerIcons>
-        </CustomerContainer>
-      </Container>
+      <Section>
+        <Container>
+          <Title content={"Methodology"} primary={true} />
+          <Grid>
+            <HighlightedItem>
+              <HighlightedImg src={build} />
+              <Content>
+                <Step>Build</Step>
+                <p>Lorem ispum</p>
+              </Content>
+            </HighlightedItem>
+            <Item>
+              <Content>
+                <Step>Run</Step>
+              </Content>
+              <Img src={run} />
+            </Item>
+            <Item>
+              <Content>
+                <Step>Innovate</Step>
+              </Content>
+              <Img src={innovate} />
+            </Item>
+          </Grid>
+          <CustomerContainer>
+            <Title content={"Who we work with"} />
+            <CustomerIcons>
+              <RoundImage
+                content={<CustomerIcon src={corporates} />}
+                firstColor={"#c8dff4"}
+                secondColor={"#64707a"}
+              />
+              <RoundImage
+                content={<CustomerIcon src={sme} />}
+                firstColor={"#508AA8"}
+                secondColor={"#284554"}
+              />
+              <RoundImage
+                content={<CustomerIcon src={startup} />}
+                firstColor={"#1E4396"}
+                secondColor={"#0F224B"}
+              />
+            </CustomerIcons>
+          </CustomerContainer>
+        </Container>
+      </Section>
     );
   }
 }
