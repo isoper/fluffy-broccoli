@@ -30,8 +30,8 @@ export default class extends React.Component<MethodologyProps, {}> {
         ${colors.secondary} 0%,
         ${colors.secondaryDark} 100%
       );
-      border-bottom-left-radius: 50% 10%;
-      border-bottom-right-radius: 50% 10%;
+      border-bottom-left-radius: 50% 5%;
+      border-bottom-right-radius: 50% 5%;
     `;
 
     const Img = styled("img")`
