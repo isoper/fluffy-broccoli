@@ -11,7 +11,7 @@ type ButtonStyle = {
 };
 
 type ButtonProps = {
-  value: string;
+  children: string;
 } & ButtonStyle;
 
 const Button = styled("button")`
@@ -58,6 +58,6 @@ const Button = styled("button")`
 `;
 export default (props: ButtonProps) => (
   <Button primary={props.primary} secondary={props.secondary}>
-    {props.value}
+    {props.children}
   </Button>
 );

@@ -74,7 +74,7 @@ export default class extends React.Component<HeaderProps, {}> {
               </p>
             </Motto>
           </HeaderText>
-          <Button value="Work with us" primary={true} />
+          <Button primary>Work with us</Button>
           <MoreButton>
             <FaArrowDown />
           </MoreButton>

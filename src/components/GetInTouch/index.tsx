@@ -22,6 +22,13 @@ export default class extends React.Component<GetInTouchProps, {}> {
       padding-top: ${rem("90px")};
     `;
 
+    const Form = styled("form")`
+      height: 20rem;
+      display: flex;
+      justify-content: space-evenly;
+      flex-direction: column;
+    `;
+
     return (
       <Section>
         <Container>
@@ -29,9 +36,11 @@ export default class extends React.Component<GetInTouchProps, {}> {
             Get in touch!
           </Title>
           <p>Pretty bs shouldn't excite youuuuu!</p>
-          <Input placeholder={"What is your name?"} />
-          <Input placeholder={"How can we help you?"} />
-          <Button>Work with us</Button>
+          <Form>
+            <Input placeholder={"What is your name?"} />
+            <Input placeholder={"How can we help you?"} />
+            <Button primary>Work with us</Button>
+          </Form>
         </Container>
       </Section>
     );
