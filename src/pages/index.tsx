@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Methodology from "../components/Methodology";
 import WhoIs from "../components/WhoIs";
 import Ethos from "../components/Ethos";
+import GetInTouch from "../components/GetInTouch";
 import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
@@ -21,6 +22,7 @@ class Index extends React.Component {
           <Methodology />
           <WhoIs />
           <Ethos />
+          <GetInTouch />
         </div>
       </Layout>
     );
