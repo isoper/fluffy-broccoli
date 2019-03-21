@@ -10,3 +10,6 @@ export const colors = {
   accent: "#e58e26",
   accentDark: "#e58e26"
 };
+const breakpoints = [320, 768, 992];
+
+export const mq = breakpoints.map(bp => `@media (min-width: ${bp}px)`);

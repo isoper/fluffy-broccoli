@@ -4,9 +4,9 @@ import styled from "@emotion/styled";
 import { css } from "emotion";
 import { FaArrowDown } from "react-icons/fa";
 
-import { colors } from "./../../utils/theme";
+import { colors, mq } from "./../../utils/theme";
 import Button from "./../Button";
-import Container from "./../../components/Container";
+import _Container from "./../../components/Container";
 
 interface HeaderProps {}
 
@@ -17,7 +17,12 @@ export default class extends React.Component<HeaderProps, {}> {
   public render() {
     const Section = styled("section")`
       display: flex;
-      align-items: center;
+      ${mq[0]} {
+        padding-top: 6rem;
+      }
+      ${mq[2]} {
+        align-items: center;
+      }
       min-height: 80vh;
       padding-top: ${rem("90px")};
       background-image: linear-gradient(
@@ -27,9 +32,27 @@ export default class extends React.Component<HeaderProps, {}> {
       );
     `;
 
+    const Container = styled(_Container)`
+      display: flex;
+      flex-direction: column;
+      ${mq[0]} {
+        padding-top: 6rem;
+        align-items: center;
+      }
+      ${mq[2]} {
+        align-items: start;
+      }
+    `;
+
     const HeaderText = styled("div")`
       display: flex;
       flex-direction: column;
+      ${mq[0]} {
+        text-align: center;
+      }
+      ${mq[2]} {
+        text-align: left;
+      }
     `;
 
     const Motto = styled("div")`

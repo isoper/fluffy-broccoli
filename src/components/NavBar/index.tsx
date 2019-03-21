@@ -2,12 +2,14 @@ import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css, cx } from "emotion";
+import { FaTimes, FaBars } from "react-icons/fa";
 
-import { colors } from "./../../utils/theme";
+import { colors, mq } from "./../../utils/theme";
 
 type NavBarProps = {};
 type NavBarState = {
   isSolid: boolean;
+  isSidePanelOpened: boolean;
 };
 
 export default class extends React.Component<NavBarProps, NavBarState> {
@@ -17,7 +19,8 @@ export default class extends React.Component<NavBarProps, NavBarState> {
   constructor(props: NavBarProps, context: any) {
     super(props, context);
     this.state = {
-      isSolid: false
+      isSolid: false,
+      isSidePanelOpened: false
     };
   }
 
@@ -56,7 +59,12 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       justify-content: space-between;
       align-items: center;
       overflow: hidden;
-      padding: ${rem("10px")} ${rem("100px")};
+      ${mq[0]} {
+        padding: ${rem("10px")} ${rem("40px")};
+      }
+      ${mq[2]} {
+        padding: ${rem("10px")} ${rem("100px")};
+      }
       z-index: 1;
       text-transform: uppercase;
       top: 0;
@@ -94,7 +102,12 @@ export default class extends React.Component<NavBarProps, NavBarState> {
     `;
 
     const UlLinks = styled("ul")`
-      display: flex;
+      ${mq[0]} {
+        display: none !important;
+      }
+      ${mq[2]} {
+        display: flex !important;
+      }
       list-style: none;
       margin: 0px;
     `;
@@ -120,24 +133,117 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       }
     `;
 
+    const SidePanelOpener = styled(FaBars)`
+      ${mq[0]} {
+        display: flex !important;
+      }
+      ${mq[2]} {
+        display: none !important;
+      }
+      cursor: pointer;
+    `;
+
+    const SidePanel = styled("nav")`
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      padding: 1.5rem 0;
+      z-index: 500;
+      background-color: #ffffff;
+      will-change: transform;
+    `;
+
+    const SidePanelHeader = styled("div")`
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+      & span {
+        font-weight: 700;
+      }
+    `;
+
+    const CloseButton = styled("button")`
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    `;
+
+    const SidePanelContent = styled("ul")`
+      padding-left: 0;
+      margin-top: 1.5rem;
+      list-style-type: none;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 40px;
+    `;
+
+    const SidePanelLink = styled("li")`
+      display: list-item;
+      text-align: -webkit-match-parent;
+
+      & a {
+        font-weight: 700;
+        display: inline-block;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        color: #333347;
+        cursor: pointer;
+      }
+    `;
+
     return (
-      <nav className={cx(Nav, { [solidNavBar]: this.state.isSolid })}>
-        <DivLogo>LUDŌ</DivLogo>
-        <UlLinks>
-          <Li>
-            <A>Methodology</A>
-          </Li>
-          <Li>
-            <A>Ethos</A>
-          </Li>
-          <Li>
-            <A>Team & Hiring</A>
-          </Li>
-          <Li>FR</Li>
-          <Li>EN</Li>
-          <Li>MK</Li>
-        </UlLinks>
-      </nav>
+      <div>
+        <nav className={cx(Nav, { [solidNavBar]: this.state.isSolid })}>
+          <DivLogo>LUDŌ</DivLogo>
+          <UlLinks>
+            <Li>
+              <A>Methodology</A>
+            </Li>
+            <Li>
+              <A>Ethos</A>
+            </Li>
+            <Li>
+              <A>Team & Hiring</A>
+            </Li>
+            <Li>FR</Li>
+            <Li>EN</Li>
+            <Li>MK</Li>
+          </UlLinks>
+          <SidePanelOpener
+            onClick={() => this.setState({ isSidePanelOpened: true })}
+          />
+        </nav>
+        {this.state.isSidePanelOpened && (
+          <SidePanel>
+            <SidePanelHeader>
+              <span>LUDŌ</span>
+              <CloseButton
+                onClick={() => this.setState({ isSidePanelOpened: false })}
+              >
+                <FaTimes />
+              </CloseButton>
+            </SidePanelHeader>
+            <SidePanelContent>
+              <SidePanelLink>
+                <a>Methodology</a>
+              </SidePanelLink>
+              <SidePanelLink>
+                <a>Ethos</a>
+              </SidePanelLink>
+              <SidePanelLink>
+                <a>Team & Hiring</a>
+              </SidePanelLink>
+            </SidePanelContent>
+          </SidePanel>
+        )}
+      </div>
     );
   }
 }

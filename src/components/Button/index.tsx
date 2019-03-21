@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 import { css } from "emotion";
 import { rem } from "polished";
 
-import { colors } from "./../../utils/theme";
+import { colors, mq } from "./../../utils/theme";
 
 type ButtonStyle = {
   primary?: boolean;
@@ -16,8 +16,12 @@ type ButtonProps = {
 
 const Button = styled("button")`
   cursor: pointer;
-  width: ${rem("194px")};
-  height: ${rem("42px")};
+  ${mq[0]} {
+    padding: 0.5rem 8rem;
+  }
+  ${mq[2]} {
+    padding: 0.5rem 4rem;
+  }
   font-weight: 700;
   font-size: ${rem("16px")};
   border: ${rem("2px")} solid transparent;
