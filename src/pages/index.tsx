@@ -19,9 +19,9 @@ class Index extends React.Component {
         <div className="index-container">
           <Helmet title={config.siteTitle} />
           <Header />
-          <Methodology />
+          <Methodology data={this.props.data} />
           <WhoIs />
-          <Ethos />
+          <Ethos data={this.props.data} />
           <GetInTouch />
         </div>
       </Layout>
@@ -52,6 +52,48 @@ export const pageQuery = graphql`
             cover
             date
           }
+        }
+      }
+    }
+    continuousLearning: file(relativePath: { eq: "continuous_learning.png" }) {
+      childImageSharp {
+        fixed(width: 260, height: 280) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    leadership: file(relativePath: { eq: "leadership.png" }) {
+      childImageSharp {
+        fixed(width: 330, height: 420) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    topTalent: file(relativePath: { eq: "top_talent.png" }) {
+      childImageSharp {
+        fixed(width: 290, height: 280) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    build: file(relativePath: { eq: "build.png" }) {
+      childImageSharp {
+        fixed(width: 330, height: 420) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    innovate: file(relativePath: { eq: "innovate.png" }) {
+      childImageSharp {
+        fixed(width: 260, height: 280) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    run: file(relativePath: { eq: "run.png" }) {
+      childImageSharp {
+        fixed(width: 290, height: 280) {
+          ...GatsbyImageSharpFixed_withWebp
         }
       }
     }

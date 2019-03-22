@@ -2,17 +2,17 @@ import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
+import Img from "gatsby-image";
 import { FaReact, FaPython, FaAws } from "react-icons/fa";
 
 import { colors, mq } from "./../../utils/theme";
 import Container from "./../../components/Container";
 import RoundImage from "./../../components/RoundImage";
 import Title from "./../../components/Title";
-import ContinuousLearning from "./img/continuous_learning.png";
-import Leadership from "./img/leadership.png";
-import TopTalent from "./img/top_talent.png";
 
-interface EthosProps {}
+interface EthosProps {
+  data: any;
+}
 
 export default class extends React.Component<EthosProps, {}> {
   constructor(props: EthosProps, context: any) {
@@ -30,16 +30,6 @@ export default class extends React.Component<EthosProps, {}> {
       );
       border-bottom-left-radius: 50% 5%;
       border-bottom-right-radius: 50% 5%;
-    `;
-
-    const Img = styled("img")`
-      max-height: ${rem("250px")};
-      max-width: ${rem("300px")};
-    `;
-
-    const HighlightedImg = styled("img")`
-      max-height: ${rem("380px")};
-      max-width: ${rem("300px")};
     `;
 
     const Grid = styled("div")`
@@ -125,13 +115,14 @@ export default class extends React.Component<EthosProps, {}> {
       }
     `;
 
+    console.log(this.props.data);
     return (
       <Section>
         <Container>
           <Title primary>Ethos</Title>
           <Grid>
             <HighlightedItem>
-              <HighlightedImg src={Leadership} />
+              <Img fixed={this.props.data.leadership.childImageSharp.fixed} />
               <Content>
                 <Step>Strong leadership</Step>
                 <p>Lorem ispum</p>
@@ -141,13 +132,15 @@ export default class extends React.Component<EthosProps, {}> {
               <Content>
                 <Step>Continuous learning</Step>
               </Content>
-              <Img src={ContinuousLearning} />
+              <Img
+                fixed={this.props.data.continuousLearning.childImageSharp.fixed}
+              />
             </Item>
             <Item>
               <Content>
                 <Step>Top talent</Step>
               </Content>
-              <Img src={TopTalent} />
+              <Img fixed={this.props.data.topTalent.childImageSharp.fixed} />
             </Item>
           </Grid>
           <TechnologiesContainer>

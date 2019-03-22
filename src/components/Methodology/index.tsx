@@ -2,19 +2,19 @@ import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
+import Img from "gatsby-image";
 
 import { colors, mq } from "./../../utils/theme";
 import RoundImage from "./../../components/RoundImage";
 import Container from "./../../components/Container";
 import Title from "./../../components/Title";
-import build from "./img/build.png";
-import innovate from "./img/innovate.png";
-import run from "./img/run.png";
-import startup from "./img/startups.svg";
-import sme from "./img/sme.svg";
-import corporates from "./img/corporates.svg";
+import startup from "./../../images/startups.svg";
+import sme from "./../../images/sme.svg";
+import corporates from "./../../images/corporates.svg";
 
-interface MethodologyProps {}
+interface MethodologyProps {
+  data: any;
+}
 
 export default class extends React.Component<MethodologyProps, {}> {
   constructor(props: MethodologyProps, context: any) {
@@ -32,16 +32,6 @@ export default class extends React.Component<MethodologyProps, {}> {
       );
       border-bottom-left-radius: 50% 5%;
       border-bottom-right-radius: 50% 5%;
-    `;
-
-    const Img = styled("img")`
-      max-height: ${rem("250px")};
-      max-width: ${rem("300px")};
-    `;
-
-    const HighlightedImg = styled("img")`
-      max-height: ${rem("380px")};
-      max-width: ${rem("300px")};
     `;
 
     const Grid = styled("div")`
@@ -112,7 +102,7 @@ export default class extends React.Component<MethodologyProps, {}> {
           <Title primary>Methodology</Title>
           <Grid>
             <HighlightedItem>
-              <HighlightedImg src={build} />
+              <Img fixed={this.props.data.build.childImageSharp.fixed} />
               <Content>
                 <Step>Build</Step>
                 <p>Lorem ispum</p>
@@ -122,13 +112,13 @@ export default class extends React.Component<MethodologyProps, {}> {
               <Content>
                 <Step>Run</Step>
               </Content>
-              <Img src={run} />
+              <Img fixed={this.props.data.run.childImageSharp.fixed} />
             </Item>
             <Item>
               <Content>
                 <Step>Innovate</Step>
               </Content>
-              <Img src={innovate} />
+              <Img fixed={this.props.data.innovate.childImageSharp.fixed} />
             </Item>
           </Grid>
           <CustomerContainer>

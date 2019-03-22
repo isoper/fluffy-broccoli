@@ -1,4 +1,5 @@
 const urljoin = require("url-join");
+const path = require(`path`);
 const config = require("./data/SiteConfig");
 
 module.exports = {
@@ -35,6 +36,13 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `images`)
+      }
+    },
+    {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: [
@@ -66,6 +74,7 @@ module.exports = {
       }
     },
     "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
     "gatsby-plugin-catch-links",
     "gatsby-plugin-twitter",
     "gatsby-plugin-sitemap",
