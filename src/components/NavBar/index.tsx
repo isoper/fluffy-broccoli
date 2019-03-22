@@ -141,6 +141,7 @@ export default class extends React.Component<NavBarProps, NavBarState> {
         display: none !important;
       }
       cursor: pointer;
+      font-size: 30px;
     `;
 
     const SidePanel = styled("nav")`
