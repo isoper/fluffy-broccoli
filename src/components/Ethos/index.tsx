@@ -20,6 +20,7 @@ export default class extends React.Component<EthosProps, {}> {
   }
   public render() {
     const Section = styled("section")`
+      position: relative;
       display: flex;
       align-items: center;
       padding-top: ${rem("90px")};
@@ -30,6 +31,16 @@ export default class extends React.Component<EthosProps, {}> {
       );
       border-bottom-left-radius: 50% 5%;
       border-bottom-right-radius: 50% 5%;
+      &::before {
+          content: "";
+          height: 15%;
+          width: 100%;
+          position: absolute;
+          background: white;
+          border-radius: 30%;
+          top: -8%;
+}
+      }
     `;
 
     const Grid = styled("div")`
