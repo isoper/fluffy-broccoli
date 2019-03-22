@@ -2,7 +2,7 @@ import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import { FaArrowDown } from "react-icons/fa";
+import { FaArrowDown, FaArrowRight } from "react-icons/fa";
 
 import { colors, mq } from "./../../utils/theme";
 import Button from "./../Button";
@@ -68,6 +68,13 @@ export default class extends React.Component<HeaderProps, {}> {
       }
     `;
 
+    const ButtonContent = styled("div")`
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 120%;
+    `;
+
     const MoreButton = styled("div")`
       margin: 0 auto;
       margin-top: ${rem("90px")};
@@ -97,7 +104,12 @@ export default class extends React.Component<HeaderProps, {}> {
               </p>
             </Motto>
           </HeaderText>
-          <Button primary>Work with us</Button>
+          <Button primary>
+            <ButtonContent>
+              Work with us
+              <FaArrowRight />
+            </ButtonContent>
+          </Button>
           <MoreButton>
             <FaArrowDown />
           </MoreButton>

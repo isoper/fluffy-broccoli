@@ -2,11 +2,11 @@ import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
+import { FaArrowRight as _FaArrowRight } from "react-icons/fa";
 
 import { colors } from "./../../utils/theme";
 import Container from "./../../components/Container";
 import Title from "./../../components/Title";
-import { FaArrowRight } from "react-icons/fa";
 
 interface WhoIsProps {}
 
@@ -27,10 +27,16 @@ export default class extends React.Component<WhoIsProps, {}> {
     const Content = styled("p")``;
 
     const TeamLink = styled("a")`
+      display: flex;
+      align-items: center;
       text-transform: uppercase;
       color: ${colors.accent};
       font-weight: bold;
       cursor: pointer;
+    `;
+
+    const FaArrowRight = styled(_FaArrowRight)`
+      margin: 0 0.5rem;
     `;
 
     return (
@@ -40,7 +46,9 @@ export default class extends React.Component<WhoIsProps, {}> {
             Who is LUDŌ?
           </Title>
           <Content>Lorem ipsum</Content>
-          <TeamLink>Our team & jobs</TeamLink>
+          <TeamLink>
+            Our team & jobs <FaArrowRight />
+          </TeamLink>
         </Container>
       </Section>
     );
