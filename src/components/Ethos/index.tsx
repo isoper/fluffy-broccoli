@@ -151,7 +151,7 @@ export default class extends React.Component<EthosProps, {}> {
             </Item>
           </Grid>
           <TechnologiesContainer>
-            <Title>Core Technologies</Title>
+            <Title>Technologies</Title>
             <TechnologiesIcons>
               <RoundImage
                 content={<ReactIcon />}

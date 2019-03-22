@@ -132,7 +132,7 @@ export default class extends React.Component<MethodologyProps, {}> {
             </Item>
           </Grid>
           <CustomerContainer>
-            <Title>Who we work with</Title>
+            <Title>We work with</Title>
             <CustomerIcons>
               <RoundImage
                 content={<CustomerIcon src={corporates} />}
