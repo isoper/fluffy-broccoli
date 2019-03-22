@@ -3,7 +3,7 @@ import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 
-import { colors } from "./../../utils/theme";
+import { colors, mq } from "./../../utils/theme";
 import RoundImage from "./../../components/RoundImage";
 import Container from "./../../components/Container";
 import Title from "./../../components/Title";
@@ -45,8 +45,13 @@ export default class extends React.Component<MethodologyProps, {}> {
     `;
 
     const Grid = styled("div")`
-      display: grid;
       grid-template-columns: 60% 40%;
+      ${mq[0]} {
+        display: none;
+      }
+      ${mq[2]} {
+        display: grid;
+      }
     `;
 
     const HighlightedItem = styled("div")`
@@ -79,13 +84,24 @@ export default class extends React.Component<MethodologyProps, {}> {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      height: ${rem("200px")};
-      width: ${rem("700px")};
+      ${mq[0]} {
+        height: ${rem("200px")};
+        width: 350px;
+      }
+      ${mq[2]} {
+        height: ${rem("200px")};
+        width: ${rem("700px")};
+      }
     `;
 
     const CustomerIcon = styled("img")`
-      width: ${rem("30px")};
-      height: ${rem("30px")};
+      ${mq[0]} {
+        font-size: ${rem("20px")};
+      }
+      ${mq[2]} {
+        font-size: ${rem("30px")};
+      }
+      width: 45%;
       margin: 0 20px;
       background-color: transparent;
     `;

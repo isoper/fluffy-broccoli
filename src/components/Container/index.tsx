@@ -11,5 +11,4 @@ export default styled("div")`
   margin-right: auto;
   padding-left: 14px;
   padding-right: 14px;
-  overflow: hidden;
 `;

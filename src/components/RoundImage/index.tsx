@@ -3,7 +3,7 @@ import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 
-import { colors } from "./../../utils/theme";
+import { colors, mq } from "./../../utils/theme";
 
 interface RoundImageProps {
   content: React.Component;
@@ -18,21 +18,39 @@ export default class extends React.Component<RoundImageProps, {}> {
   public render() {
     const Container = styled("div")`
       display: flex;
-      width: 160px;
-      height: 160px;
+      ${mq[0]} {
+        width: ${rem("100px")};
+        height: ${rem("100px")};
+      }
+      ${mq[2]} {
+        width: ${rem("160px")};
+        height: ${rem("160px")};
+      }
       background-color: rgba(66, 123, 172, 0.2);
       justify-content: center;
       align-items: center;
       border-radius: 50%;
     `;
     const SubContainer = styled(Container)`
-      width: 120px;
-      height: 120px;
+      ${mq[0]} {
+        width: ${rem("75px")};
+        height: ${rem("75px")};
+      }
+      ${mq[2]} {
+        width: ${rem("120px")};
+        height: ${rem("120px")};
+      }
       background-color: rgba(66, 123, 172, 0.2);
     `;
     const Content = styled(Container)`
-      width: 75px;
-      height: 75px;
+      ${mq[0]} {
+        width: ${rem("50px")};
+        height: ${rem("50px")};
+      }
+      ${mq[2]} {
+        width: ${rem("75px")};
+        height: ${rem("75px")};
+      }
       background: radial-gradient(
         ${this.props.firstColor},
         ${this.props.secondColor}

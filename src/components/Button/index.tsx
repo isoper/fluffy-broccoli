@@ -17,7 +17,7 @@ type ButtonProps = {
 const Button = styled("button")`
   cursor: pointer;
   ${mq[0]} {
-    padding: 0.5rem 8rem;
+    padding: 0.5rem 5rem;
   }
   ${mq[2]} {
     padding: 0.5rem 4rem;

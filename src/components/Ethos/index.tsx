@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { css } from "emotion";
 import { FaReact, FaPython, FaAws } from "react-icons/fa";
 
-import { colors } from "./../../utils/theme";
+import { colors, mq } from "./../../utils/theme";
 import Container from "./../../components/Container";
 import RoundImage from "./../../components/RoundImage";
 import Title from "./../../components/Title";
@@ -43,8 +43,13 @@ export default class extends React.Component<EthosProps, {}> {
     `;
 
     const Grid = styled("div")`
-      display: grid;
       grid-template-columns: 60% 40%;
+      ${mq[0]} {
+        display: none;
+      }
+      ${mq[2]} {
+        display: grid;
+      }
     `;
 
     const HighlightedItem = styled("div")`
@@ -77,32 +82,47 @@ export default class extends React.Component<EthosProps, {}> {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      height: ${rem("200px")};
-      width: ${rem("700px")};
-    `;
-
-    const CustomerIcon = styled("img")`
-      width: ${rem("70px")};
-      height: ${rem("70px")};
-      margin: 0 20px;
+      ${mq[0]} {
+        height: ${rem("200px")};
+        width: 350px;
+      }
+      ${mq[2]} {
+        height: ${rem("200px")};
+        width: ${rem("700px")};
+      }
     `;
 
     const ReactIcon = styled(FaReact)`
       background-color: transparent;
-      font-size: 30px;
       color: #508aa8;
+      ${mq[0]} {
+        font-size: ${rem("20px")};
+      }
+      ${mq[2]} {
+        font-size: ${rem("30px")};
+      }
     `;
 
     const PythonIcon = styled(FaPython)`
       background-color: transparent;
-      font-size: 30px;
       color: #c8dff4;
+      ${mq[0]} {
+        font-size: ${rem("20px")};
+      }
+      ${mq[2]} {
+        font-size: ${rem("30px")};
+      }
     `;
 
     const AwsIcon = styled(FaAws)`
       background-color: transparent;
-      font-size: 30px;
       color: #c8dff4;
+      ${mq[0]} {
+        font-size: ${rem("20px")};
+      }
+      ${mq[2]} {
+        font-size: ${rem("30px")};
+      }
     `;
 
     return (
