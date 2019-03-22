@@ -38,7 +38,7 @@ export default class extends React.Component<GetInTouchProps, {}> {
           <p>Pretty bs shouldn't excite youuuuu!</p>
           <Form>
             <Input placeholder={"What is your name?"} />
-            <Input placeholder={"How can we help you?"} />
+            <Input placeholder={"How can we help you?"} area />
             <Button primary>Work with us</Button>
           </Form>
         </Container>
