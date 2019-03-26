@@ -1,9 +1,11 @@
 import React from "react";
 import Helmet from "react-helmet";
 import { graphql } from "gatsby";
+
 import Layout from "../layout";
 import Header from "../components/Header";
 import Methodology from "../components/Methodology";
+import { query as methodologyQuery } from "../components/Methodology";
 import WhoIs from "../components/WhoIs";
 import Ethos from "../components/Ethos";
 import GetInTouch from "../components/GetInTouch";
@@ -85,14 +87,14 @@ export const pageQuery = graphql`
     }
     innovate: file(relativePath: { eq: "innovate.png" }) {
       childImageSharp {
-        fixed(width: 260, height: 280) {
+        fixed(width: 210, height: 230) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
     run: file(relativePath: { eq: "run.png" }) {
       childImageSharp {
-        fixed(width: 290, height: 280) {
+        fixed(width: 210, height: 230) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
