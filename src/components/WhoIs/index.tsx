@@ -45,7 +45,20 @@ export default class extends React.Component<WhoIsProps, {}> {
           <Title primary color={"black"}>
             Who is LUDŌ?
           </Title>
-          <Content>Lorem ipsum</Content>
+          <Content>
+            <p>
+              Ludo is a development agency helping partners scaling their teams
+              on demand. Whenever you have a problem, we provide you a
+              tailor-made teams.
+              <br />
+              As a partner building long-term relationship We are driven by your
+              success. Our strong culture of continuous learning allow us to
+              stay ahead of the technological curve.
+              <br />
+              Our Software craftsmanship experts can turn any of your dream into
+              reality.
+            </p>
+          </Content>
           <TeamLink>
             Our team & jobs <FaArrowRight />
           </TeamLink>
