@@ -2,7 +2,7 @@ import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import Img from "gatsby-image";
+import _Img from "gatsby-image";
 import { FaReact, FaPython, FaAws } from "react-icons/fa";
 
 import { colors, mq } from "./../../utils/theme";
@@ -33,41 +33,46 @@ export default class extends React.Component<EthosProps, {}> {
       border-bottom-right-radius: 50% 5%;
       &::before {
           content: "";
-          height: 15%;
+          height: 10%;
           width: 100%;
           position: absolute;
           background: white;
           border-radius: 30%;
-          top: -8%;
+          top: -4%;
 }
       }
     `;
 
     const Grid = styled("div")`
-      grid-template-columns: 60% 40%;
-      ${mq[0]} {
-        display: none;
-      }
-      ${mq[2]} {
-        display: grid;
-      }
-    `;
-
-    const HighlightedItem = styled("div")`
       display: flex;
-      align-self: center;
-      grid-row-end: span 2;
+      flex-direction: column;
     `;
 
     const Item = styled("div")`
       display: flex;
+      align-self: center;
+      justify-content: space-between;
+      padding: 1rem 0;
     `;
 
     const Step = styled("h2")`
       color: white;
     `;
 
+    const Img = styled(_Img)`
+      ${mq[0]} {
+        display: none !important;
+      }
+      ${mq[2]} {
+        display: inline-block !important;
+      }
+    `;
+
     const Content = styled("div")`
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 65%;
       color: white;
     `;
 
@@ -76,7 +81,7 @@ export default class extends React.Component<EthosProps, {}> {
       flex-direction: column;
       align-items: center;
       position: relative;
-      top: 95px;
+      top: 120px;
     `;
 
     const TechnologiesIcons = styled("div")`
@@ -126,32 +131,54 @@ export default class extends React.Component<EthosProps, {}> {
       }
     `;
 
-    console.log(this.props.data);
     return (
       <Section>
         <Container>
           <Title primary>Ethos</Title>
           <Grid>
-            <HighlightedItem>
+            <Item>
               <Img fixed={this.props.data.leadership.childImageSharp.fixed} />
               <Content>
                 <Step>Strong leadership</Step>
-                <p>Lorem ispum</p>
+                <p>
+                  LUDŌ's founders have high standard and work ethics.
+                  <br />
+                  To make it part of our culture, a strong top-down process is
+                  built in a way it allows everyone to grow those values.
+                </p>
               </Content>
-            </HighlightedItem>
+            </Item>
             <Item>
               <Content>
                 <Step>Continuous learning</Step>
+                <p>
+                  Technology is a highly diruptive field. To keep our skills in
+                  sync with the fast pace evolution of computer science,
+                  learning is a strong aspect of our company culture.
+                  <br />
+                  At LUDŌ, in addition of our routine of knowledge sharing, we
+                  dedicate 2 days per month to training.
+                </p>
               </Content>
               <Img
                 fixed={this.props.data.continuousLearning.childImageSharp.fixed}
               />
             </Item>
             <Item>
+              <Img fixed={this.props.data.topTalent.childImageSharp.fixed} />
               <Content>
                 <Step>Top talent</Step>
+                <p>
+                  Only the best.
+                  <br />
+                  High standard is one of our core value. Our team is only
+                  composed of commited people working their craft toward
+                  perfection.
+                  <br />
+                  Humility, self-awareness and motivation are qualities we
+                  carry.
+                </p>
               </Content>
-              <Img fixed={this.props.data.topTalent.childImageSharp.fixed} />
             </Item>
           </Grid>
           <TechnologiesContainer>

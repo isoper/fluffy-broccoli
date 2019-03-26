@@ -87,14 +87,14 @@ export const pageQuery = graphql`
     }
     innovate: file(relativePath: { eq: "innovate.png" }) {
       childImageSharp {
-        fixed(width: 210, height: 230) {
+        fixed(width: 330, height: 420) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
     run: file(relativePath: { eq: "run.png" }) {
       childImageSharp {
-        fixed(width: 210, height: 230) {
+        fixed(width: 330, height: 420) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }

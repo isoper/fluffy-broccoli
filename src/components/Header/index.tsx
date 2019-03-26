@@ -5,7 +5,7 @@ import { css } from "emotion";
 import { FaArrowDown, FaArrowRight } from "react-icons/fa";
 
 import { colors, mq } from "./../../utils/theme";
-import Button from "./../Button";
+import _Button from "./../Button";
 import _Container from "./../../components/Container";
 
 interface HeaderProps {}
@@ -47,25 +47,35 @@ export default class extends React.Component<HeaderProps, {}> {
     const HeaderText = styled("div")`
       display: flex;
       flex-direction: column;
-      ${mq[0]} {
-        text-align: center;
-      }
-      ${mq[2]} {
-        text-align: left;
-      }
+      text-align: center;
     `;
 
     const Motto = styled("div")`
-      & h1 {
-        font-size: 4rem;
+      color: white;
+      ${mq[0]} {
+        & h1 {
+          font-size: 2.5rem;
+        }
+        & p {
+          font-size: 1.3rem;
+        }
       }
-      & p {
-        font-size: 1.5rem;
+      ${mq[2]} {
+        & h1 {
+          font-size: 4rem;
+        }
+        & p {
+          font-size: 1.5rem;
+        }
       }
       & h1,
       p {
-        color: white;
+        margin-bottom: 0px;
       }
+    `;
+
+    const Button = styled(_Button)`
+      margin: 55px 0;
     `;
 
     const ButtonContent = styled("div")`
@@ -77,7 +87,7 @@ export default class extends React.Component<HeaderProps, {}> {
 
     const MoreButton = styled("div")`
       margin: 0 auto;
-      margin-top: ${rem("90px")};
+      margin-top: ${rem("45px")};
       color: white;
       font-size: 25px;
       padding-left: 8px;

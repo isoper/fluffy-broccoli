@@ -2,7 +2,7 @@ import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
-import Img from "gatsby-image";
+import _Img from "gatsby-image";
 
 import { colors, mq } from "./../../utils/theme";
 import RoundImage from "./../../components/RoundImage";
@@ -35,23 +35,24 @@ export default class extends React.Component<MethodologyProps, {}> {
     `;
 
     const Grid = styled("div")`
-      grid-template-columns: 60% 40%;
-      ${mq[0]} {
-        display: none;
-      }
-      ${mq[2]} {
-        display: grid;
-      }
-    `;
-
-    const HighlightedItem = styled("div")`
       display: flex;
-      align-self: center;
-      grid-row-end: span 2;
+      flex-direction: column;
     `;
 
     const Item = styled("div")`
       display: flex;
+      align-self: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    `;
+
+    const Img = styled(_Img)`
+      ${mq[0]} {
+        display: none !important;
+      }
+      ${mq[2]} {
+        display: inline-block !important;
+      }
     `;
 
     const Step = styled("h2")`
@@ -59,6 +60,10 @@ export default class extends React.Component<MethodologyProps, {}> {
     `;
 
     const Content = styled("div")`
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 65%;
       color: white;
     `;
 
@@ -67,7 +72,7 @@ export default class extends React.Component<MethodologyProps, {}> {
       flex-direction: column;
       align-items: center;
       position: relative;
-      top: 95px;
+      top: 120px;
     `;
 
     const CustomerIcons = styled("div")`
@@ -101,31 +106,52 @@ export default class extends React.Component<MethodologyProps, {}> {
         <Container>
           <Title primary>Our Services</Title>
           <Grid>
-            <HighlightedItem>
-              <Img fixed={this.props.data.build.childImageSharp.fixed} />
+            <Item>
+              <Img fixed={this.props.data.run.childImageSharp.fixed} />
+              <Content>
+                <Step>Run</Step>
+                <p>
+                  Scale your team on demand. <br />
+                  Today, finding the right ressource to run your business is the
+                  biggest challenge in technology field.
+                  <br />
+                  We provide you a remote team of highly skilled and commited
+                  software engineers. We carefully cherry-pick each of your team
+                  member so the perfect fit into your team is guaranteed.
+                </p>
+              </Content>
+            </Item>
+            <Item>
               <Content>
                 <Step>Build</Step>
                 <p>
-                  We make your ideas alive. During workshops we understand your
-                  need and define the core features for a Most Valuable Product.
+                  We make your ideas alive.
+                  <br />
+                  During workshops we understand your need and define the core
+                  features for a Most Valuable Product.
                   <br />
                   In 8 weeks, we deliver you a turn-key product. This solutions
                   suits any type of business without the resources to develop a
                   proof of concept.
                 </p>
               </Content>
-            </HighlightedItem>
-            <Item>
-              <Content>
-                <Step>Run</Step>
-              </Content>
-              <Img fixed={this.props.data.run.childImageSharp.fixed} />
+              <Img fixed={this.props.data.build.childImageSharp.fixed} />
             </Item>
             <Item>
+              <Img fixed={this.props.data.innovate.childImageSharp.fixed} />
               <Content>
                 <Step>Innovate</Step>
+                <p>
+                  Going beyond limitations.
+                  <br />
+                  In highly competitive fields, the only way to success is
+                  innovation.
+                  <br />
+                  Our team of experts who forged their skills in best Europeen
+                  startups help you overcome any of your technical challenge, to
+                  make your product faster, more powerfull and more reliable.
+                </p>
               </Content>
-              <Img fixed={this.props.data.innovate.childImageSharp.fixed} />
             </Item>
           </Grid>
           <CustomerContainer>

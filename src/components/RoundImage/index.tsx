@@ -23,8 +23,8 @@ export default class extends React.Component<RoundImageProps, {}> {
         height: ${rem("100px")};
       }
       ${mq[2]} {
-        width: ${rem("160px")};
-        height: ${rem("160px")};
+        width: ${rem("150px")};
+        height: ${rem("150px")};
       }
       background-color: rgba(66, 123, 172, 0.2);
       justify-content: center;
@@ -37,8 +37,8 @@ export default class extends React.Component<RoundImageProps, {}> {
         height: ${rem("75px")};
       }
       ${mq[2]} {
-        width: ${rem("120px")};
-        height: ${rem("120px")};
+        width: ${rem("100px")};
+        height: ${rem("100px")};
       }
       background-color: rgba(66, 123, 172, 0.2);
     `;
@@ -48,8 +48,8 @@ export default class extends React.Component<RoundImageProps, {}> {
         height: ${rem("50px")};
       }
       ${mq[2]} {
-        width: ${rem("75px")};
-        height: ${rem("75px")};
+        width: ${rem("55px")};
+        height: ${rem("55px")};
       }
       background: radial-gradient(
         ${this.props.firstColor},

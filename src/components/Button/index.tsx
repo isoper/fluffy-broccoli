@@ -16,12 +16,7 @@ type ButtonProps = {
 
 const Button = styled("button")`
   cursor: pointer;
-  ${mq[0]} {
-    padding: 0.5rem 5rem;
-  }
-  ${mq[2]} {
-    padding: 0.5rem 4rem;
-  }
+  padding: 0.5rem 4rem;
   font-weight: 700;
   font-size: ${rem("16px")};
   border: ${rem("2px")} solid transparent;
