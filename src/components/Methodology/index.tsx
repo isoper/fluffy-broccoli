@@ -99,13 +99,20 @@ export default class extends React.Component<MethodologyProps, {}> {
     return (
       <Section>
         <Container>
-          <Title primary>Methodology</Title>
+          <Title primary>Our Services</Title>
           <Grid>
             <HighlightedItem>
               <Img fixed={this.props.data.build.childImageSharp.fixed} />
               <Content>
                 <Step>Build</Step>
-                <p>Lorem ispum</p>
+                <p>
+                  We make your ideas alive. During workshops we understand your
+                  need and define the core features for a Most Valuable Product.
+                  <br />
+                  In 8 weeks, we deliver you a turn-key product. This solutions
+                  suits any type of business without the resources to develop a
+                  proof of concept.
+                </p>
               </Content>
             </HighlightedItem>
             <Item>
