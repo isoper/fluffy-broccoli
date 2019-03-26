@@ -35,7 +35,10 @@ export default class extends React.Component<GetInTouchProps, {}> {
           <Title primary color={"black"}>
             Get in touch!
           </Title>
-          <p>Pretty bs shouldn't excite youuuuu!</p>
+          <p>
+            Fill our contact form and we will contact you back as soon as
+            possible.
+          </p>
           <Form>
             <Input placeholder={"What is your name?"} />
             <Input placeholder={"How can we help you?"} area />
