@@ -155,6 +155,7 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       z-index: 500;
       background-color: #ffffff;
       will-change: transform;
+      transform: 0.5s;
     `;
 
     const SidePanelHeader = styled("div")`
