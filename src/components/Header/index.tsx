@@ -18,13 +18,13 @@ export default class extends React.Component<HeaderProps, {}> {
     const Section = styled("section")`
       display: flex;
       ${mq[0]} {
-        padding-top: 6rem;
+        padding-top: 0;
       }
       ${mq[2]} {
         align-items: center;
+        padding-top: ${rem("90px")};
       }
       min-height: 80vh;
-      padding-top: ${rem("90px")};
       background-image: linear-gradient(
         153deg,
         ${colors.primary} 0%,
@@ -57,10 +57,10 @@ export default class extends React.Component<HeaderProps, {}> {
 
     const Motto = styled("div")`
       & h1 {
-        font-size: 5rem;
+        font-size: 4rem;
       }
       & p {
-        font-size: 2rem;
+        font-size: 1.5rem;
       }
       & h1,
       p {
@@ -97,11 +97,8 @@ export default class extends React.Component<HeaderProps, {}> {
         <Container>
           <HeaderText>
             <Motto>
-              <h1>A tech team that flows</h1>
-              <p>
-                Focus on your business, we scale your team up on demand. We are
-                your partner in technology.
-              </p>
+              <h1>A tech team with unrivalled skills</h1>
+              <p>Focus on your business, we scale your team on demand.</p>
             </Motto>
           </HeaderText>
           <Button primary>
