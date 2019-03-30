@@ -22,8 +22,8 @@ export default class extends React.Component<TitleProps, {}> {
       display: inline-block;
       color: ${(props: { color: string }) =>
         props.color ? props.color : "white"};
-      height: ${rem("45px")};
-      border-bottom: 7px solid
+      height: 53px;
+      border-bottom: 9px solid
         ${(props: { primary: boolean }) =>
           props.primary ? colors.accent : "#508aa8"};
       padding-right: ${(props: { primary: boolean }) =>
