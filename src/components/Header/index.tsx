@@ -25,10 +25,10 @@ export default class extends React.Component<HeaderProps, {}> {
         padding-top: ${rem("90px")};
       }
       min-height: 80vh;
-      background-image: linear-gradient(
-        153deg,
-        ${colors.primary} 0%,
-        ${colors.secondary} 100%
+      background: linear-gradient(
+        180deg,
+        rgba(47, 70, 82, 1) 0%,
+        rgba(75, 114, 134, 1) 100%
       );
     `;
 
