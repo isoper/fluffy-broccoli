@@ -17,7 +17,7 @@ class Index extends React.Component {
   render() {
     const postEdges = this.props.data.allMarkdownRemark.edges;
     return (
-      <Layout>
+      <Layout data={this.props.data}>
         <div className="index-container">
           <Helmet title={config.siteTitle} />
           <Header />
@@ -59,43 +59,50 @@ export const pageQuery = graphql`
     }
     continuousLearning: file(relativePath: { eq: "continuous_learning.png" }) {
       childImageSharp {
-        fixed(width: 260, height: 280) {
+        fixed(width: 260) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
     leadership: file(relativePath: { eq: "leadership.png" }) {
       childImageSharp {
-        fixed(width: 330, height: 420) {
+        fixed(width: 330) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
     topTalent: file(relativePath: { eq: "top_talent.png" }) {
       childImageSharp {
-        fixed(width: 290, height: 280) {
+        fixed(width: 290) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
     build: file(relativePath: { eq: "build.png" }) {
       childImageSharp {
-        fixed(width: 330, height: 420) {
+        fixed(width: 330) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
     innovate: file(relativePath: { eq: "innovate.png" }) {
       childImageSharp {
-        fixed(width: 330, height: 420) {
+        fixed(width: 330) {
           ...GatsbyImageSharpFixed_withWebp
         }
       }
     }
     run: file(relativePath: { eq: "run.png" }) {
       childImageSharp {
-        fixed(width: 330, height: 420) {
+        fixed(width: 330) {
           ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+    logo: file(relativePath: { eq: "logo.png" }) {
+      childImageSharp {
+        fluid(maxHeight: 200) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
         }
       }
     }

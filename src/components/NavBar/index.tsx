@@ -3,10 +3,13 @@ import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css, cx } from "emotion";
 import { FaTimes, FaBars } from "react-icons/fa";
+import Img from "gatsby-image";
 
 import { colors, mq } from "./../../utils/theme";
 
-type NavBarProps = {};
+type NavBarProps = {
+  data: any;
+};
 type NavBarState = {
   isSolid: boolean;
   isSidePanelOpened: boolean;
@@ -85,13 +88,8 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       font-size: ${rem("30px")};
     `;
 
-    const ImgLogo = styled("img")`
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-      height: 50px;
-      width: 50px;
-      margin-bottom: 0px;
+    const ImgLogo = styled(Img)`
+      width: 120px;
     `;
 
     const Span = styled("span")`
@@ -203,7 +201,14 @@ export default class extends React.Component<NavBarProps, NavBarState> {
     return (
       <div>
         <nav className={cx(Nav, { [solidNavBar]: this.state.isSolid })}>
-          <DivLogo>LUDŌ</DivLogo>
+          {this.state.isSolid ? (
+            <ImgLogo
+              fluid={this.props.data.logo.childImageSharp.fluid}
+              fadeIn={false}
+            />
+          ) : (
+            <DivLogo>LUDŌ</DivLogo>
+          )}
           <UlLinks>
             <Li>
               <A>Methodology</A>
