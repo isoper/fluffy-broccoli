@@ -35,12 +35,12 @@ export default class extends React.Component<HeaderProps, {}> {
     const Container = styled(_Container)`
       display: flex;
       flex-direction: column;
+      align-items: center;
       ${mq[0]} {
         padding-top: 6rem;
-        align-items: center;
       }
       ${mq[2]} {
-        align-items: start;
+        padding-top: 0rem;
       }
     `;
 
@@ -87,7 +87,7 @@ export default class extends React.Component<HeaderProps, {}> {
 
     const MoreButton = styled("div")`
       margin: 0 auto;
-      margin-top: ${rem("45px")};
+      margin: ${rem("45px")};
       color: white;
       font-size: 25px;
       padding-left: 8px;

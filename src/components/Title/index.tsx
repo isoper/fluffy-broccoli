@@ -3,7 +3,7 @@ import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 
-import { colors } from "./../../utils/theme";
+import { colors, mq } from "./../../utils/theme";
 
 interface TitleProps {
   primary: boolean;
@@ -18,6 +18,7 @@ export default class extends React.Component<TitleProps, {}> {
     const Title = styled("div")`
       display: inline-block;
     `;
+
     const H1 = styled("h1")`
       display: inline-block;
       color: ${(props: { color: string }) =>
@@ -26,8 +27,14 @@ export default class extends React.Component<TitleProps, {}> {
       border-bottom: 9px solid
         ${(props: { primary: boolean }) =>
           props.primary ? colors.accent : "#508aa8"};
-      padding-right: ${(props: { primary: boolean }) =>
-        props.primary ? rem("40px") : "0px"};
+
+      ${mq[0]} {
+        padding-right: 0px;
+      }
+      ${mq[2]} {
+        padding-right: ${(props: { primary: boolean }) =>
+          props.primary ? rem("35px") : "0px"};
+      }
     `;
 
     return (

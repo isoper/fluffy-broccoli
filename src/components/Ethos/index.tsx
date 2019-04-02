@@ -72,8 +72,13 @@ export default class extends React.Component<EthosProps, {}> {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 65%;
       color: white;
+      ${mq[0]} {
+        width: 100%;
+      }
+      ${mq[2]} {
+        width: 65%;
+      }
     `;
 
     const TechnologiesContainer = styled("div")`

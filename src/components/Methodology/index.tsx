@@ -63,8 +63,13 @@ export default class extends React.Component<MethodologyProps, {}> {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 65%;
       color: white;
+      ${mq[0]} {
+        width: 100%;
+      }
+      ${mq[2]} {
+        width: 65%;
+      }
     `;
 
     const CustomerContainer = styled("div")`
@@ -147,7 +152,7 @@ export default class extends React.Component<MethodologyProps, {}> {
                   In highly competitive fields, the only way to success is
                   innovation.
                   <br />
-                  Our team of experts who forged their skills in best Europeen
+                  Our team of experts who forged their skills in best European
                   startups help you overcome any of your technical challenge, to
                   make your product faster, more powerfull and more reliable.
                 </p>
