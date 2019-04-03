@@ -1,34 +1,23 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve" width="512" height="512">
-<g>
-	<path d="M392,60V0H120v60H0v452h512V60H392z M362,30v452h-30V299H180v183h-30V30H362z M302,359h-92v-30h92V359z M210,389h31v93h-31   V389z M271,389h31v93h-31V389z M30,90h90v392H30V90z M482,482h-90V90h90V482z"/>
-	<rect x="60" y="120" width="30" height="30"/>
-	<rect x="60" y="180" width="30" height="30"/>
-	<rect x="60" y="240" width="30" height="30"/>
-	<rect x="60" y="300" width="30" height="30"/>
-	<rect x="422" y="120" width="30" height="30"/>
-	<rect x="422" y="180" width="30" height="30"/>
-	<rect x="422" y="240" width="30" height="30"/>
-	<rect x="422" y="300" width="30" height="30"/>
-	<rect x="60" y="360" width="30" height="30"/>
-	<rect x="422" y="360" width="30" height="30"/>
-	<path d="M332,60H180v89h152V60z M302,119h-92V90h92V119z"/>
-	<path d="M332,180H180v89h152V180z M302,239h-92v-29h92V239z"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 485.6 485.6" style="enable-background:new 0 0 485.6 485.6;" xml:space="preserve">
+<g id="XMLID_918_">
+	<g>
+		<g>
+			<path d="M366.8,73.8c-12,0-23.3,4.7-31.8,13.2c-17.5,17.5-17.5,46.1,0,63.6c8.5,8.5,19.8,13.2,31.8,13.2s23.3-4.7,31.8-13.2
+				c17.5-17.5,17.5-46.1,0-63.6C390.1,78.5,378.8,73.8,366.8,73.8z M377.4,129.4c-2.8,2.8-6.6,4.4-10.6,4.4c-4,0-7.8-1.6-10.6-4.4
+				c-5.8-5.8-5.8-15.4,0-21.2c2.8-2.8,6.6-4.4,10.6-4.4s7.8,1.6,10.6,4.4C383.2,114.1,383.2,123.6,377.4,129.4z"/>
+			<path d="M472.7,21.5l-2.4-6.2l-6.2-2.4C441.8,4.3,418.4,0,394.6,0c-50.7,0-98.2,19.6-133.8,55.2l-44.9,44.9l-113.1,14.1
+				l-83.4,83.4L90,225.9l-15.7,15.7l22.8,22.8L61.7,314l109.9,109.9l49.5-35.4l22.8,22.8l15.7-15.7l28.3,70.7l83.4-83.4l14.1-113.1
+				l44.9-44.9C483.3,172,499.9,92.2,472.7,21.5z M72.7,186.7l43.9-43.9l64.7-8.1l-68.2,68.2L72.7,186.7z M174.9,384.7l-74-74
+				l17.7-24.7l81,81L174.9,384.7z M342.9,369L298.9,413l-16.2-40.4l68.2-68.2L342.9,369z M409.2,203.7L244,368.9l-53-53l116.7-116.7
+				L286.4,178L169.7,294.7l-53-53L281.9,76.4C311.9,46.5,351.9,30,394.6,30c17.9,0,35.5,2.9,52.4,8.6
+				C466.6,96.6,452.1,160.8,409.2,203.7z"/>
+			<rect x="44.3" y="396.4" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -269.1271 172.9894)" width="60" height="30"/>
+			<rect x="86.7" y="438.8" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -286.7055 215.4211)" width="60" height="30"/>
+			<rect x="1.8" y="353.9" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -251.5482 130.5646)" width="60" height="30"/>
+		</g>
+	</g>
 </g>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </svg>
