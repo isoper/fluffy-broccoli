@@ -15,12 +15,11 @@ import config from "../../data/SiteConfig";
 
 class Index extends React.Component {
   render() {
-    const postEdges = this.props.data.allMarkdownRemark.edges;
     return (
       <Layout data={this.props.data}>
         <div className="index-container">
           <Helmet title={config.siteTitle} />
-          <Header />
+          <Header data={this.props.data} />
           <Methodology data={this.props.data} />
           <WhoIs />
           <Ethos data={this.props.data} />
@@ -36,27 +35,6 @@ export default Index;
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(
-      limit: 2000
-      sort: { fields: [fields___date], order: DESC }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-            date
-          }
-          excerpt
-          timeToRead
-          frontmatter {
-            title
-            tags
-            cover
-            date
-          }
-        }
-      }
-    }
     continuousLearning: file(relativePath: { eq: "continuous_learning.png" }) {
       childImageSharp {
         fixed(width: 260) {
