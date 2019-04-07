@@ -151,7 +151,7 @@ export default class extends React.Component<EthosProps, {}> {
               <Content>
                 <Step>Strong leadership</Step>
                 <p>
-                  LUDŌ's founders have high standard and work ethics.
+                  LUDŌ's founders have a high standard and work ethics.
                   <br />
                   To make it part of our culture, a strong top-down process is
                   built in a way it allows everyone to grow those values.
@@ -162,11 +162,11 @@ export default class extends React.Component<EthosProps, {}> {
               <Content>
                 <Step>Continuous learning</Step>
                 <p>
-                  Technology is a highly diruptive field. To keep our skills in
+                  Technology is a highly disruptive field. To keep our skills in
                   sync with the fast pace evolution of computer science,
                   learning is a strong aspect of our company culture.
                   <br />
-                  At LUDŌ, in addition of our routine of knowledge sharing, we
+                  At LUDŌ, in addition to our routine of knowledge sharing, we
                   dedicate 2 days per month to training.
                 </p>
               </Content>
@@ -182,7 +182,7 @@ export default class extends React.Component<EthosProps, {}> {
                   Only the best.
                   <br />
                   High standard is one of our core value. Our team is only
-                  composed of commited people working their craft toward
+                  composed of committed people working their craft toward
                   perfection.
                   <br />
                   Humility, self-awareness and motivation are qualities we
