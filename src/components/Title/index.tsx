@@ -38,7 +38,7 @@ export default class extends React.Component<TitleProps, {}> {
     `;
 
     return (
-      <Title>
+      <Title primary={this.props.primary} color={this.props.color}>
         <H1 primary={this.props.primary} color={this.props.color}>
           {this.props.children}
         </H1>
