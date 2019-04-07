@@ -32,7 +32,7 @@ export default class extends React.Component<HeaderProps, {}> {
         align-items: center;
         padding-top: ${rem("90px")};
       }
-      min-height: 70vh;
+      min-height: 60vh;
       background: linear-gradient(
         180deg,
         rgba(47, 70, 82, 1) 0%,
