@@ -94,10 +94,10 @@ export default class extends React.Component<HeaderProps, {}> {
 
     const swell = keyframes`
       0%, 100% {
-          transform: translate3d(0,-25px,0);
+          transform: translate3d(0, 25px,0);
       }
       50% {
-          transform: translate3d(0,5px,0);
+          transform: translate3d(0,-5px,0);
       }
       `;
 
@@ -134,6 +134,7 @@ export default class extends React.Component<HeaderProps, {}> {
 
     const MoreButton = styled("div")`
       margin-top: ${rem("45px")};
+      margin-bottom: 5px;
       color: white;
       font-size: 25px;
       padding-left: 8px;
