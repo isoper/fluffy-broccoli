@@ -33,12 +33,17 @@ export default class extends React.Component<EthosProps, {}> {
       border-bottom-right-radius: 50% 5%;
       &::before {
           content: "";
-          height: 10%;
           width: 100%;
           position: absolute;
           background: white;
           border-radius: 30%;
           top: -4%;
+      ${mq[0]} {
+          height: 6%;
+      }
+      ${mq[2]} {
+          height: 10%;
+      }
 }
       }
     `;
