@@ -32,7 +32,7 @@ export default class extends React.Component<HeaderProps, {}> {
         align-items: center;
         padding-top: ${rem("90px")};
       }
-      min-height: 60vh;
+      min-height: 70vh;
       background: linear-gradient(
         180deg,
         rgba(47, 70, 82, 1) 0%,
@@ -87,7 +87,7 @@ export default class extends React.Component<HeaderProps, {}> {
           margin-left: 0;
       }
       100% {
-          margin-left: -100%;
+          margin-left: -1600px;
       }
 
       `;
@@ -103,7 +103,6 @@ export default class extends React.Component<HeaderProps, {}> {
 
     const WaveContainer = styled("div")`
       height: 202px;
-      width: 100%;
       position: relative;
       background-color: ${colors.secondary};
     `;
@@ -111,8 +110,8 @@ export default class extends React.Component<HeaderProps, {}> {
     const Wave = styled("svg")`
       background: url(${waveIllustration}) repeat-x;
       position: absolute;
-      width: 200%;
       height: 198px;
+      width: 6400px;
       animation: ${wave} 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
 
       &:nth-of-type(2) {
@@ -134,8 +133,7 @@ export default class extends React.Component<HeaderProps, {}> {
     `;
 
     const MoreButton = styled("div")`
-      margin: 0 auto;
-      margin: ${rem("45px")};
+      margin-top: ${rem("45px")};
       color: white;
       font-size: 25px;
       padding-left: 8px;
