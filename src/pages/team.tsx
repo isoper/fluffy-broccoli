@@ -30,5 +30,13 @@ export const pageQuery = graphql`
         }
       }
     }
+
+    logo: file(relativePath: { eq: "logo.png" }) {
+      childImageSharp {
+        fluid(maxHeight: 200) {
+          ...GatsbyImageSharpFluid_withWebp_noBase64
+        }
+      }
+    }
   }
 `;

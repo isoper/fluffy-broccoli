@@ -21,6 +21,8 @@ export default class extends React.Component<TeamProps, {}> {
     super(props, context);
   }
   public render() {
+    const DavidDescription =
+      "I come from a strong background in economics & finance at the Sorbonne University (Paris) and specialized in corporate finance at the Em Lyon business school. I am a naturally curious individual keen to learn. I went through almost all branches of Finance; finance consulting, transaction advisory service in mergers & acquisitions, asset management and mid-caps private equity fund.";
     const Section = styled("section")`
       display: flex;
       align-items: center;
@@ -46,6 +48,12 @@ export default class extends React.Component<TeamProps, {}> {
             The Team
           </Title>
           <Content>bla bla bla</Content>
+          <Profile
+            name={"David Cuklevski"}
+            position={"CEO"}
+            description={DavidDescription}
+            picture={this.props.data.brunoProfile.childImageSharp.fixed}
+          />
           <Profile
             name={"Bruno Pereira"}
             position={"CTO"}

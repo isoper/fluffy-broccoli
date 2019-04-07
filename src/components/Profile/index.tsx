@@ -22,13 +22,14 @@ export default class extends React.Component<ProfileProps, {}> {
     const { name, position, description, picture, linkedin } = this.props;
 
     const Container = styled("section")`
-      display: flex;
-      align-items: center;
+      display: grid;
+      grid-template-columns: 15% 85%;
       padding-top: ${rem("90px")};
     `;
 
     const Picture = styled(Img)`
       border-radius: 50%;
+      width: 200px;
     `;
     const Content = styled("div")`
       margin-left: ${rem("40px")};
@@ -67,7 +68,9 @@ export default class extends React.Component<ProfileProps, {}> {
           <Position>{position}</Position>
           <Description>{description}</Description>
           <SocialMedias>
-            <LinkedinIcon href="http://google.fr" />
+            <a href={linkedin}>
+              <LinkedinIcon />
+            </a>
           </SocialMedias>
         </Content>
       </Container>
