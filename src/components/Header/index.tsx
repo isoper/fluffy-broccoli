@@ -19,6 +19,10 @@ export default class extends React.Component<HeaderProps, {}> {
     super(props, context);
   }
   public render() {
+    const Wrapper = styled("div")`
+      overflow: hidden;
+    `;
+
     const Section = styled("section")`
       display: flex;
       ${mq[0]} {
@@ -28,7 +32,7 @@ export default class extends React.Component<HeaderProps, {}> {
         align-items: center;
         padding-top: ${rem("90px")};
       }
-      min-height: 65vh;
+      min-height: 70vh;
       background: linear-gradient(
         180deg,
         rgba(47, 70, 82, 1) 0%,
@@ -83,43 +87,37 @@ export default class extends React.Component<HeaderProps, {}> {
           margin-left: 0;
       }
       100% {
-          margin-left: -1600px;
+          margin-left: -100%;
       }
 
       `;
 
     const swell = keyframes`
       0%, 100% {
-          transform: translate3d(0,-25px,0) rotate(180deg);
+          transform: translate3d(0,-25px,0);
       }
       50% {
-          transform: translate3d(0,5px,0) rotate(180deg);
+          transform: translate3d(0,5px,0);
       }
       `;
 
     const WaveContainer = styled("div")`
-      height: 150px;
+      height: 202px;
       width: 100%;
-      height: 5%;
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-      left: 0;
+      position: relative;
+      background-color: ${colors.secondary};
     `;
 
     const Wave = styled("svg")`
       background: url(${waveIllustration}) repeat-x;
       position: absolute;
-      top: -277px;
-      width: 6400px;
+      width: 200%;
       height: 198px;
-      animation: wave 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
       animation: ${wave} 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) infinite;
 
       &:nth-of-type(2) {
-        top: -264px;
         animation: ${wave} 7s cubic-bezier(0.36, 0.45, 0.63, 0.53) -0.125s infinite,
-          swell 7s ease -1.25s infinite;
+          ${swell} 7s ease -1.25s infinite;
         opacity: 1;
       }
     `;
@@ -153,7 +151,7 @@ export default class extends React.Component<HeaderProps, {}> {
     `;
 
     return (
-      <div>
+      <Wrapper>
         <Section>
           <Container>
             <HeaderText>
@@ -177,7 +175,7 @@ export default class extends React.Component<HeaderProps, {}> {
           <Wave />
           <Wave />
         </WaveContainer>
-      </div>
+      </Wrapper>
     );
   }
 }

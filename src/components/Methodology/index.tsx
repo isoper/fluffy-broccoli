@@ -24,7 +24,7 @@ export default class extends React.Component<MethodologyProps, {}> {
     const Section = styled("section")`
       display: flex;
       align-items: center;
-      padding-top: ${rem("145px")};
+      padding-top: ${rem("90px")};
       background-image: linear-gradient(
         180deg,
         ${colors.secondary} 0%,
