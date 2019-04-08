@@ -102,7 +102,7 @@ export default class extends React.Component<HeaderProps, {}> {
       `;
 
     const WaveContainer = styled("div")`
-      height: 202px;
+      height: 227px;
       position: relative;
       background-color: ${colors.secondary};
     `;

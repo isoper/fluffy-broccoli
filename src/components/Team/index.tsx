@@ -26,7 +26,7 @@ export default class extends React.Component<TeamProps, {}> {
     const Section = styled("section")`
       display: flex;
       align-items: center;
-      padding-top: ${rem("90px")};
+      padding: ${rem("90px")} 0;
     `;
 
     const Content = styled("div")`
