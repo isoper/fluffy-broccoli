@@ -20,9 +20,13 @@ class Index extends React.Component {
         <div className="index-container">
           <Helmet title={config.siteTitle} />
           <Header data={this.props.data} />
-          <Methodology data={this.props.data} />
+          <div id="our-services">
+            <Methodology data={this.props.data} />
+          </div>
           <WhoIs />
-          <Ethos data={this.props.data} />
+          <div id="ethos">
+            <Ethos data={this.props.data} />
+          </div>
           <GetInTouch />
         </div>
       </Layout>

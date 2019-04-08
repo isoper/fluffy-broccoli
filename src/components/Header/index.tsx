@@ -3,7 +3,7 @@ import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css, keyframes } from "@emotion/core";
 import { FaArrowDown, FaArrowRight } from "react-icons/fa";
-import { withPrefix } from "gatsby";
+import { Link } from "gatsby";
 
 import { colors, mq } from "./../../utils/theme";
 import _Button from "./../Button";
@@ -166,7 +166,9 @@ export default class extends React.Component<HeaderProps, {}> {
               </ButtonContent>
             </Button>
             <MoreButton>
-              <FaArrowDown />
+              <Link to="/#our-services">
+                <FaArrowDown />
+              </Link>
             </MoreButton>
           </Container>
         </Section>

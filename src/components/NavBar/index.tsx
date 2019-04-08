@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import { css, cx } from "emotion";
 import { FaTimes, FaBars } from "react-icons/fa";
 import Img from "gatsby-image";
+import { Link } from "gatsby";
 
 import { colors, mq } from "./../../utils/theme";
 
@@ -201,27 +202,37 @@ export default class extends React.Component<NavBarProps, NavBarState> {
     return (
       <div>
         <nav className={cx(Nav, { [solidNavBar]: this.state.isSolid })}>
-          {this.state.isSolid ? (
-            <ImgLogo
-              fluid={this.props.data.logo.childImageSharp.fluid}
-              fadeIn={false}
-            />
-          ) : (
-            <DivLogo>LUDŌ</DivLogo>
-          )}
+          <Link to="/">
+            {this.state.isSolid ? (
+              <ImgLogo
+                fluid={this.props.data.logo.childImageSharp.fluid}
+                fadeIn={false}
+              />
+            ) : (
+              <DivLogo>LUDŌ</DivLogo>
+            )}
+          </Link>
           <UlLinks>
             <Li>
-              <A>Methodology</A>
+              <Link to="/#our-services">
+                <A>Our Services</A>
+              </Link>
             </Li>
             <Li>
-              <A>Ethos</A>
+              <Link to="/#ethos">
+                <A>Ethos</A>
+              </Link>
             </Li>
             <Li>
-              <A>Team & Hiring</A>
+              <Link to="/team">
+                <A>Team</A>
+              </Link>
             </Li>
-            <Li>FR</Li>
-            <Li>EN</Li>
-            <Li>MK</Li>
+            <Li>
+              <Link to="/jobs">
+                <A>Hiring</A>
+              </Link>
+            </Li>
           </UlLinks>
           <SidePanelOpener
             onClick={() => this.setState({ isSidePanelOpened: true })}
@@ -230,7 +241,7 @@ export default class extends React.Component<NavBarProps, NavBarState> {
         {this.state.isSidePanelOpened && (
           <SidePanel>
             <SidePanelHeader>
-              <span>LUDŌ</span>
+              <Link to="/">LUDŌ</Link>
               <CloseButton
                 onClick={() => this.setState({ isSidePanelOpened: false })}
               >
@@ -239,13 +250,36 @@ export default class extends React.Component<NavBarProps, NavBarState> {
             </SidePanelHeader>
             <SidePanelContent>
               <SidePanelLink>
-                <a>Methodology</a>
+                <Link
+                  to="/#our-services"
+                  onClick={() => this.setState({ isSidePanelOpened: false })}
+                >
+                  Our Services
+                </Link>
               </SidePanelLink>
               <SidePanelLink>
-                <a>Ethos</a>
+                <Link
+                  to="/#ethos"
+                  onClick={() => this.setState({ isSidePanelOpened: false })}
+                >
+                  Ethos
+                </Link>
               </SidePanelLink>
               <SidePanelLink>
-                <a>Team & Hiring</a>
+                <Link
+                  to="/team"
+                  onClick={() => this.setState({ isSidePanelOpened: false })}
+                >
+                  Team
+                </Link>
+              </SidePanelLink>
+              <SidePanelLink>
+                <Link
+                  to="/jobs"
+                  onClick={() => this.setState({ isSidePanelOpened: false })}
+                >
+                  Hiring
+                </Link>
               </SidePanelLink>
             </SidePanelContent>
           </SidePanel>
