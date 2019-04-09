@@ -31,7 +31,7 @@ module.exports = {
     {
       resolve: "gatsby-source-filesystem",
       options: {
-        name: "posts",
+        name: "content",
         path: `${__dirname}/content/`
       }
     },
@@ -81,6 +81,7 @@ module.exports = {
         defaultQuality: 100
       }
     },
+    "gatsby-transformer-json",
     "gatsby-transformer-sharp",
     "gatsby-plugin-catch-links",
     "gatsby-plugin-twitter",
@@ -191,7 +192,8 @@ module.exports = {
         compilerOptions: {
           target: `esnext`,
           experimentalDecorators: true,
-          jsx: `react`
+          jsx: `react`,
+          strict: true
         } // default
       }
     },

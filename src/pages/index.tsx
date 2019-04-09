@@ -13,71 +13,78 @@ import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 
-class Index extends React.Component {
-  render() {
-    return (
-      <Layout data={this.props.data}>
-        <div className="index-container">
-          <Helmet title={config.siteTitle} />
-          <Header data={this.props.data} />
-          <div id="our-services">
-            <Methodology data={this.props.data} />
-          </div>
-          <WhoIs />
-          <div id="ethos">
-            <Ethos data={this.props.data} />
-          </div>
-          <GetInTouch />
+const Index = ({ data }) => {
+  data.allHomeJson.edges.forEach(item => {
+    item.node.image = item.node.image.childImageSharp.fixed;
+    item.node.content = item.node.content.childMarkdownRemark.html;
+  });
+  const build = data.allHomeJson.edges.find(item => item.node.title === "build")
+    .node;
+
+  const run = data.allHomeJson.edges.find(item => item.node.title === "run")
+    .node;
+
+  const innovate = data.allHomeJson.edges.find(
+    item => item.node.title === "innovate"
+  ).node;
+
+  const learning = data.allHomeJson.edges.find(
+    item => item.node.title === "learning"
+  ).node;
+
+  const leadership = data.allHomeJson.edges.find(
+    item => item.node.title === "leadership"
+  ).node;
+
+  const talent = data.allHomeJson.edges.find(
+    item => item.node.title === "talent"
+  ).node;
+
+  return (
+    <Layout data={data}>
+      <div className="index-container">
+        <Helmet title={config.siteTitle} />
+        <Header data={data} />
+        <div id="our-services">
+          <Methodology run={run} build={build} innovate={innovate} />
         </div>
-      </Layout>
-    );
-  }
-}
+        <WhoIs />
+        <div id="ethos">
+          <Ethos learning={learning} talent={talent} leadership={leadership} />
+        </div>
+        <GetInTouch />
+      </div>
+    </Layout>
+  );
+};
 
 export default Index;
+/* eslint no-undef: "off" */
+export const HomeFragment = graphql`
+  fragment HomeFragment on HomeJson {
+    content {
+      childMarkdownRemark {
+        html
+      }
+    }
+    title
+    image {
+      childImageSharp {
+        fixed(width: 330) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+      }
+    }
+  }
+`;
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query IndexQuery {
-    continuousLearning: file(relativePath: { eq: "continuous_learning.png" }) {
-      childImageSharp {
-        fixed(width: 260) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    leadership: file(relativePath: { eq: "leadership.png" }) {
-      childImageSharp {
-        fixed(width: 330) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    topTalent: file(relativePath: { eq: "top_talent.png" }) {
-      childImageSharp {
-        fixed(width: 290) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    build: file(relativePath: { eq: "build.png" }) {
-      childImageSharp {
-        fixed(width: 330) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    innovate: file(relativePath: { eq: "innovate.png" }) {
-      childImageSharp {
-        fixed(width: 330) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-      }
-    }
-    run: file(relativePath: { eq: "run.png" }) {
-      childImageSharp {
-        fixed(width: 330) {
-          ...GatsbyImageSharpFixed_withWebp
+    allHomeJson {
+      edges {
+        node {
+          ...HomeFragment
         }
       }
     }

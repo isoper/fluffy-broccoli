@@ -11,7 +11,9 @@ import RoundImage from "./../../components/RoundImage";
 import Title from "./../../components/Title";
 
 interface EthosProps {
-  data: any;
+  leadership: { title: string; content: string; image: any };
+  talent: { title: string; content: string; image: any };
+  learning: { title: string; content: string; image: any };
 }
 
 export default class extends React.Component<EthosProps, {}> {
@@ -140,53 +142,32 @@ export default class extends React.Component<EthosProps, {}> {
       }
     `;
 
+    const { leadership, talent, learning } = this.props;
+
     return (
       <Section>
         <Container>
           <Title primary>Ethos</Title>
           <Grid>
             <Item>
-              <Img fixed={this.props.data.leadership.childImageSharp.fixed} />
+              <Img fixed={leadership.image} />
               <Content>
                 <Step>Strong leadership</Step>
-                <p>
-                  LUDŌ's founders have a high standard and work ethics.
-                  <br />
-                  To make it part of our culture, a strong top-down process is
-                  built in a way it allows everyone to grow those values.
-                </p>
+                <p dangerouslySetInnerHTML={{ __html: leadership.content }} />
               </Content>
             </Item>
             <Item>
               <Content>
                 <Step>Continuous learning</Step>
-                <p>
-                  Technology is a highly disruptive field. To keep our skills in
-                  sync with the fast pace evolution of computer science,
-                  learning is a strong aspect of our company culture.
-                  <br />
-                  At LUDŌ, in addition to our routine of knowledge sharing, we
-                  dedicate 2 days per month to training.
-                </p>
+                <p dangerouslySetInnerHTML={{ __html: learning.content }} />
               </Content>
-              <Img
-                fixed={this.props.data.continuousLearning.childImageSharp.fixed}
-              />
+              <Img fixed={learning.image} />
             </Item>
             <Item>
-              <Img fixed={this.props.data.topTalent.childImageSharp.fixed} />
+              <Img fixed={talent.image} />
               <Content>
                 <Step>Top talent</Step>
-                <p>
-                  Only the best.
-                  <br />
-                  High standard is one of our core value. Our team is only
-                  composed of committed people working their craft toward
-                  perfection.
-                  <br />
-                  Humility, self-awareness and motivation are qualities we
-                  carry.
-                </p>
+                <p dangerouslySetInnerHTML={{ __html: talent.content }} />
               </Content>
             </Item>
           </Grid>

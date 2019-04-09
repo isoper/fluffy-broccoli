@@ -13,7 +13,9 @@ import sme from "./../../images/sme.svg";
 import corporates from "./../../images/corporates.svg";
 
 interface MethodologyProps {
-  data: any;
+  run: { title: string; content: string; image: any };
+  build: { title: string; content: string; image: any };
+  innovate: { title: string; content: string; image: any };
 }
 
 export default class extends React.Component<MethodologyProps, {}> {
@@ -106,56 +108,32 @@ export default class extends React.Component<MethodologyProps, {}> {
       background-color: transparent;
     `;
 
+    const { run, build, innovate } = this.props;
+
     return (
       <Section>
         <Container>
           <Title primary>Our Services</Title>
           <Grid>
             <Item>
-              <Img fixed={this.props.data.run.childImageSharp.fixed} />
+              <Img fixed={run.image} />
               <Content>
-                <Step>Run</Step>
-                <p>
-                  Scale your team on demand. <br />
-                  Today, finding the right ressource to run your business is the
-                  biggest challenge in technology field.
-                  <br />
-                  We provide you a remote team of highly skilled and commited
-                  software engineers. We carefully cherry-pick each of your team
-                  member so the perfect fit into your team is guaranteed.
-                </p>
+                <Step>{run.title}</Step>
+                <p dangerouslySetInnerHTML={{ __html: run.content }} />
               </Content>
             </Item>
             <Item>
               <Content>
-                <Step>Build</Step>
-                <p>
-                  We make your ideas alive.
-                  <br />
-                  During workshops we understand your need and define the core
-                  features for a Most Valuable Product.
-                  <br />
-                  In 8 weeks, we deliver you a turn-key product. This solutions
-                  suits any type of business without the resources to develop a
-                  proof of concept.
-                </p>
+                <Step>{build.title}</Step>
+                <p dangerouslySetInnerHTML={{ __html: build.content }} />
               </Content>
-              <Img fixed={this.props.data.build.childImageSharp.fixed} />
+              <Img fixed={build.image} />
             </Item>
             <Item>
-              <Img fixed={this.props.data.innovate.childImageSharp.fixed} />
+              <Img fixed={innovate.image} />
               <Content>
-                <Step>Innovate</Step>
-                <p>
-                  Going beyond limitations.
-                  <br />
-                  In highly competitive fields, the only way to success is
-                  innovation.
-                  <br />
-                  Our team of experts who forged their skills in best European
-                  startups help you overcome any of your technical challenge, to
-                  make your product faster, more powerfull and more reliable.
-                </p>
+                <Step>{innovate.title}</Step>
+                <p dangerouslySetInnerHTML={{ __html: innovate.content }} />
               </Content>
             </Item>
           </Grid>

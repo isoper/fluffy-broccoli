@@ -1,0 +1,16 @@
+[{
+    "name": "David Cuklesvki",
+    "position": "CEO",
+    "bio": "bio/david.md",
+    "picture": "../../src/images/profiles/bruno.jpg",
+    "linkedin": "linkedin.com"
+  },
+
+  {
+    "name": "Bruno Pereira",
+    "position": "CTO",
+    "bio": "bio/bruno.md",
+    "picture": "../../src/images/profiles/bruno.jpg",
+    "linkedin": "linkedin.com"
+  }
+]

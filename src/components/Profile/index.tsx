@@ -9,7 +9,7 @@ import { FaLinkedin } from "react-icons/fa";
 interface ProfileProps {
   name: string;
   position: string;
-  description: string;
+  bio: string;
   picture: any;
   linkedin?: string;
 }
@@ -19,7 +19,7 @@ export default class extends React.Component<ProfileProps, {}> {
     super(props, context);
   }
   public render() {
-    const { name, position, description, picture, linkedin } = this.props;
+    const { name, position, bio, picture, linkedin } = this.props;
 
     const Container = styled("section")`
       display: grid;
@@ -48,7 +48,7 @@ export default class extends React.Component<ProfileProps, {}> {
       margin: 0px;
     `;
 
-    const Description = styled("p")``;
+    const Bio = styled("p")``;
 
     const SocialMedias = styled("div")``;
 
@@ -66,7 +66,7 @@ export default class extends React.Component<ProfileProps, {}> {
         <Content>
           <Name>{name}</Name>
           <Position>{position}</Position>
-          <Description>{description}</Description>
+          <Bio dangerouslySetInnerHTML={{ __html: bio }} />
           <SocialMedias>
             <a href={linkedin}>
               <LinkedinIcon />

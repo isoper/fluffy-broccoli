@@ -1,0 +1,36 @@
+[
+  {
+    "title": "run",
+    "content": "run.md",
+    "image": "../../src/images/run.png"
+  },
+  {
+    "title": "build",
+    "content": "build.md",
+    "image": "../../src/images/build.png"
+  },
+
+  {
+    "title": "innovate",
+    "content": "innovate.md",
+    "image": "../../src/images/innovate.png"
+  },
+
+  {
+    "title": "learning",
+    "content": "learning.md",
+    "image": "../../src/images/continuous_learning.png"
+  },
+
+  {
+    "title": "leadership",
+    "content": "leadership.md",
+    "image": "../../src/images/leadership.png"
+  },
+
+  {
+    "title": "talent",
+    "content": "talent.md",
+    "image": "../../src/images/top_talent.png"
+  }
+]
