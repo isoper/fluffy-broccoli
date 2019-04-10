@@ -1,0 +1,14 @@
+{
+  "name": "gatsby-remark-twemoji",
+  "version": "0.0.1",
+  "description": "Replace all emojis unicode by coolest emojis of the net (twitter).",
+  "main": "index.js",
+  "author": "Bruno Pereira <bruno.pereira@brunop.eu>",
+  "license": "MIT",
+  "dependencies": {
+    "twemoji": "^12.0.0"
+  },
+  "keywords": [
+    "gatsby"
+  ]
+}

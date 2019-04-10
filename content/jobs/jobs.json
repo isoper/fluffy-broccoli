@@ -1,0 +1,18 @@
+{
+  "title": "title.md",
+  "intro": "intro.md",
+  "offer": "offer.md",
+  "values": [{
+      "content": "values/passion.md"
+    },
+    {
+      "content": "values/honesty.md"
+    },
+    {
+      "content": "values/boldness.md"
+    },
+    {
+      "content": "values/self-awarness.md"
+    }
+  ]
+}

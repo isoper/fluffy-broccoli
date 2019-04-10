@@ -7,14 +7,14 @@ import OurStory from "../components/OurStory";
 import Team from "../components/Team";
 
 const TeamPage = ({ data }) => {
+  const profiles = [];
   data.allProfilesJson.edges.forEach((item, index, array) => {
-    item = item.node;
-    item.picture = item.picture.childImageSharp.fixed;
-    item.bio = item.bio.childMarkdownRemark.html;
-    /* Skip node level */
-    array[index] = item;
+    profiles.push({
+      ...item.node,
+      bio: item.node.bio.childMarkdownRemark.html,
+      picture: item.node.picture.childImageSharp.fixed
+    });
   });
-  const profiles = data.allProfilesJson.edges;
   const ourStory = data.teamJson.content.childMarkdownRemark.html;
   return (
     <Layout data={data}>

@@ -13,32 +13,23 @@ import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 
+const parseData = (data, title) => {
+  const item = data.allHomeJson.edges.find(item => item.node.title === title)
+    .node;
+  return {
+    title: item.title,
+    image: item.image.childImageSharp.fixed,
+    content: item.content.childMarkdownRemark.html
+  };
+};
+
 const Index = ({ data }) => {
-  data.allHomeJson.edges.forEach(item => {
-    item.node.image = item.node.image.childImageSharp.fixed;
-    item.node.content = item.node.content.childMarkdownRemark.html;
-  });
-  const build = data.allHomeJson.edges.find(item => item.node.title === "build")
-    .node;
-
-  const run = data.allHomeJson.edges.find(item => item.node.title === "run")
-    .node;
-
-  const innovate = data.allHomeJson.edges.find(
-    item => item.node.title === "innovate"
-  ).node;
-
-  const learning = data.allHomeJson.edges.find(
-    item => item.node.title === "learning"
-  ).node;
-
-  const leadership = data.allHomeJson.edges.find(
-    item => item.node.title === "leadership"
-  ).node;
-
-  const talent = data.allHomeJson.edges.find(
-    item => item.node.title === "talent"
-  ).node;
+  const build = parseData(data, "build");
+  const run = parseData(data, "run");
+  const innovate = parseData(data, "innovate");
+  const learning = parseData(data, "learning");
+  const leadership = parseData(data, "leadership");
+  const talent = parseData(data, "talent");
 
   return (
     <Layout data={data}>
