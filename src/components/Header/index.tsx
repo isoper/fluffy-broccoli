@@ -159,12 +159,14 @@ export default class extends React.Component<HeaderProps, {}> {
                 <p>Focus on your business, we scale your team on demand.</p>
               </Motto>
             </HeaderText>
-            <Button primary>
-              <ButtonContent>
-                Work with us
-                <FaArrowRight />
-              </ButtonContent>
-            </Button>
+            {/*
+                <Button primary>
+                    <ButtonContent>
+                        Work with us
+                        <FaArrowRight />
+                    </ButtonContent>
+                </Button>
+            */}
             <MoreButton>
               <Link to="/#our-services">
                 <FaArrowDown />
