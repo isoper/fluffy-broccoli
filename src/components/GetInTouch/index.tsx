@@ -2,6 +2,7 @@ import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
+import { navigateTo } from "gatsby-link";
 
 import { colors } from "./../../utils/theme";
 import Button from "./../Button";
@@ -15,6 +16,28 @@ export default class extends React.Component<GetInTouchProps, {}> {
   constructor(props: GetInTouchProps, context: any) {
     super(props, context);
   }
+
+  encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: this.encode({
+        "form-name": form.getAttribute("name"),
+        ...this.state
+      })
+    })
+      .then(() => navigateTo(form.getAttribute("action")))
+      .catch(error => alert(error));
+  };
+
   public render() {
     const Section = styled("section")`
       display: flex;
@@ -43,8 +66,10 @@ export default class extends React.Component<GetInTouchProps, {}> {
           <Form
             name="contact"
             method="post"
+            action="/thanks/"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
+            onSubmit={this.handleSubmit}
           >
             <Input type="text" name="name" placeholder="What is your name?" />
             <Input
