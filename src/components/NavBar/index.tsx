@@ -91,6 +91,7 @@ export default class extends React.Component<NavBarProps, NavBarState> {
 
     const ImgLogo = styled(Img)`
       width: 120px;
+      cursor: pointer;
     `;
 
     const Span = styled("span")`
@@ -241,7 +242,15 @@ export default class extends React.Component<NavBarProps, NavBarState> {
         {this.state.isSidePanelOpened && (
           <SidePanel>
             <SidePanelHeader>
-              <Link to="/">LUDŌ</Link>
+              <Link
+                to="/"
+                onClick={() => this.setState({ isSidePanelOpened: false })}
+              >
+                <ImgLogo
+                  fluid={this.props.data.logo.childImageSharp.fluid}
+                  fadeIn={false}
+                />
+              </Link>
               <CloseButton
                 onClick={() => this.setState({ isSidePanelOpened: false })}
               >
