@@ -39,10 +39,22 @@ export default class extends React.Component<GetInTouchProps, {}> {
             Fill our contact form and we will contact you back as soon as
             possible.
           </p>
-          <Form>
-            <Input placeholder={"What is your name?"} />
-            <Input placeholder={"How can we help you?"} area />
-            <Button primary>Work with us</Button>
+          <Form name="contact" method="POST" data-netlify="true">
+            <Input type="text" name="name" placeholder={"What is your name?"} />
+            <Input
+              type="email"
+              name="email"
+              placeholder={"What is your email?"}
+            />
+            <Input
+              type="text"
+              name="content"
+              placeholder={"How can we help you?"}
+              area
+            />
+            <Button type="submit" primary>
+              Work with us
+            </Button>
           </Form>
         </Container>
       </Section>
