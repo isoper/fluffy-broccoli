@@ -26,6 +26,7 @@ export default (props: InputProps) => {
     box-shadow: 0.2rem 0.8rem 0.8rem #e0e0e0;
     outline: none;
   `;
+
   return (
     <InputContainer>
       <Input {...props} />

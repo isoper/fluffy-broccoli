@@ -27,7 +27,7 @@ export default class extends React.Component<GetInTouchProps, {}> {
     `;
 
     const Form = styled("form")`
-      height: 20rem;
+      height: 30rem;
       display: flex;
       justify-content: space-evenly;
       flex-direction: column;
@@ -41,6 +41,7 @@ export default class extends React.Component<GetInTouchProps, {}> {
           </Title>
           <p>Leave us a message and we'll get back to you!</p>
           <Form
+            action="/"
             name="contact"
             method="post"
             data-netlify="true"
