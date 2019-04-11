@@ -7,7 +7,7 @@ import { colors } from "./../../utils/theme";
 import Button from "./../Button";
 import Title from "./../../components/Title";
 import Container from "./../../components/Container";
-import Input from "./../../components/Input";
+import _Input from "./../../components/Input";
 
 interface GetInTouchProps {}
 
@@ -20,6 +20,10 @@ export default class extends React.Component<GetInTouchProps, {}> {
       display: flex;
       align-items: center;
       padding-top: ${rem("90px")};
+    `;
+
+    const Input = styled(_Input)`
+      margin: ${rem("15px")} 0;
     `;
 
     const Form = styled("form")`
@@ -35,26 +39,23 @@ export default class extends React.Component<GetInTouchProps, {}> {
           <Title primary color={"black"}>
             Get in touch!
           </Title>
-          <p>
-            Fill our contact form and we will contact you back as soon as
-            possible.
-          </p>
+          <p>Leave us a message and we'll get back to you!</p>
           <Form
             name="contact"
             method="post"
             data-netlify="true"
             data-netlify-honeypot="bot-field"
           >
-            <Input type="text" name="name" placeholder={"What is your name?"} />
+            <Input type="text" name="name" placeholder="What is your name?" />
             <Input
               type="email"
               name="email"
-              placeholder={"What is your email?"}
+              placeholder="What is your email?"
             />
             <Input
               type="text"
               name="content"
-              placeholder={"How can we help you?"}
+              placeholder="How can we help you?"
               area
             />
             <Button type="submit" primary>

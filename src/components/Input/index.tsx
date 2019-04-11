@@ -28,12 +28,7 @@ export default (props: InputProps) => {
   `;
   return (
     <InputContainer>
-      <Input
-        type="text"
-        id="input"
-        class="Input-text"
-        placeholder={props.placeholder}
-      />
+      <Input {...props} />
     </InputContainer>
   );
 };
