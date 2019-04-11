@@ -16,7 +16,7 @@ type ButtonProps = {
 
 const Button = styled("button")`
   cursor: pointer;
-  padding: 0.5rem 4rem;
+  padding: 0.5rem 3rem;
   font-weight: 700;
   font-size: ${rem("16px")};
   border: ${rem("2px")} solid transparent;
@@ -56,7 +56,5 @@ const Button = styled("button")`
   }
 `;
 export default (props: ButtonProps) => (
-  <Button primary={props.primary} secondary={props.secondary}>
-    {props.children}
-  </Button>
+  <Button {...props}>{props.children}</Button>
 );
