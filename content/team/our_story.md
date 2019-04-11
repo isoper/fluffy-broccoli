@@ -12,9 +12,6 @@ ambitious and talented people to develop themselves to the fullest extent by
 offering them the opportunity to work on these big challenging projects that
 French leading startups are facing right now, without the need for them to
 leave the country?  
-At the end of the day, I questioned myself
-will I make a meaningful impact on society rather than just
-climbing the ladder of financial career with the privileged one?
 
 Fortunately, This is where my road crossed the one of our talented
 CTO Bruno Pereira!
