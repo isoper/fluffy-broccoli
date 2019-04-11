@@ -41,7 +41,6 @@ export default class extends React.Component<GetInTouchProps, {}> {
           </Title>
           <p>Leave us a message and we'll get back to you!</p>
           <Form
-            action="/"
             name="contact"
             method="post"
             data-netlify="true"
