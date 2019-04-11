@@ -2,9 +2,9 @@ As Napoleon once said: "*Money is the sinews of war"*.
 
 We believe that salary is the best compensation for our employees. So how do we proceed?
 
-- *What we will not do*: make you a "competitive offer", "market-rate offer", or trying to lure you with the promise of an opaque bonus at the end of the year.
+- *What we will not do*: make you a so-called competitive offer, or trying to lure you with the promise of an opaque bonus at the end of the year.
 
-- *What we do*: we will make a top of the market* offer based on your skill going far enough to pay more than anyone else likely would, simple.
+- *What we do*: we will make a top of the market offer based on your skill going far enough to pay more than anyone else likely would, simple.
 
 On top of that, we also provide the best perk of the market according to our Values.
 

@@ -53,7 +53,7 @@ export default class extends React.Component<TeamProps, {}> {
           <Title primary color={"black"}>
             The Team
           </Title>
-          <Content>bla bla bla</Content>
+          <Content />
           {profiles.map((profile, index) => {
             return (
               <Profile
@@ -65,6 +65,9 @@ export default class extends React.Component<TeamProps, {}> {
               />
             );
           })}
+          <JobsLink to="/jobs">
+            We're Hiring, join us! <FaArrowRight />
+          </JobsLink>
         </Container>
       </Section>
     );

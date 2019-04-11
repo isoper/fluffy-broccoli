@@ -118,13 +118,13 @@ export default class extends React.Component<MethodologyProps, {}> {
             <Item>
               <Img fixed={run.image} />
               <Content>
-                <Step>{run.title}</Step>
+                <Step>Run</Step>
                 <p dangerouslySetInnerHTML={{ __html: run.content }} />
               </Content>
             </Item>
             <Item>
               <Content>
-                <Step>{build.title}</Step>
+                <Step>Build</Step>
                 <p dangerouslySetInnerHTML={{ __html: build.content }} />
               </Content>
               <Img fixed={build.image} />
@@ -132,7 +132,7 @@ export default class extends React.Component<MethodologyProps, {}> {
             <Item>
               <Img fixed={innovate.image} />
               <Content>
-                <Step>{innovate.title}</Step>
+                <Step>Innovate</Step>
                 <p dangerouslySetInnerHTML={{ __html: innovate.content }} />
               </Content>
             </Item>

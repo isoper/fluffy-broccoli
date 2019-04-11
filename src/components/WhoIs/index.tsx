@@ -26,7 +26,7 @@ export default class extends React.Component<WhoIsProps, {}> {
 
     const Content = styled("p")``;
 
-    const TeamLink = styled("a")`
+    const TeamLink = styled(Link)`
       display: flex;
       align-items: center;
       text-transform: uppercase;
@@ -59,8 +59,8 @@ export default class extends React.Component<WhoIsProps, {}> {
               reality.
             </p>
           </Content>
-          <TeamLink>
-            Our team & jobs <FaArrowRight />
+          <TeamLink to="/team">
+            Our team <FaArrowRight />
           </TeamLink>
         </Container>
       </Section>

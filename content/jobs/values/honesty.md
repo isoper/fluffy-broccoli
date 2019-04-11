@@ -1,6 +1,7 @@
 🙏 Honesty & Compassion
 =========================
-> The worst effect of artificial politeness is that it teaches us how to dispense with the virtues it imitates. *Jean-Jacques Rousseau*
+> The worst effect of artificial politeness is that it teaches us how to dispense with the virtues it imitates.  
+*Jean-Jacques Rousseau*
 
 At LUDŌ we build the kind of atmosphere that fosters personal growth 
 and best decision-making. 
