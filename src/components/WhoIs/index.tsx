@@ -3,6 +3,7 @@ import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 import { FaArrowRight as _FaArrowRight } from "react-icons/fa";
+import { Link } from "gatsby";
 
 import { colors } from "./../../utils/theme";
 import Container from "./../../components/Container";

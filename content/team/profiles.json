@@ -1,9 +1,9 @@
 [{
-    "name": "David Cuklesvki",
+    "name": "David Cuklevski",
     "position": "CEO",
     "bio": "bio/david.md",
-    "picture": "../../src/images/profiles/bruno.jpg",
-    "linkedin": "linkedin.com"
+    "picture": "../../src/images/profiles/david.jpg",
+    "linkedin": ""
   },
 
   {
@@ -11,6 +11,6 @@
     "position": "CTO",
     "bio": "bio/bruno.md",
     "picture": "../../src/images/profiles/bruno.jpg",
-    "linkedin": "linkedin.com"
+    "linkedin": ""
   }
 ]

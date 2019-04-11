@@ -3,6 +3,8 @@ import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 import _Img from "gatsby-image";
+import { Link } from "gatsby";
+import { FaArrowRight as _FaArrowRight } from "react-icons/fa";
 
 import { colors, mq } from "./../../utils/theme";
 import Container from "./../../components/Container";
@@ -33,6 +35,15 @@ export default class extends React.Component<TeamProps, {}> {
       padding: ${rem("90px")} 0;
     `;
 
+    const JobsLink = styled(Link)`
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      color: ${colors.accent};
+      font-weight: bold;
+      cursor: pointer;
+    `;
+
     const Content = styled("div")`
       display: flex;
       flex-direction: column;
@@ -43,6 +54,10 @@ export default class extends React.Component<TeamProps, {}> {
       ${mq[2]} {
         width: 65%;
       }
+    `;
+
+    const FaArrowRight = styled(_FaArrowRight)`
+      margin: 0 0.5rem;
     `;
 
     const { profiles } = this.props;
