@@ -52,7 +52,7 @@ const typography = new Typography({
   ],
   baseFontSize: "22px",
   baseLineHeight: 1.666,
-  scaleRatio: 2.5,
+  scaleRatio: 2,
   headerFontFamily: [
     "Secular One",
     "Helvetica Neue",
