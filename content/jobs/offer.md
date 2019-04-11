@@ -16,7 +16,7 @@ On top of that, we also provide the best perk of the market according to our Val
 
 - Life-long self-improvement: 2 days of paid training/month.
 
-- Top notch equipment: Apple MacBook Pro laptop, flexible workspace design. 
+- Top notch equipment: Apple MacBook Pro, flexible workspace design. 
 
 - The guarantee of working with the most exciting open source technologies.
 

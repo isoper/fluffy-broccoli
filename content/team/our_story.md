@@ -13,5 +13,4 @@ offering them the opportunity to work on these big challenging projects that
 French leading startups are facing right now, without the need for them to
 leave the country?  
 
-Fortunately, This is where my road crossed the one of our talented
-CTO Bruno Pereira!
+Fortunately, This is where my road crossed the one of our CTO Bruno Pereira!
