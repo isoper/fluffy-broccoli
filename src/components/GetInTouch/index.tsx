@@ -39,7 +39,12 @@ export default class extends React.Component<GetInTouchProps, {}> {
             Fill our contact form and we will contact you back as soon as
             possible.
           </p>
-          <Form name="contact" method="POST" data-netlify="true">
+          <Form
+            name="contact"
+            method="post"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+          >
             <Input type="text" name="name" placeholder={"What is your name?"} />
             <Input
               type="email"
