@@ -5,7 +5,7 @@ their skills on the latest technologies in the IT sector.
 Nevertheless, due to various factors in the economy, the
 opportunity for our youth is scarce as a vast majority of
 the incumbent IT firm prefer to take big old
-corporate projects with old technology but a safe dividend.
+corporate projects with outdated technology but a safe dividend.
 
 As a consequence, I was thinking, what if we could empower these young
 ambitious and talented people to develop themselves to the fullest extent by
