@@ -15,12 +15,17 @@ interface GetInTouchProps {}
 export default class extends React.Component<GetInTouchProps, {}> {
   constructor(props: GetInTouchProps, context: any) {
     super(props, context);
+    this.state = {};
   }
 
   encode = data => {
     return Object.keys(data)
       .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
       .join("&");
+  };
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
   };
 
   handleSubmit = e => {
@@ -71,17 +76,24 @@ export default class extends React.Component<GetInTouchProps, {}> {
             data-netlify-honeypot="bot-field"
             onSubmit={this.handleSubmit}
           >
-            <Input type="text" name="name" placeholder="What is your name?" />
+            <Input
+              type="text"
+              name="name"
+              placeholder="What is your name?"
+              onChange={this.handleChange}
+            />
             <Input
               type="email"
               name="email"
               placeholder="What is your email?"
+              onChange={this.handleChange}
             />
             <Input
               type="text"
               name="content"
               placeholder="How can we help you?"
               area
+              onChange={this.handleChange}
             />
             <Button type="submit" primary>
               Work with us
