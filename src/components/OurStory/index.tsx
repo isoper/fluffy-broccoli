@@ -3,6 +3,7 @@ import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 import _Img from "gatsby-image";
+import { Link } from "gatsby";
 
 import { colors, mq } from "./../../utils/theme";
 import Container from "./../../components/Container";

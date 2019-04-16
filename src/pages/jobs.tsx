@@ -6,6 +6,7 @@ import Layout from "../layout";
 import JobsHeader from "../components/JobsHeader";
 import Values from "../components/Values";
 import OurOffer from "../components/OurOffer";
+import WhereAreWe from "../components/WhereAreWe";
 
 const JobsPage = ({ data }) => {
   const values = [];
@@ -15,6 +16,8 @@ const JobsPage = ({ data }) => {
   const title = data.jobsJson.title.childMarkdownRemark.html;
   const intro = data.jobsJson.intro.childMarkdownRemark.html;
   const ourOffer = data.jobsJson.offer.childMarkdownRemark.html;
+  const whereAreWe = data.jobsJson.where.childMarkdownRemark.html;
+  const map = data.jobsJson.map.childImageSharp.fluid;
   return (
     <Layout data={data}>
       <div className="index-container">
@@ -22,6 +25,7 @@ const JobsPage = ({ data }) => {
         <JobsHeader title={title} />
         <Values title={"Our Values"} values={values} intro={intro} />
         <OurOffer title="What do we offer?" content={ourOffer} />
+        <WhereAreWe title="Where are we?" content={whereAreWe} map={map} />
       </div>
     </Layout>
   );
@@ -36,6 +40,18 @@ export const pageQuery = graphql`
       title {
         childMarkdownRemark {
           html
+        }
+      }
+      where {
+        childMarkdownRemark {
+          html
+        }
+      }
+      map {
+        childImageSharp {
+          fluid(maxHeight: 1200) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
       }
       offer {
