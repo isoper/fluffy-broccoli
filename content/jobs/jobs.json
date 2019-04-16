@@ -4,6 +4,15 @@
   "offer": "offer.md",
   "where": "where.md",
   "map": "../../src/images/map_gvg.png",
+  "jobs": [{
+    "title": "React Developer"
+  }, {
+    "title": "React Native Developer"
+  }, {
+    "title": "Node.js Developer"
+  }, {
+    "title": "Python Developer"
+  }],
   "values": [{
       "content": "values/passion.md"
     },
