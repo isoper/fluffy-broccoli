@@ -41,10 +41,12 @@ export default class extends React.Component<JobsHeaderProps, {}> {
       flex-direction: column;
       align-items: center;
       ${mq[0]} {
-        padding-top: 6rem;
+        padding-top: 5rem;
+        height: 100vh;
       }
       ${mq[2]} {
         padding-top: 0rem;
+        height: unset;
       }
     `;
 

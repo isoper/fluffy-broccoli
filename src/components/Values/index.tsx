@@ -51,9 +51,12 @@ export default class extends React.Component<ValuesProps, {}> {
           <Title primary color={"black"}>
             {title}
           </Title>
-          {values.map(value => {
+          {values.map((value, index) => {
             return (
-              <Content dangerouslySetInnerHTML={{ __html: value.content }} />
+              <Content
+                key={index}
+                dangerouslySetInnerHTML={{ __html: value.content }}
+              />
             );
           })}
         </Container>

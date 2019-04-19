@@ -45,7 +45,7 @@ export default class extends React.Component<HeaderProps, {}> {
       flex-direction: column;
       align-items: center;
       ${mq[0]} {
-        padding-top: 6rem;
+        padding-top: 5rem;
       }
       ${mq[2]} {
         padding-top: 0rem;

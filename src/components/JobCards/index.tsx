@@ -58,7 +58,7 @@ export default class extends React.Component<JobCardsProps, {}> {
           <h2>Want to be part of the team?</h2>
           {jobs.map((job, index) => {
             return (
-              <Card>
+              <Card key={job.title}>
                 <h1>{job.title}</h1>
                 <span>Interested? Write us at jobs@ludotech.co</span>
               </Card>

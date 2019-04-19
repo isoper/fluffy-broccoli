@@ -72,6 +72,7 @@ export default class extends React.Component<TeamProps, {}> {
           {profiles.map((profile, index) => {
             return (
               <Profile
+                key={profile.name}
                 name={profile.name}
                 position={profile.position}
                 bio={profile.bio}

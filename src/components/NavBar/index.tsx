@@ -118,7 +118,7 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       margin-right: ${rem("20px")};
     `;
 
-    const A = styled("a")`
+    const A = styled(Link)`
       color: ${this.state.isSolid ? colors.primaryDark : colors.white};
       opacity: 0.5;
       text-decoration: none;
@@ -215,24 +215,16 @@ export default class extends React.Component<NavBarProps, NavBarState> {
           </Link>
           <UlLinks>
             <Li>
-              <Link to="/#our-services">
-                <A>Our Services</A>
-              </Link>
+              <A to="/#our-services">Our Services</A>
             </Li>
             <Li>
-              <Link to="/#ethos">
-                <A>Ethos</A>
-              </Link>
+              <A to="/#ethos">Ethos</A>
             </Li>
             <Li>
-              <Link to="/team">
-                <A>Team</A>
-              </Link>
+              <A to="/team">Team</A>
             </Li>
             <Li>
-              <Link to="/jobs">
-                <A>Hiring</A>
-              </Link>
+              <A to="/jobs">Hiring</A>
             </Li>
           </UlLinks>
           <SidePanelOpener
