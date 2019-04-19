@@ -1,4 +1,4 @@
-As far as I can go, technology has always been part of my life. From my early days with my first computer using Linux, upto my professionnal carrer, 
+As far as I can go, technology has always been part of my life. From my early days with my first computer using Linux, up to my professional career, 
 passing by my time as a student at Pierre Et Marie University (Paris), I have developed a deep 
 interest into technologies and building software.
 
