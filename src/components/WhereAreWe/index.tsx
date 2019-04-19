@@ -4,7 +4,7 @@ import styled from "@emotion/styled";
 import { css, keyframes } from "@emotion/core";
 import { FaArrowDown, FaArrowRight } from "react-icons/fa";
 import { Link } from "gatsby";
-import Img from "gatsby-image";
+import _Img from "gatsby-image";
 
 import { colors, mq } from "./../../utils/theme";
 import _Button from "./../Button";
@@ -29,6 +29,16 @@ export default class extends React.Component<WhereAreWeProps, {}> {
       padding-top: ${rem("70px")};
       border-bottom-left-radius: 50% 10%;
       border-bottom-right-radius: 50% 10%;
+    `;
+
+    const Img = styled(_Img)`
+      ${mq[0]} {
+        width: 100%;
+      }
+      ${mq[2]} {
+        width: 80%;
+        margin: auto;
+      }
     `;
 
     const Content = styled("div")``;
