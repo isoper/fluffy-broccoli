@@ -101,7 +101,7 @@ export default class extends React.Component<EthosProps, {}> {
       align-items: center;
       ${mq[0]} {
         height: ${rem("200px")};
-        width: 350px;
+        width: 320px;
       }
       ${mq[2]} {
         height: ${rem("200px")};
