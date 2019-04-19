@@ -11,11 +11,37 @@ import Container from "./../../components/Container";
 import _Input from "./../../components/Input";
 
 interface GetInTouchProps {}
+interface GetInTouchState {
+  name: string;
+  email: string;
+  content: string;
+}
 
-export default class extends React.Component<GetInTouchProps, {}> {
+const Section = styled("section")`
+  display: flex;
+  align-items: center;
+  padding-top: ${rem("90px")};
+`;
+
+const Input = styled(_Input)`
+  margin: ${rem("15px")} 0;
+`;
+
+const Form = styled("form")`
+  height: 30rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+`;
+
+export default class extends React.Component<GetInTouchProps, GetInTouchState> {
   constructor(props: GetInTouchProps, context: any) {
     super(props, context);
-    this.state = {};
+    this.state = {
+      name: "",
+      email: "",
+      content: ""
+    };
   }
 
   encode = data => {
@@ -44,23 +70,6 @@ export default class extends React.Component<GetInTouchProps, {}> {
   };
 
   public render() {
-    const Section = styled("section")`
-      display: flex;
-      align-items: center;
-      padding-top: ${rem("90px")};
-    `;
-
-    const Input = styled(_Input)`
-      margin: ${rem("15px")} 0;
-    `;
-
-    const Form = styled("form")`
-      height: 30rem;
-      display: flex;
-      justify-content: space-evenly;
-      flex-direction: column;
-    `;
-
     return (
       <Section>
         <Container>
@@ -81,12 +90,14 @@ export default class extends React.Component<GetInTouchProps, {}> {
               name="name"
               placeholder="What is your name?"
               onChange={this.handleChange}
+              value={this.state.name}
             />
             <Input
               type="email"
               name="email"
               placeholder="What is your email?"
-              onChange={this.handleChange}
+              onChange={e => this.handleChange(e)}
+              value={this.state.email}
             />
             <Input
               type="text"
@@ -94,6 +105,7 @@ export default class extends React.Component<GetInTouchProps, {}> {
               placeholder="How can we help you?"
               area
               onChange={this.handleChange}
+              value={this.state.content}
             />
             <Button type="submit" primary>
               Work with us
