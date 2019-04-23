@@ -122,7 +122,7 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       color: ${this.state.isSolid ? colors.primaryDark : colors.white};
       opacity: 0.5;
       text-decoration: none;
-      font-weight: 400;
+      font-size: 0.8rem;
       padding: ${rem("10px")} 0;
       cursor: pointer;
       touch-action: manipulation;
@@ -130,6 +130,7 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       &:hover,
       &:focus {
         border-bottom: 2px solid ${colors.accent};
+        opacity: 1;
       }
     `;
 
