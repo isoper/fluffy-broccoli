@@ -25,7 +25,6 @@ export default class extends React.Component<EthosProps, {}> {
       position: relative;
       display: flex;
       align-items: center;
-      padding-top: ${rem("90px")};
       background-image: linear-gradient(
         180deg,
         ${colors.secondary} 0%,
@@ -33,6 +32,12 @@ export default class extends React.Component<EthosProps, {}> {
       );
       border-bottom-left-radius: 50% 5%;
       border-bottom-right-radius: 50% 5%;
+      ${mq[0]} {
+        padding-top: ${rem("90px")};
+      }
+      ${mq[2]} {
+        padding-top: ${rem("180px")};
+      }
       &::before {
         content: "";
         width: 100%;
