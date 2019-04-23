@@ -12,7 +12,7 @@ On top of that, we also provide the best perk of the market according to our Val
 
 *What we do*: we give only crystal clear perks.
 
-- The opportunity to work with stunning colleagues, ready to expand and share the knowledge, in close relationship with our French CTO.
+- The opportunity to work with stunning colleagues, ready to expand and share their knowledge, in close relationship with our French CTO.
 
 - Life-long self-improvement: 2 days of paid training/month.
 

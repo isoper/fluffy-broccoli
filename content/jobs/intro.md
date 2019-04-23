@@ -1,4 +1,4 @@
-To fulfill our ambition of becoming the leading European agency of technologies, we are constantly looking for new talents to join our stunning team. How do we build such a team?
+To fulfill our ambition of becoming the leading European technology agency, we are constantly looking for new talents to join our stunning team. How do we build such a team?
 
 - We only work on challenging projects using trending open source technologies
 - We pay top market compensation
