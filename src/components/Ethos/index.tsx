@@ -3,7 +3,6 @@ import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 import _Img from "gatsby-image";
-import { FaReact, FaPython, FaAws } from "react-icons/fa";
 
 import { colors, mq } from "./../../utils/theme";
 import Container from "./../../components/Container";
@@ -57,6 +56,7 @@ export default class extends React.Component<EthosProps, {}> {
     const Grid = styled("div")`
       display: flex;
       flex-direction: column;
+      bottom: 120px;
     `;
 
     const Item = styled("div")`
@@ -91,62 +91,6 @@ export default class extends React.Component<EthosProps, {}> {
         width: 65%;
       }
     `;
-
-    const TechnologiesContainer = styled("div")`
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-      top: 120px;
-    `;
-
-    const TechnologiesIcons = styled("div")`
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      ${mq[0]} {
-        height: ${rem("200px")};
-        width: 320px;
-      }
-      ${mq[2]} {
-        height: ${rem("200px")};
-        width: ${rem("700px")};
-      }
-    `;
-
-    const ReactIcon = styled(FaReact)`
-      background-color: transparent;
-      color: #508aa8;
-      ${mq[0]} {
-        font-size: ${rem("20px")};
-      }
-      ${mq[2]} {
-        font-size: ${rem("30px")};
-      }
-    `;
-
-    const PythonIcon = styled(FaPython)`
-      background-color: transparent;
-      color: #c8dff4;
-      ${mq[0]} {
-        font-size: ${rem("20px")};
-      }
-      ${mq[2]} {
-        font-size: ${rem("30px")};
-      }
-    `;
-
-    const AwsIcon = styled(FaAws)`
-      background-color: transparent;
-      color: #c8dff4;
-      ${mq[0]} {
-        font-size: ${rem("20px")};
-      }
-      ${mq[2]} {
-        font-size: ${rem("30px")};
-      }
-    `;
-
     const { leadership, talent, learning } = this.props;
 
     return (
@@ -176,26 +120,6 @@ export default class extends React.Component<EthosProps, {}> {
               </Content>
             </Item>
           </Grid>
-          <TechnologiesContainer>
-            <Title>Technologies</Title>
-            <TechnologiesIcons>
-              <RoundImage
-                content={<ReactIcon />}
-                firstColor={"#c8dff4"}
-                secondColor={"#64707a"}
-              />
-              <RoundImage
-                content={<PythonIcon />}
-                firstColor={"#508AA8"}
-                secondColor={"#284554"}
-              />
-              <RoundImage
-                content={<AwsIcon />}
-                firstColor={"#1E4396"}
-                secondColor={"#0F224B"}
-              />
-            </TechnologiesIcons>
-          </TechnologiesContainer>
         </Container>
       </Section>
     );

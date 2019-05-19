@@ -3,6 +3,7 @@ import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
 import _Img from "gatsby-image";
+import { FaReact, FaPython, FaAws } from "react-icons/fa";
 
 import { colors, mq } from "./../../utils/theme";
 import RoundImage from "./../../components/RoundImage";
@@ -74,7 +75,7 @@ export default class extends React.Component<MethodologyProps, {}> {
       }
     `;
 
-    const CustomerContainer = styled("div")`
+    const TechnologiesContainer = styled("div")`
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -82,7 +83,7 @@ export default class extends React.Component<MethodologyProps, {}> {
       top: 120px;
     `;
 
-    const CustomerIcons = styled("div")`
+    const TechnologiesIcons = styled("div")`
       display: flex;
       justify-content: space-evenly;
       align-items: center;
@@ -96,16 +97,37 @@ export default class extends React.Component<MethodologyProps, {}> {
       }
     `;
 
-    const CustomerIcon = styled("img")`
+    const ReactIcon = styled(FaReact)`
+      background-color: transparent;
+      color: #508aa8;
       ${mq[0]} {
         font-size: ${rem("20px")};
       }
       ${mq[2]} {
         font-size: ${rem("30px")};
       }
-      width: 45%;
-      margin: 0 20px;
+    `;
+
+    const PythonIcon = styled(FaPython)`
       background-color: transparent;
+      color: #c8dff4;
+      ${mq[0]} {
+        font-size: ${rem("20px")};
+      }
+      ${mq[2]} {
+        font-size: ${rem("30px")};
+      }
+    `;
+
+    const AwsIcon = styled(FaAws)`
+      background-color: transparent;
+      color: #c8dff4;
+      ${mq[0]} {
+        font-size: ${rem("20px")};
+      }
+      ${mq[2]} {
+        font-size: ${rem("30px")};
+      }
     `;
 
     const { run, build, innovate } = this.props;
@@ -118,7 +140,7 @@ export default class extends React.Component<MethodologyProps, {}> {
             <Item>
               <Img fixed={run.image} />
               <Content>
-                <Step>Run</Step>
+                <Step>Scale</Step>
                 <p dangerouslySetInnerHTML={{ __html: run.content }} />
               </Content>
             </Item>
@@ -137,26 +159,26 @@ export default class extends React.Component<MethodologyProps, {}> {
               </Content>
             </Item>
           </Grid>
-          <CustomerContainer>
-            <Title>We work with</Title>
-            <CustomerIcons>
+          <TechnologiesContainer>
+            <Title>Technologies</Title>
+            <TechnologiesIcons>
               <RoundImage
-                content={<CustomerIcon src={corporates} />}
+                content={<ReactIcon />}
                 firstColor={"#c8dff4"}
                 secondColor={"#64707a"}
               />
               <RoundImage
-                content={<CustomerIcon src={sme} />}
+                content={<PythonIcon />}
                 firstColor={"#508AA8"}
                 secondColor={"#284554"}
               />
               <RoundImage
-                content={<CustomerIcon src={startup} />}
+                content={<AwsIcon />}
                 firstColor={"#1E4396"}
                 secondColor={"#0F224B"}
               />
-            </CustomerIcons>
-          </CustomerContainer>
+            </TechnologiesIcons>
+          </TechnologiesContainer>
         </Container>
       </Section>
     );
