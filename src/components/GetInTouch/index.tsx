@@ -4,8 +4,8 @@ import styled from "@emotion/styled";
 import { css } from "emotion";
 import { navigateTo } from "gatsby-link";
 
-import { colors } from "./../../utils/theme";
-import Button from "./../Button";
+import { colors, mq } from "./../../utils/theme";
+import _Button from "./../Button";
 import Title from "./../../components/Title";
 import Container from "./../../components/Container";
 import _Input from "./../../components/Input";
@@ -20,7 +20,11 @@ interface GetInTouchState {
 const Section = styled("section")`
   display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   padding-top: ${rem("90px")};
+  border-bottom-left-radius: 50% 25%;
+  border-bottom-right-radius: 50% 25%;
 `;
 
 const Input = styled(_Input)`
@@ -29,9 +33,26 @@ const Input = styled(_Input)`
 
 const Form = styled("form")`
   height: 30rem;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   flex-direction: column;
+  ${mq[0]} {
+    width: 100%;
+  }
+  ${mq[1]} {
+    width: 600px;
+  }
+`;
+
+const Button = styled(_Button)`
+  margin-top: 20px;
+  ${mq[0]} {
+    align-self: center;
+  }
+  ${mq[1]} {
+    align-self: flex-start;
+  }
 `;
 
 export default class extends React.Component<GetInTouchProps, GetInTouchState> {
