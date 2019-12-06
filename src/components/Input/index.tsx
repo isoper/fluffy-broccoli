@@ -2,6 +2,7 @@ import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
 import { css } from "emotion";
+import { colors, mq } from "./../../utils/theme";
 
 type InputProps = {
   placeholder: string;
@@ -22,7 +23,7 @@ const Input = styled("input")`
   border: none;
   border-radius: 0.4rem;
   transition: box-shadow 300ms;
-  box-shadow: 0.2rem 0.8rem 0.8rem #e0e0e0;
+  box-shadow: 0 0.4rem 1.5rem ${colors.inputBoxShadow};
   outline: none;
 `;
 
