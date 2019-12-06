@@ -28,28 +28,42 @@ export default class extends React.Component<MethodologyProps, {}> {
       display: flex;
       align-items: center;
       padding-top: ${rem("45px")};
-      background-image: linear-gradient(
-        180deg,
-        ${colors.secondary} 0%,
-        ${colors.secondaryDark} 100%
-      );
+      background: ${colors.darkBlue};
+      // background-image: linear-gradient(
+      //   180deg,
+      //   ${colors.secondary} 0%,
+      //   ${colors.secondaryDark} 100%
+      // );
       border-bottom-left-radius: 50% 5%;
       border-bottom-right-radius: 50% 5%;
     `;
 
     const Grid = styled("div")`
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      ${mq[0]} {
+        flex-direction: column;
+      }
+      ${mq[1]} {
+        flex-direction: row;
+      }
     `;
 
     const Item = styled("div")`
       display: flex;
-      align-self: center;
-      justify-content: space-between;
-      padding: 1rem 0;
+      flex-direction: column;
+      align-items: center;
+      ${mq[0]} {
+        width: 100%;
+        padding: 0 30px;
+      ${mq[2]} {
+        width: 22%;
+      }
+      padding: 0 10px;
     `;
 
     const Img = styled(_Img)`
+      margin-bottom: 30px;
       ${mq[0]} {
         display: none !important;
       }
@@ -60,18 +74,22 @@ export default class extends React.Component<MethodologyProps, {}> {
 
     const Step = styled("h2")`
       color: white;
+      font-size: 32px;
     `;
 
-    const Content = styled("div")`
+    const TitleGrid = styled('div')`
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      color: white;
-      ${mq[0]} {
-        width: 100%;
+      & h1 {
+        padding-right: 0
       }
-      ${mq[2]} {
-        width: 65%;
+      margin-bottom: 50px;
+    `
+
+    const Content = styled("div")`
+      color: white;
+      & p {
+        font-size: 16px;
       }
     `;
 
@@ -135,24 +153,26 @@ export default class extends React.Component<MethodologyProps, {}> {
     return (
       <Section>
         <Container>
-          <Title primary>Our Services</Title>
+          <TitleGrid>
+            <Title primary>Methodology</Title>
+          </TitleGrid>
           <Grid>
             <Item>
-              <Img fixed={run.image} />
+              {/* <Img fixed={run.image} /> */}
               <Content>
                 <Step>Scale</Step>
                 <p dangerouslySetInnerHTML={{ __html: run.content }} />
               </Content>
             </Item>
             <Item>
+              {/* <Img fixed={build.image} /> */}
               <Content>
                 <Step>Build</Step>
                 <p dangerouslySetInnerHTML={{ __html: build.content }} />
               </Content>
-              <Img fixed={build.image} />
             </Item>
             <Item>
-              <Img fixed={innovate.image} />
+              {/* <Img fixed={innovate.image} /> */}
               <Content>
                 <Step>Innovate</Step>
                 <p dangerouslySetInnerHTML={{ __html: innovate.content }} />
@@ -160,7 +180,7 @@ export default class extends React.Component<MethodologyProps, {}> {
             </Item>
           </Grid>
           <TechnologiesContainer>
-            <Title>Technologies</Title>
+            <Title primary>Technologies</Title>
             <TechnologiesIcons>
               <RoundImage
                 content={<ReactIcon />}
