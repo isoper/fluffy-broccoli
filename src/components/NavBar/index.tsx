@@ -5,7 +5,7 @@ import { css, cx } from "emotion";
 import { FaTimes, FaBars } from "react-icons/fa";
 import Img from "gatsby-image";
 import { Link } from "gatsby";
-
+import _Container from "./../../components/Container";
 import { colors, mq } from "./../../utils/theme";
 
 type NavBarProps = {
@@ -64,13 +64,10 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       align-items: center;
       overflow: hidden;
       ${mq[0]} {
-        padding: ${rem("10px")} ${rem("40px")};
-      }
-      ${mq[2]} {
-        padding: ${rem("10px")} ${rem("100px")};
+        padding-top: ${rem("10px")};
+        padding-bottom: ${rem("10px")};
       }
       z-index: 1;
-      text-transform: uppercase;
       top: 0;
       transition: background-color 0.5s ease-in-out;
       background-color: transparent;
@@ -78,6 +75,12 @@ export default class extends React.Component<NavBarProps, NavBarState> {
         ? "0px 5px 13px 0px rgba(0, 0, 0, 0.1)"
         : "none"};
     `;
+
+    const Container = styled(_Container)`
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    `
 
     const solidNavBar = css`
       background-color: ${colors.white};
@@ -93,6 +96,11 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       width: 120px;
       cursor: pointer;
     `;
+
+    const Logo = styled('img')`
+      width: 120px;
+      cursor: pointer;
+    `
 
     const Span = styled("span")`
       color: white;
@@ -204,35 +212,25 @@ export default class extends React.Component<NavBarProps, NavBarState> {
     return (
       <div>
         <nav className={cx(Nav, { [solidNavBar]: this.state.isSolid })}>
-          <Link to="/">
-            {this.state.isSolid ? (
-              <ImgLogo
-                fluid={this.props.data.logo.childImageSharp.fluid}
-                fadeIn={false}
-              />
-            ) : (
-              <DivLogo>LUDŌ</DivLogo>
-            )}
-          </Link>
-          <UlLinks>
-            <Li>
-              <A to="/#our-services">Our Services</A>
-            </Li>
-            <Li>
-              <A to="/#ethos">Ethos</A>
-            </Li>
-            <Li>
-              <A to="/team">Team</A>
-            </Li>
-            <Li>
-              <A to="/jobs">Hiring</A>
-            </Li>
-          </UlLinks>
-          <SidePanelOpener
-            onClick={() => this.setState({ isSidePanelOpened: true })}
-          />
+          <Container>
+            <Link to="/">
+              {this.state.isSolid ? (
+                <ImgLogo
+                  fluid={this.props.data.logo.childImageSharp.fluid}
+                  fadeIn={false}
+                />
+              ) : (
+                <Logo src={`../../images/LogoLightBackground.png`} alt="logo" />
+              )}
+            </Link>
+            <UlLinks>
+              <Li>
+                <A to="/#our-services">Team & Hiring</A>
+              </Li>
+            </UlLinks>
+          </Container>
         </nav>
-        {this.state.isSidePanelOpened && (
+        {/* {this.state.isSidePanelOpened && (
           <SidePanel>
             <SidePanelHeader>
               <Link
@@ -285,7 +283,7 @@ export default class extends React.Component<NavBarProps, NavBarState> {
               </SidePanelLink>
             </SidePanelContent>
           </SidePanel>
-        )}
+        )} */}
       </div>
     );
   }
