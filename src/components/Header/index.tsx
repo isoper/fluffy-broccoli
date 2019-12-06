@@ -21,6 +21,7 @@ export default class extends React.Component<HeaderProps, {}> {
   public render() {
     const Wrapper = styled("div")`
       overflow: hidden;
+      position: relative;
     `;
 
     const Section = styled("section")`
@@ -33,19 +34,15 @@ export default class extends React.Component<HeaderProps, {}> {
         padding-top: ${rem("90px")};
       }
       min-height: 70vh;
-      background: linear-gradient(
-        180deg,
-        rgba(47, 70, 82, 1) 0%,
-        rgba(75, 114, 134, 1) 100%
-      );
+      background: ${colors.darkBlue};
     `;
 
     const Container = styled(_Container)`
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       ${mq[0]} {
         padding-top: 5rem;
+      }
+      ${mq[1]} {
+        padding-top: 8rem;
       }
       ${mq[2]} {
         padding-top: 0rem;
@@ -53,9 +50,32 @@ export default class extends React.Component<HeaderProps, {}> {
     `;
 
     const HeaderText = styled("div")`
+      color: white;
       display: flex;
       flex-direction: column;
-      text-align: center;
+      align-items: flex-start;
+      ${mq[0]} {
+        width: 100%;
+        & h1 {
+          font-size: 2.5rem;
+        }
+        & p {
+          font-size: 1.3rem;
+        }
+      }
+      ${mq[2]} {
+        width: 650px;
+        & h1 {
+          font-size: 62px;
+          margin-bottom: 20px;
+        }
+        & p {
+          font-size: 18px;
+        }
+      }
+      & p {
+        margin-bottom: 0px;
+      }
     `;
 
     const Motto = styled("div")`
@@ -70,7 +90,7 @@ export default class extends React.Component<HeaderProps, {}> {
       }
       ${mq[2]} {
         & h1 {
-          font-size: 4rem;
+          font-size: 62px;
         }
         & p {
           font-size: 1.5rem;
@@ -104,7 +124,7 @@ export default class extends React.Component<HeaderProps, {}> {
     const WaveContainer = styled("div")`
       height: 226px;
       position: relative;
-      background-color: ${colors.secondary};
+      background-color: ${colors.darkBlue};
     `;
 
     const Wave = styled("svg")`
@@ -123,6 +143,9 @@ export default class extends React.Component<HeaderProps, {}> {
 
     const Button = styled(_Button)`
       margin-top: ${rem("45px")};
+      ${mq[0]} {
+        margin-bottom: 20px;
+      }
     `;
 
     const ButtonContent = styled("span")`
@@ -154,25 +177,49 @@ export default class extends React.Component<HeaderProps, {}> {
         <Section>
           <Container>
             <HeaderText>
-              <Motto>
-                <h1>A tech team with unrivalled skills</h1>
-                <p>Focus on your business, we scale your team on demand.</p>
-              </Motto>
+              <h1>A tech team that flows</h1>
+              <p>
+                Some text here saying what really matters to the people that
+                visit the website so that they can do what they understand what
+                Ludo is about and be inspired.
+              </p>
+              <Button primary>We are hiring</Button>
             </HeaderText>
-            {/*
-                <Button primary>
-                    <ButtonContent>
-                        Work with us
-                        <FaArrowRight />
-                    </ButtonContent>
-                </Button>
-            */}
+            {/* <HeaderText>
+              <Motto>
+                <h1>A tech team that flows</h1>
+                <p>
+                  Some text here saying what really matters to the people that
+                  visit the website so that they can do what they understand
+                  what Ludo is about and be inspired.
+                </p>
+                <Button primary>We are hiring</Button>
+              </Motto>
+              <div style={{ flex: "1" }}></div>
+              <div
+                style={{
+                  width: "586px",
+                  height: "586px",
+                  backgroundColor: "black"
+                }}
+              ></div>
+            </HeaderText>
+
             <MoreButton>
               <Link to="/#our-services">
                 <FaArrowDown />
               </Link>
-            </MoreButton>
+            </MoreButton> */}
           </Container>
+          <div
+            style={{
+              width: "586px",
+              height: "586px",
+              backgroundColor: "black",
+              position: "absolute",
+              right: "-100px",
+            }}
+          ></div>
         </Section>
         <WaveContainer>
           <Wave />
