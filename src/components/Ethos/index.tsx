@@ -24,50 +24,56 @@ export default class extends React.Component<EthosProps, {}> {
       position: relative;
       display: flex;
       align-items: center;
-      background-image: linear-gradient(
-        180deg,
-        ${colors.secondary} 0%,
-        ${colors.secondaryDark} 100%
-      );
+      background: ${colors.darkBlue};
+      // background-image: linear-gradient(
+      //   180deg,
+      //   ${colors.secondary} 0%,
+      //   ${colors.secondaryDark} 100%
+      // );
       border-bottom-left-radius: 50% 5%;
       border-bottom-right-radius: 50% 5%;
       ${mq[0]} {
         padding-top: ${rem("90px")};
-      }
-      ${mq[2]} {
-        padding-top: ${rem("180px")};
-      }
-      &::before {
-        content: "";
-        width: 100%;
-        position: absolute;
-        background: white;
-        border-radius: 30%;
-        top: -4%;
-        ${mq[0]} {
-          height: 6%;
-        }
-        ${mq[2]} {
-          height: 10%;
-        }
+        padding-bottom: ${rem("90px")};
       }
     `;
 
     const Grid = styled("div")`
       display: flex;
-      flex-direction: column;
-      bottom: 120px;
+      justify-content: space-between;
+      ${mq[0]} {
+        flex-direction: column;
+      }
+      ${mq[1]} {
+        flex-direction: row;
+      }
+    `;
+
+    const TitleGrid = styled("div")`
+      display: flex;
+      justify-content: center;
+      & h1 {
+        padding-right: 0;
+      }
+      margin-bottom: 50px;
     `;
 
     const Item = styled("div")`
       display: flex;
-      align-self: center;
-      justify-content: space-between;
-      padding: 1rem 0;
+      flex-direction: column;
+      align-items: center;
+      ${mq[0]} {
+        width: 100%;
+        padding: 0 30px;
+      ${mq[2]} {
+        width: 22%;
+      }
+      padding: 0 10px;
     `;
 
     const Step = styled("h2")`
       color: white;
+      font-size: 32px;
     `;
 
     const Img = styled(_Img)`
@@ -80,26 +86,23 @@ export default class extends React.Component<EthosProps, {}> {
     `;
 
     const Content = styled("div")`
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
       color: white;
-      ${mq[0]} {
-        width: 100%;
-      }
-      ${mq[2]} {
-        width: 65%;
+      & p {
+        font-size: 16px;
       }
     `;
+
     const { leadership, talent, learning } = this.props;
 
     return (
       <Section>
         <Container>
-          <Title primary>Ethos</Title>
+          <TitleGrid>
+            <Title primary>Ethos</Title>
+          </TitleGrid>
           <Grid>
             <Item>
-              <Img fixed={leadership.image} />
+              {/* <Img fixed={leadership.image} /> */}
               <Content>
                 <Step>Strong leadership</Step>
                 <p dangerouslySetInnerHTML={{ __html: leadership.content }} />
@@ -110,10 +113,10 @@ export default class extends React.Component<EthosProps, {}> {
                 <Step>Continuous learning</Step>
                 <p dangerouslySetInnerHTML={{ __html: learning.content }} />
               </Content>
-              <Img fixed={learning.image} />
+              {/* <Img fixed={learning.image} /> */}
             </Item>
             <Item>
-              <Img fixed={talent.image} />
+              {/* <Img fixed={talent.image} /> */}
               <Content>
                 <Step>Top talent</Step>
                 <p dangerouslySetInnerHTML={{ __html: talent.content }} />
