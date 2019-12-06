@@ -12,6 +12,7 @@ import GetInTouch from "../components/GetInTouch";
 import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
+import Footer from "../components/Footer";
 
 const parseData = (data, title) => {
   const item = data.allHomeJson.edges.find(item => item.node.title === title)
@@ -44,6 +45,7 @@ const Index = ({ data }) => {
           <Ethos learning={learning} talent={talent} leadership={leadership} />
         </div>
         <GetInTouch />
+        <Footer />
       </div>
     </Layout>
   );
