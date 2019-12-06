@@ -27,7 +27,7 @@ const typography = new Typography({
       ]
     },
     {
-      name: "Secular One",
+      name: "Exo Soft",
       styles: [
         "100",
         "100i",
@@ -54,7 +54,7 @@ const typography = new Typography({
   baseLineHeight: 1.666,
   scaleRatio: 2,
   headerFontFamily: [
-    "Secular One",
+    "Exo Soft",
     "Helvetica Neue",
     "Segoe UI",
     "Helvetica",
