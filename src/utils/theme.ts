@@ -8,7 +8,12 @@ export const colors = {
   secondaryDark: "#120d34",
   accentLight: "#e58e26",
   accent: "#e58e26",
-  accentDark: "#e58e26"
+  accentDark: "#e58e26",
+  darkBlue: "#002B77",
+  orange: "#FC7800",
+  darkGrey: "#333333",
+  lightGrey: "#CCCCCC",
+  inputBoxShadow: "rgba(0, 43, 119, 0.2)",
 };
 const breakpoints = [320, 768, 992];
 
