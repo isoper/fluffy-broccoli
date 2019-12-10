@@ -19,7 +19,7 @@ const parseData = (data, title) => {
     .node;
   return {
     title: item.title,
-    image: item.image.childImageSharp.fixed,
+    // image: item.image.childImageSharp.fixed,
     content: item.content.childMarkdownRemark.html
   };
 };
@@ -81,7 +81,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    logo: file(relativePath: { eq: "logo.png" }) {
+    logo: file(relativePath: { eq: "images/logo.png" }) {
       childImageSharp {
         fluid(maxHeight: 200) {
           ...GatsbyImageSharpFluid_withWebp_noBase64

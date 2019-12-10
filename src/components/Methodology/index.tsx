@@ -12,6 +12,7 @@ import Title from "./../../components/Title";
 import startup from "./../../images/startups.svg";
 import sme from "./../../images/sme.svg";
 import corporates from "./../../images/corporates.svg";
+import LighterBlueRound from "../../images/LighterBlueRound.svg";
 
 interface MethodologyProps {
   run: { title: string; content: string; image: any };
@@ -26,16 +27,14 @@ export default class extends React.Component<MethodologyProps, {}> {
   public render() {
     const Section = styled("section")`
       display: flex;
+      position: relative;
       align-items: center;
       padding-top: ${rem("45px")};
-      background: ${colors.darkBlue};
-      // background-image: linear-gradient(
-      //   180deg,
-      //   ${colors.secondary} 0%,
-      //   ${colors.secondaryDark} 100%
-      // );
-      border-bottom-left-radius: 50% 5%;
-      border-bottom-right-radius: 50% 5%;
+      background-image: linear-gradient(
+        180deg,
+        ${colors.darkBlue},
+        ${colors.blue} 83%
+      );
     `;
 
     const Grid = styled("div")`
@@ -44,7 +43,7 @@ export default class extends React.Component<MethodologyProps, {}> {
       ${mq[0]} {
         flex-direction: column;
       }
-      ${mq[1]} {
+      ${mq[2]} {
         flex-direction: row;
       }
     `;
@@ -98,16 +97,29 @@ export default class extends React.Component<MethodologyProps, {}> {
       flex-direction: column;
       align-items: center;
       position: relative;
-      top: 120px;
+      ${mq[0]} {
+        top: 210px;
+      }
+      ${mq[1]} {
+        top: 190px;
+      }
+      ${mq[3]} {
+        top: 220px;
+      }
     `;
 
     const TechnologiesIcons = styled("div")`
       display: flex;
       justify-content: space-evenly;
       align-items: center;
+      z-index: 1;
       ${mq[0]} {
         height: ${rem("200px")};
-        width: 320px;
+        width: 100%;
+      }
+      ${mq[1]} {
+        width: 500px;
+        padding-top: 25px;
       }
       ${mq[2]} {
         height: ${rem("200px")};
@@ -117,7 +129,7 @@ export default class extends React.Component<MethodologyProps, {}> {
 
     const ReactIcon = styled(FaReact)`
       background-color: transparent;
-      color: #508aa8;
+      color: #fff;
       ${mq[0]} {
         font-size: ${rem("20px")};
       }
@@ -128,7 +140,7 @@ export default class extends React.Component<MethodologyProps, {}> {
 
     const PythonIcon = styled(FaPython)`
       background-color: transparent;
-      color: #c8dff4;
+      color: #fff;
       ${mq[0]} {
         font-size: ${rem("20px")};
       }
@@ -139,7 +151,7 @@ export default class extends React.Component<MethodologyProps, {}> {
 
     const AwsIcon = styled(FaAws)`
       background-color: transparent;
-      color: #c8dff4;
+      color: #fff;
       ${mq[0]} {
         font-size: ${rem("20px")};
       }
@@ -147,6 +159,22 @@ export default class extends React.Component<MethodologyProps, {}> {
         font-size: ${rem("30px")};
       }
     `;
+
+    const RoundBorderBottom = styled("div")`
+      background-image: url(${LighterBlueRound});
+      position: absolute;
+      bottom: -72px;
+      width: 100%;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+      ${mq[3]} {
+        height: 104px;
+        bottom: -103px;
+      }
+    `;
+
 
     const { run, build, innovate } = this.props;
 
@@ -200,6 +228,7 @@ export default class extends React.Component<MethodologyProps, {}> {
             </TechnologiesIcons>
           </TechnologiesContainer>
         </Container>
+        <RoundBorderBottom />
       </Section>
     );
   }

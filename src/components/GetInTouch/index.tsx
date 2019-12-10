@@ -9,6 +9,7 @@ import _Button from "./../Button";
 import Title from "./../../components/Title";
 import Container from "./../../components/Container";
 import _Input from "./../../components/Input";
+import WhiteRound from "../../images/WhiteRound.svg";
 
 interface GetInTouchProps {}
 interface GetInTouchState {
@@ -20,11 +21,13 @@ interface GetInTouchState {
 const Section = styled("section")`
   display: flex;
   align-items: center;
+  position: relative;
   justify-content: center;
   text-align: center;
-  padding-top: ${rem("90px")};
-  border-bottom-left-radius: 50% 25%;
-  border-bottom-right-radius: 50% 25%;
+  padding-top: ${rem("120px")};
+  ${mq[3]} {
+    padding-top: ${rem("150px")};
+  }
 `;
 
 const Input = styled(_Input)`
@@ -52,6 +55,36 @@ const Button = styled(_Button)`
   }
   ${mq[1]} {
     align-self: flex-start;
+  }
+`;
+
+const TextArea = styled("textarea")`
+  display: block;
+  margin: 0;
+  height: 20vh;
+  padding: 0.8rem 1.6rem;
+  width: 100%;
+  border: none;
+  border-radius: 0.4rem;
+  transition: box-shadow 300ms;
+  box-shadow: ${colors.inputBoxShadow};
+  outline: none;
+  resize: none;
+`;
+
+const RoundBorderBottom = styled("div")`
+  background-image: url(${WhiteRound});
+  position: absolute;
+  z-index: 1;
+  bottom: -72px;
+  width: 100%;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  ${mq[3]} {
+    height: 106px;
+    bottom: -103px;
   }
 `;
 
@@ -120,11 +153,10 @@ export default class extends React.Component<GetInTouchProps, GetInTouchState> {
               onChange={e => this.handleChange(e)}
               value={this.state.email}
             />
-            <Input
+            <TextArea
               type="text"
               name="content"
               placeholder="How can we help you?"
-              area
               onChange={this.handleChange}
               value={this.state.content}
             />
@@ -133,6 +165,7 @@ export default class extends React.Component<GetInTouchProps, GetInTouchState> {
             </Button>
           </Form>
         </Container>
+        <RoundBorderBottom />
       </Section>
     );
   }

@@ -23,7 +23,7 @@ const Input = styled("input")`
   border: none;
   border-radius: 0.4rem;
   transition: box-shadow 300ms;
-  box-shadow: 0 0.4rem 1.5rem ${colors.inputBoxShadow};
+  box-shadow: ${colors.inputBoxShadow};
   outline: none;
 `;
 

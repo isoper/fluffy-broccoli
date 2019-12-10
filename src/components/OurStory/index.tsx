@@ -29,8 +29,8 @@ export default class extends React.Component<OurStoryProps, {}> {
       border-bottom-right-radius: 50% 5%;
       background-image: linear-gradient(
         180deg,
-        ${colors.secondary} 0%,
-        ${colors.secondaryDark} 100%
+        ${colors.secondary},
+        ${colors.secondaryDark}
       );
       color: white;
     `;

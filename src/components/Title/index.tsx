@@ -32,7 +32,7 @@ export default class extends React.Component<TitleProps, {}> {
       }
       border-bottom: 5px solid
         ${(props: { primary: boolean }) =>
-          props.primary ? colors.accent : "#508aa8"};
+          props.primary ? colors.orange : "#508aa8"};
     `;
 
     return (

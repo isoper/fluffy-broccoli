@@ -31,8 +31,8 @@ export default class extends React.Component<JobsHeaderProps, {}> {
       min-height: 70vh;
       background: linear-gradient(
         180deg,
-        ${colors.primaryDark} 0%,
-        ${colors.secondaryDark} 100%
+        ${colors.primaryDark},
+        ${colors.secondaryDark} 83%
       );
     `;
 

@@ -39,7 +39,7 @@ export default class extends React.Component<TeamProps, {}> {
       display: flex;
       align-items: center;
       text-transform: uppercase;
-      color: ${colors.accent};
+      color: ${colors.orange};
       font-weight: bold;
       cursor: pointer;
     `;

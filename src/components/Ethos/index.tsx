@@ -8,6 +8,7 @@ import { colors, mq } from "./../../utils/theme";
 import Container from "./../../components/Container";
 import RoundImage from "./../../components/RoundImage";
 import Title from "./../../components/Title";
+import BlueRound from "../../images/BlueRound.svg";
 
 interface EthosProps {
   leadership: { title: string; content: string; image: any };
@@ -24,17 +25,18 @@ export default class extends React.Component<EthosProps, {}> {
       position: relative;
       display: flex;
       align-items: center;
-      background: ${colors.darkBlue};
-      // background-image: linear-gradient(
-      //   180deg,
-      //   ${colors.secondary} 0%,
-      //   ${colors.secondaryDark} 100%
-      // );
-      border-bottom-left-radius: 50% 5%;
-      border-bottom-right-radius: 50% 5%;
+      // background: ${colors.darkBlue};
+      background-image: linear-gradient(
+        180deg,
+        ${colors.blue},
+        ${colors.darkBlue} 83%
+      );
       ${mq[0]} {
-        padding-top: ${rem("90px")};
-        padding-bottom: ${rem("90px")};
+        padding-top: ${rem("100px")};
+        padding-bottom: ${rem("50px")};
+      }
+      ${mq[3]} {
+        padding-top: ${rem("150px")};
       }
     `;
 
@@ -44,7 +46,7 @@ export default class extends React.Component<EthosProps, {}> {
       ${mq[0]} {
         flex-direction: column;
       }
-      ${mq[1]} {
+      ${mq[2]} {
         flex-direction: row;
       }
     `;
@@ -66,7 +68,7 @@ export default class extends React.Component<EthosProps, {}> {
         width: 100%;
         padding: 0 30px;
       ${mq[2]} {
-        width: 22%;
+        width: 25%;
       }
       padding: 0 10px;
     `;
@@ -89,6 +91,21 @@ export default class extends React.Component<EthosProps, {}> {
       color: white;
       & p {
         font-size: 16px;
+      }
+    `;
+
+    const RoundBorderBottom = styled("div")`
+      background-image: url(${BlueRound});
+      position: absolute;
+      bottom: -72px;
+      width: 100%;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+      ${mq[3]} {
+        height: 104px;
+        bottom: -103px;
       }
     `;
 
@@ -124,6 +141,7 @@ export default class extends React.Component<EthosProps, {}> {
             </Item>
           </Grid>
         </Container>
+        <RoundBorderBottom />
       </Section>
     );
   }

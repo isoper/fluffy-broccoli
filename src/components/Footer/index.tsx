@@ -12,9 +12,16 @@ interface FooterProps {}
 interface FooterState {}
 
 const Footer = styled("footer")`
-  background: ${colors.darkBlue};
+  background-image: linear-gradient(
+    180deg,
+    ${colors.blue},
+    ${colors.darkBlue}
+  );
   color: #fff;
-  padding-top: ${rem("40px")};
+  padding-top: ${rem("90px")};
+  ${mq[3]} {
+    padding-top: ${rem("120px")};
+  }
 `;
 
 const Container = styled(_Container)`

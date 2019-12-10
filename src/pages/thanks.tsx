@@ -35,8 +35,8 @@ const ThanksPage = ({ data }) => {
     min-height: 100vh;
     background: linear-gradient(
       180deg,
-      rgba(47, 70, 82, 1) 0%,
-      rgba(75, 114, 134, 1) 100%
+      rgba(47, 70, 82, 1),
+      rgba(75, 114, 134, 1)
     );
   `;
   return (

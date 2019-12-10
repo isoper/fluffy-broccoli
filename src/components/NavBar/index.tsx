@@ -59,6 +59,7 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       color: ${this.state.isSolid ? colors.primaryDark : colors.white};
       text-transformation: uppercase;
       width: 100%;
+      z-index: 2;
       position: fixed;
       justify-content: space-between;
       align-items: center;
@@ -67,7 +68,6 @@ export default class extends React.Component<NavBarProps, NavBarState> {
         padding-top: ${rem("10px")};
         padding-bottom: ${rem("10px")};
       }
-      z-index: 1;
       top: 0;
       transition: background-color 0.5s ease-in-out;
       background-color: transparent;
@@ -80,7 +80,7 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       display: flex;
       justify-content: space-between;
       align-items: center;
-    `
+    `;
 
     const solidNavBar = css`
       background-color: ${colors.white};
@@ -137,7 +137,7 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       font-weight: 700;
       &:hover,
       &:focus {
-        border-bottom: 2px solid ${colors.accent};
+        border-bottom: 2px solid ${colors.orange};
         opacity: 1;
       }
     `;
@@ -225,12 +225,15 @@ export default class extends React.Component<NavBarProps, NavBarState> {
             </Link>
             <UlLinks>
               <Li>
-                <A to="/#our-services">Team & Hiring</A>
+                <A to="/team">Team & Hiring</A>
               </Li>
             </UlLinks>
+            <SidePanelOpener
+              onClick={() => this.setState({ isSidePanelOpened: true })}
+            />
           </Container>
         </nav>
-        {/* {this.state.isSidePanelOpened && (
+        {this.state.isSidePanelOpened && (
           <SidePanel>
             <SidePanelHeader>
               <Link
@@ -251,39 +254,15 @@ export default class extends React.Component<NavBarProps, NavBarState> {
             <SidePanelContent>
               <SidePanelLink>
                 <Link
-                  to="/#our-services"
-                  onClick={() => this.setState({ isSidePanelOpened: false })}
-                >
-                  Our Services
-                </Link>
-              </SidePanelLink>
-              <SidePanelLink>
-                <Link
-                  to="/#ethos"
-                  onClick={() => this.setState({ isSidePanelOpened: false })}
-                >
-                  Ethos
-                </Link>
-              </SidePanelLink>
-              <SidePanelLink>
-                <Link
                   to="/team"
                   onClick={() => this.setState({ isSidePanelOpened: false })}
                 >
-                  Team
-                </Link>
-              </SidePanelLink>
-              <SidePanelLink>
-                <Link
-                  to="/jobs"
-                  onClick={() => this.setState({ isSidePanelOpened: false })}
-                >
-                  Hiring
+                  Team & Hiring
                 </Link>
               </SidePanelLink>
             </SidePanelContent>
           </SidePanel>
-        )} */}
+        )}
       </div>
     );
   }

@@ -10,11 +10,13 @@ export const colors = {
   accent: "#e58e26",
   accentDark: "#e58e26",
   darkBlue: "#002B77",
+  blue: "#003DA8",
   orange: "#FC7800",
   darkGrey: "#333333",
   lightGrey: "#CCCCCC",
-  inputBoxShadow: "rgba(0, 43, 119, 0.2)",
+  inputBoxShadow: "2px 2px 6px 0 rgba(33, 94, 191, 0.2);",
+
 };
-const breakpoints = [320, 768, 992];
+const breakpoints = [320, 768, 992, 2000];
 
 export const mq = breakpoints.map(bp => `@media (min-width: ${bp}px)`);

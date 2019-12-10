@@ -5,11 +5,12 @@ import { css } from "emotion";
 import { FaArrowRight as _FaArrowRight } from "react-icons/fa";
 import { Link } from "gatsby";
 
-import { colors } from "./../../utils/theme";
-import Container from "./../../components/Container";
+import { colors, mq } from "./../../utils/theme";
+import _Container from "./../../components/Container";
 import Title from "./../../components/Title";
 import Profile from "./../../components/Profile";
 import Team from "./../Team"
+import WhiteRound from '../../images/WhiteRound.svg';
 
 interface WhoIsProps {
   profiles: {
@@ -29,17 +30,28 @@ export default class extends React.Component<WhoIsProps, {}> {
     const Section = styled("section")`
       display: flex;
       align-items: center;
+      position: relative;
       justify-content: center;
-      padding-top: ${rem("150px")};
+      padding-top: ${rem("190px")};
       padding-bottom: ${rem("80px")};
-      border-bottom-left-radius: 50% 10%;
-      border-bottom-right-radius: 50% 10%;
       text-align: center;
     `;
 
+    const Container = styled(_Container)`
+      position: relative;
+    `;
+
     const Content = styled("p")`
-      width: 768px;
       margin: 0 auto 20px;
+      ${mq[0]} {
+        width: 100%
+      }
+      ${mq[1]} {
+        width: 700px;
+      }
+      ${mq[2]} {
+        width: 768px;
+      }
     `;
 
     const TeamLink = styled(Link)`
@@ -47,7 +59,7 @@ export default class extends React.Component<WhoIsProps, {}> {
       align-items: center;
       justify-content: center;
       text-transform: uppercase;
-      color: ${colors.accent};
+      color: ${colors.orange};
       font-weight: bold;
       cursor: pointer;
       margin-bottom: 100px;
@@ -59,8 +71,27 @@ export default class extends React.Component<WhoIsProps, {}> {
 
     const LeadersGrid = styled("div")`
       display: flex;
-      
+      justify-content: center;
+      & h1 {
+        font-size: 1.5rem !important;
+      }
     `
+
+    const RoundBorderBottom = styled("div")`
+      background-image: url(${WhiteRound});
+      position: absolute;
+      z-index: 1;
+      bottom: -72px;
+      width: 100%;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+      ${mq[3]} {
+        height: 104px;
+        bottom: -103px;
+      }
+    `;
 
     return (
       <Section>
@@ -69,23 +100,21 @@ export default class extends React.Component<WhoIsProps, {}> {
             Who is LUDŌ?
           </Title>
           <Content>
-            Ludo is a development agency helping partners scaling their teams on
-            demand. Whenever you have a problem, we provide you a tailor-made
-            teams. As a partner building long-term relationship We are driven by
-            your success. Our strong culture of continuous learning allow us to
-            stay ahead of the technological curve. Our Software craftsmanship
-            experts can turn any of your dream into reality.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
+            amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna,
+            auctor faucibus ligula nec, lobortis aliquet mi. Sed ut finibus mi.
           </Content>
           <TeamLink to="/team">
             Our team & jobs <FaArrowRight />
           </TeamLink>
 
-          <Title primary color={colors.darkBlue}>
-            Who started it all?
-          </Title>
           <LeadersGrid>
+            <Title primary color={colors.darkBlue}>
+              Who started it all?
+            </Title>
           </LeadersGrid>
         </Container>
+        <RoundBorderBottom />
       </Section>
     );
   }
