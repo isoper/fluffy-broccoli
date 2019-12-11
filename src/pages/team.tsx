@@ -4,7 +4,11 @@ import { graphql } from "gatsby";
 
 import Layout from "../layout";
 import OurStory from "../components/OurStory";
+import Header from "../components/Header";
 import Team from "../components/Team";
+import WhereAreWe from "../components/WhereAreWe";
+import JobsCard from "../components/JobCards";
+import Footer from "../components/Footer";
 
 const TeamPage = ({ data }) => {
   const profiles = [];
@@ -15,13 +19,16 @@ const TeamPage = ({ data }) => {
       picture: item.node.picture.childImageSharp.fixed
     });
   });
-  const ourStory = data.teamJson.content.childMarkdownRemark.html;
   return (
     <Layout data={data}>
       <div className="index-container">
         <Helmet title={"LUDO Team"} />
-        <OurStory content={ourStory} />
+        {/* <OurStory content={ourStory} /> */}
+        <Header />
         <Team profiles={profiles} />
+        <WhereAreWe title="Where are we?" />
+        <JobsCard />
+        <Footer />
       </div>
     </Layout>
   );

@@ -26,9 +26,7 @@ export default class extends React.Component<WhereAreWeProps, {}> {
     const Section = styled("section")`
       display: flex;
       align-items: center;
-      padding-top: ${rem("70px")};
-      border-bottom-left-radius: 50% 10%;
-      border-bottom-right-radius: 50% 10%;
+      padding-top: ${rem("120px")};
     `;
 
     const Img = styled(_Img)`
@@ -41,19 +39,41 @@ export default class extends React.Component<WhereAreWeProps, {}> {
       }
     `;
 
-    const Content = styled("div")``;
+    const Content = styled("div")`
+      opacity: 0.85;
+      ${mq[0]} {
+        width: 100%;
+      }
+      ${mq[2]} {
+        width: 50%;
+      }
+    `;
+    
+    const Location = styled("h2")`
+      color: ${colors.darkBlue};
+      font-size: 28px;
+    `
 
     const { content, title, map } = this.props;
-
     return (
       <Section>
-        <Container>
-          <Title primary color={"black"}>
-            {title}
-          </Title>
-          <Content dangerouslySetInnerHTML={{ __html: content }} />
-          <Img fluid={map} />
-        </Container>
+        <>
+          <Container>
+            <Title primary color={`${colors.darkBlue}`}>
+              {title}
+            </Title>
+            <Location>Gevgelija, Macedonia</Location>
+            <Content>
+              Why Gevgelija? Because it offers sunny weather, proximity to
+              nature and has a strong sense of community. Above all, traffic jam
+              isn't a concern as you can go to work on foot and save a serious
+              amount of money as the cost of living is 30% cheaper than in
+              Skopje! The city is surrounded by really cool point of interest so
+              you can enjoy your weekends with family or friends.
+            </Content>
+          </Container>
+        </>
+        {/* <Img fluid={map} /> */}
       </Section>
     );
   }

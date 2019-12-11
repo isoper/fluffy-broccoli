@@ -2,8 +2,6 @@
   "title": "title.md",
   "intro": "intro.md",
   "offer": "offer.md",
-  "where": "where.md",
-  "map": "../../src/images/map_gvg.png",
   "jobs": [{
     "title": "React Developer"
   }, {

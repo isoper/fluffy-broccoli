@@ -8,7 +8,8 @@ import { Link } from "gatsby";
 import { colors, mq } from "./../../utils/theme";
 import _Button from "./../Button";
 import _Container from "./../../components/Container";
-import Divider from "../../images/Untitled-2.svg";
+import Divider from "../../images/Waves.svg";
+import Circles from "../../images/Circles.svg";
 
 interface HeaderProps {
   data: any;
@@ -40,7 +41,7 @@ export default class extends React.Component<HeaderProps, {}> {
        linear-gradient(
         180deg,
         ${colors.darkBlue},
-        ${colors.blue} 
+        ${colors.blue}
       );
       background-repeat: no-repeat;
       background-position: bottom;
@@ -141,6 +142,16 @@ export default class extends React.Component<HeaderProps, {}> {
       cursor: pointer;
     `;
 
+    const WhiteCircles = styled("div")`
+      background: url(${Circles});
+      position: absolute;
+      width: 50%;
+      height: 100%;
+      background-repeat: no-repeat;
+      right: 9%;
+      top: -16%;
+    `;
+
     return (
       <Wrapper>
         <Section>
@@ -162,16 +173,17 @@ export default class extends React.Component<HeaderProps, {}> {
               backgroundColor: "black",
               position: "absolute",
               right: "-100px",
-              display: 'none'
+              display: "none"
             }}
           ></div>
           <ButtonContent>
             <MoreButton>
-            <Link to="/#our-services">
-              <FaArrowDown />
-            </Link>
-          </MoreButton>
+              <Link to="/#our-services">
+                <FaArrowDown />
+              </Link>
+            </MoreButton>
           </ButtonContent>
+          <WhiteCircles />
         </Section>
         {/* <WaveContainer>
           <Wave />

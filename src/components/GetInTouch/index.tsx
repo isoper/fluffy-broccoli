@@ -24,7 +24,8 @@ const Section = styled("section")`
   position: relative;
   justify-content: center;
   text-align: center;
-  padding-top: ${rem("120px")};
+  padding-top: ${rem("130px")};
+  padding-bottom: ${rem("80px")};
   ${mq[3]} {
     padding-top: ${rem("150px")};
   }
@@ -35,7 +36,6 @@ const Input = styled(_Input)`
 `;
 
 const Form = styled("form")`
-  height: 30rem;
   margin: 0 auto;
   display: flex;
   justify-content: flex-start;

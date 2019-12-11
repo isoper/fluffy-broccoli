@@ -25,6 +25,7 @@ const parseData = (data, title) => {
 };
 
 const Index = ({ data }) => {
+  console.log(parseData);
   const build = parseData(data, "build");
   const run = parseData(data, "run");
   const innovate = parseData(data, "innovate");
@@ -81,10 +82,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    logo: file(relativePath: { eq: "images/logo.png" }) {
+    logo: file(relativePath: { eq: "logo.png" }) {
       childImageSharp {
         fluid(maxHeight: 200) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
+          ...GatsbyImageSharpFluid
         }
       }
     }

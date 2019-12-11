@@ -215,12 +215,19 @@ export default class extends React.Component<NavBarProps, NavBarState> {
           <Container>
             <Link to="/">
               {this.state.isSolid ? (
-                <ImgLogo
-                  fluid={this.props.data.logo.childImageSharp.fluid}
-                  fadeIn={false}
+                // <ImgLogo
+                //   fluid={this.props.data.logo.childImageSharp.fluid}
+                //   fadeIn={false}
+                // />
+                <Logo
+                  src={"./../../images/LogoDarkBackground.png"}
+                  alt="logo"
                 />
               ) : (
-                <Logo src={`../../images/LogoLightBackground.png`} alt="logo" />
+                <Logo
+                  src={"../../../static/logos/LogoLightBackground.png"}
+                  alt="logo"
+                />
               )}
             </Link>
             <UlLinks>

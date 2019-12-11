@@ -13,6 +13,7 @@ import startup from "./../../images/startups.svg";
 import sme from "./../../images/sme.svg";
 import corporates from "./../../images/corporates.svg";
 import Profile from "./../../components/Profile";
+import BlueRound from "../../images/BlueRound.svg";
 
 interface TeamProps {
   profiles: {
@@ -31,17 +32,19 @@ export default class extends React.Component<TeamProps, {}> {
   public render() {
     const Section = styled("section")`
       display: flex;
+      position: relative;
       align-items: center;
-      padding: ${rem("90px")} 0;
-    `;
-
-    const JobsLink = styled(Link)`
-      display: flex;
-      align-items: center;
-      text-transform: uppercase;
-      color: ${colors.orange};
-      font-weight: bold;
-      cursor: pointer;
+      padding-top: ${rem("90px")};
+      padding-bottom: ${rem("110px")};
+      background-image: linear-gradient(
+        180deg,
+        ${colors.blue},
+        ${colors.darkBlue}
+      );
+      & h1 {
+        font-size: 54px;
+        height: 68px;
+      }
     `;
 
     const Content = styled("div")`
@@ -56,8 +59,26 @@ export default class extends React.Component<TeamProps, {}> {
       }
     `;
 
-    const FaArrowRight = styled(_FaArrowRight)`
-      margin: 0 0.5rem;
+    const RoundBorderBottom = styled("div")`
+      background-image: url(${BlueRound});
+      position: absolute;
+      bottom: -72px;
+      width: 100%;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+      ${mq[3]} {
+        height: 104px;
+        bottom: -103px;
+      }
+    `;
+
+    const TeamInfo = styled("p")`
+      color: #fff;
+      opacity: 0.85;
+      font-size: "21px";
+      line-height: 1.33;
     `;
 
     const { profiles } = this.props;
@@ -65,9 +86,14 @@ export default class extends React.Component<TeamProps, {}> {
     return (
       <Section>
         <Container>
-          <Title primary color={"black"}>
-            The Team
+          <Title primary color={"white"}>
+            Core Team
           </Title>
+          <TeamInfo>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
+            amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna,
+            auctor faucibus ligula nec, lobortis aliquet mi.
+          </TeamInfo>
           <Content />
           {profiles.map((profile, index) => {
             return (
@@ -81,10 +107,8 @@ export default class extends React.Component<TeamProps, {}> {
               />
             );
           })}
-          <JobsLink to="/jobs">
-            We're Hiring, join us! <FaArrowRight />
-          </JobsLink>
         </Container>
+        <RoundBorderBottom />
       </Section>
     );
   }

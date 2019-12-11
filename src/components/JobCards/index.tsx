@@ -7,10 +7,11 @@ import { Link } from "gatsby";
 import Img from "gatsby-image";
 
 import { colors, mq } from "./../../utils/theme";
-import _Button from "./../Button";
-import Container from "./../../components/Container";
+import _Container from "./../../components/Container";
 import waveIllustration from "./wave.svg";
 import Title from "./../../components/Title";
+import _Button from "./../Button";
+import WhiteRound from "../../images/WhiteRound.svg";
 
 interface JobCardsProps {
   jobs: { title: string; location: string; level: string }[];
@@ -22,32 +23,70 @@ export default class extends React.Component<JobCardsProps, {}> {
   }
   public render() {
     const Section = styled("section")`
-      display: flex;
-      align-items: center;
       padding-top: ${rem("70px")};
-      border-bottom-left-radius: 50% 10%;
-      border-bottom-right-radius: 50% 10%;
+      padding-bottom: ${rem("70px")};
+      position: relative;
     `;
 
-    const Card = styled("div")`
+    const Container = styled(_Container)`
       display: flex;
-      flex-direction: column;
-      background-color: rgb(255, 255, 255);
-      box-shadow: rgba(0, 0, 0, 0.08) 0px 3px 10px;
-      cursor: pointer;
-      margin-bottom: 1.5rem;
-      backface-visibility: hidden;
-      border-radius: 5px;
-      overflow: hidden;
-      border: 1px solid rgb(230, 230, 230);
-      transition: all 0.3s cubic-bezier(0.41, 0.094, 0.54, 0.07) 0s;
-      padding: 1.5rem;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    `;
 
-      & h1 {
-        font-size: 1.1875rem;
-        color: rgb(55, 57, 66);
-        margin-bottom: 0.5rem;
-        font-weight: 500;
+    const JobDetails = styled("div")`
+      padding-top: ${rem("15px")};
+      padding-bottom: ${rem("15px")};
+      text-align: left;
+      & h2 {
+        margin-bottom: 10px;
+        color: ${colors.darkBlue};
+        font-size: 28px;
+      }
+
+      & h3 {
+        margin-bottom: 10px;
+        font-size: 21px;
+        color: ${colors.orange};
+        opacity: 0.75;
+      }
+
+      & p {
+        font-size: 18px;
+        opacity: 0.85;
+      }
+    `;
+
+    const Grid = styled("div")`
+      ${mq[0]} {
+        width: 100%;
+      }
+      ${mq[2]} {
+        width: 55%;
+      }
+    `;
+
+    const Button = styled(_Button)`
+      padding: 5px 25px;
+      font-size: 18px;
+      font-weight: 500;
+      border-radius: 10px;
+    `
+
+    const RoundBorderBottom = styled("div")`
+      background-image: url(${WhiteRound});
+      position: absolute;
+      z-index: 1;
+      bottom: -72px;
+      width: 100%;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+      ${mq[3]} {
+        height: 106px;
+        bottom: -103px;
       }
     `;
 
@@ -55,16 +94,46 @@ export default class extends React.Component<JobCardsProps, {}> {
     return (
       <Section>
         <Container>
-          <h2>Want to be part of the team?</h2>
-          {jobs.map((job, index) => {
-            return (
-              <Card key={job.title}>
-                <h1>{job.title}</h1>
-                <span>Interested? Write us at jobs@ludotech.co</span>
-              </Card>
-            );
-          })}
+          <Grid>
+            <Title primary color={colors.darkBlue}>
+              We're Hiring!
+            </Title>
+            <JobDetails>
+              <h2>Frontend Developer</h2>
+              <h3>Headquarter — Gevgelija, Macedonia — Full-time</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
+                amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna,
+                auctor faucibus ligula nec, lobortis aliquet mi. Sed ut finibus
+                mi. Vestibulum nec turpis diam.
+              </p>
+              <Button primary>Apply</Button>
+            </JobDetails>
+            <JobDetails>
+              <h2>DevOps</h2>
+              <h3>Field Mission — Paris, France — 3 months</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
+                amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna,
+                auctor faucibus ligula nec, lobortis aliquet mi. Sed ut finibus
+                mi. Vestibulum nec turpis diam.
+              </p>
+              <Button primary>Apply</Button>
+            </JobDetails>
+            <JobDetails>
+              <h2>Business Developer</h2>
+              <h3>Paris, France — Full-time</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
+                amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna,
+                auctor faucibus ligula nec, lobortis aliquet mi. Sed ut finibus
+                mi. Vestibulum nec turpis diam.
+              </p>
+              <Button primary>Apply</Button>
+            </JobDetails>
+          </Grid>
         </Container>
+        <RoundBorderBottom />
       </Section>
     );
   }

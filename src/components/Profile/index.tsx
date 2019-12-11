@@ -30,14 +30,18 @@ export default class extends React.Component<ProfileProps, {}> {
       }
       ${mq[2]} {
         display: grid;
-        grid-template-columns: 15% 85%;
-        align-items: unset;
+        width: 100%;
+        justify-content: center;
+        grid-template-columns: ${rem("170px")} auto;
+        align-items: flex-start;
+        padding-left: ${rem("50px")};
+        padding-right: ${rem("50px")};
       }
     `;
 
     const Picture = styled(Img)`
       border-radius: 50%;
-      width: 200px;
+      width: ${rem("173px")};
     `;
 
     const Content = styled("div")`
@@ -49,20 +53,26 @@ export default class extends React.Component<ProfileProps, {}> {
       }
     `;
 
-    const Name = styled("h1")`
-      margin: 0px;
-      font-size: ${rem("28px")};
-      color: #041826;
+    const Name = styled("h2")`
+      margin-bottom: 5px;
+      font-size: 28px;
+      color: #fff;
+      opacity: 0.85;
     `;
 
-    const Position = styled("h2")`
-      font-size: ${rem("21px")};
-      color: #041826;
-      opacity: 0.5;
-      margin: 0px;
+    const Position = styled("h3")`
+      font-size: 21px;
+      color: #fff;
+      opacity: 0.85;
+      margin-bottom: 15px;
     `;
 
-    const Bio = styled("p")``;
+    const Bio = styled("p")`
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #fff;
+      opacity: 0.85;
+    `;
 
     const SocialMedias = styled("div")``;
 

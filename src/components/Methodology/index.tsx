@@ -7,12 +7,12 @@ import { FaReact, FaPython, FaAws } from "react-icons/fa";
 
 import { colors, mq } from "./../../utils/theme";
 import RoundImage from "./../../components/RoundImage";
-import Container from "./../../components/Container";
+import _Container from "./../../components/Container";
 import Title from "./../../components/Title";
 import startup from "./../../images/startups.svg";
 import sme from "./../../images/sme.svg";
 import corporates from "./../../images/corporates.svg";
-import LighterBlueRound from "../../images/LighterBlueRound.svg";
+import BlueRound from "../../images/BlueRound.svg";
 
 interface MethodologyProps {
   run: { title: string; content: string; image: any };
@@ -32,9 +32,13 @@ export default class extends React.Component<MethodologyProps, {}> {
       padding-top: ${rem("45px")};
       background-image: linear-gradient(
         180deg,
-        ${colors.darkBlue},
-        ${colors.blue} 83%
+        ${colors.blue},
+        ${colors.darkBlue}
       );
+    `;
+
+    const Container = styled(_Container)`
+      margin-bottom: -80px;
     `;
 
     const Grid = styled("div")`
@@ -98,13 +102,13 @@ export default class extends React.Component<MethodologyProps, {}> {
       align-items: center;
       position: relative;
       ${mq[0]} {
-        top: 210px;
+        top: 125px;
       }
       ${mq[1]} {
-        top: 190px;
+        top: 110px;
       }
       ${mq[3]} {
-        top: 220px;
+        top: 145px;
       }
     `;
 
@@ -161,7 +165,7 @@ export default class extends React.Component<MethodologyProps, {}> {
     `;
 
     const RoundBorderBottom = styled("div")`
-      background-image: url(${LighterBlueRound});
+      background-image: url(${BlueRound});
       position: absolute;
       bottom: -72px;
       width: 100%;
