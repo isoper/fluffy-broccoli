@@ -2,16 +2,24 @@
   "title": "title.md",
   "intro": "intro.md",
   "offer": "offer.md",
-  "jobs": [{
-    "title": "React Developer"
-  }, {
-    "title": "React Native Developer"
-  }, {
-    "title": "Node.js Developer"
-  }, {
-    "title": "Python Developer"
-  }],
-  "values": [{
+  "where": "where.md",
+  "map": "../../src/images/map_gvg.png",
+  "jobs": [
+    {
+      "title": "React Developer"
+    },
+    {
+      "title": "React Native Developer"
+    },
+    {
+      "title": "Node.js Developer"
+    },
+    {
+      "title": "Python Developer"
+    }
+  ],
+  "values": [
+    {
       "content": "values/passion.md"
     },
     {
