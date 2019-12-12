@@ -32,7 +32,7 @@ export default class extends React.Component<ProfileProps, {}> {
         display: grid;
         width: 100%;
         justify-content: center;
-        grid-template-columns: ${rem("170px")} auto;
+        grid-template-columns: ${rem("160px")} auto;
         align-items: flex-start;
         padding-left: ${rem("50px")};
         padding-right: ${rem("50px")};
@@ -42,6 +42,12 @@ export default class extends React.Component<ProfileProps, {}> {
     const Picture = styled(Img)`
       border-radius: 50%;
       width: ${rem("173px")};
+      ${mq[0]} {
+        margin-bottom: 25px;
+      }
+      ${mq[2]} {
+        margin-bottom: 0;
+      }
     `;
 
     const Content = styled("div")`
@@ -49,7 +55,7 @@ export default class extends React.Component<ProfileProps, {}> {
         margin-left: 0;
       }
       ${mq[2]} {
-        margin-left: ${rem("40px")};
+        margin-left: ${rem("20px")};
       }
     `;
 
@@ -72,6 +78,9 @@ export default class extends React.Component<ProfileProps, {}> {
       font-size: 18px;
       color: #fff;
       opacity: 0.85;
+      ${mq[2]} {
+        width: 80%;
+      }
     `;
 
     const SocialMedias = styled("div")``;

@@ -21,6 +21,8 @@ export default class extends React.Component<TitleProps, {}> {
 
     const H1 = styled("h1")`
       display: inline-block;
+      font-weight: normal;
+      font-size: ${rem("32px")};
       color: ${(props: { color: string }) =>
         props.color ? props.color : "white"};
       height: 63px;

@@ -9,11 +9,13 @@ import Container from "./../../components/Container";
 import RoundImage from "./../../components/RoundImage";
 import Title from "./../../components/Title";
 import BlueRound from "../../images/BlueRound.svg";
+import Circles from "../../images/CircleWavesBottom.svg";
 
 interface EthosProps {
   leadership: { title: string; content: string; image: any };
   talent: { title: string; content: string; image: any };
   learning: { title: string; content: string; image: any };
+  
 }
 
 export default class extends React.Component<EthosProps, {}> {
@@ -25,18 +27,20 @@ export default class extends React.Component<EthosProps, {}> {
       position: relative;
       display: flex;
       align-items: center;
-      // background: ${colors.darkBlue};
-      background-image: linear-gradient(
-        180deg,
-        ${colors.blue},
-        ${colors.darkBlue} 83%
-      );
+      background-image: url(${Circles}),
+        linear-gradient(180deg, ${colors.blue}, ${colors.darkBlue});
+      background-position: bottom;
       ${mq[0]} {
         padding-top: ${rem("100px")};
         padding-bottom: ${rem("50px")};
       }
       ${mq[3]} {
         padding-top: ${rem("150px")};
+      }
+      & p {
+        opacity: 0.85;
+        font-size: ${rem("11px")};
+        line-height: 1.88;
       }
     `;
 
@@ -75,10 +79,13 @@ export default class extends React.Component<EthosProps, {}> {
 
     const Step = styled("h2")`
       color: white;
-      font-size: 32px;
+      font-size: ${rem("22px")};
+      font-weight: normal;
     `;
 
     const Img = styled(_Img)`
+      margin-bottom: 20px;
+      width: 90% !important;
       ${mq[0]} {
         display: none !important;
       }
@@ -103,6 +110,7 @@ export default class extends React.Component<EthosProps, {}> {
       background-repeat: no-repeat;
       background-position: bottom;
       background-size: cover;
+      z-index: -1;
       ${mq[3]} {
         height: 104px;
         bottom: -103px;
@@ -119,21 +127,21 @@ export default class extends React.Component<EthosProps, {}> {
           </TitleGrid>
           <Grid>
             <Item>
-              {/* <Img fixed={leadership.image} /> */}
+              <Img fixed={leadership.image} />
               <Content>
                 <Step>Strong leadership</Step>
                 <p dangerouslySetInnerHTML={{ __html: leadership.content }} />
               </Content>
             </Item>
             <Item>
+              <Img fixed={learning.image} />
               <Content>
                 <Step>Continuous learning</Step>
                 <p dangerouslySetInnerHTML={{ __html: learning.content }} />
               </Content>
-              {/* <Img fixed={learning.image} /> */}
             </Item>
             <Item>
-              {/* <Img fixed={talent.image} /> */}
+              <Img fixed={talent.image} />
               <Content>
                 <Step>Top talent</Step>
                 <p dangerouslySetInnerHTML={{ __html: talent.content }} />

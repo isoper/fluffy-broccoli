@@ -4,6 +4,8 @@ import styled from "@emotion/styled";
 import { css } from "emotion";
 import { FaArrowRight as _FaArrowRight } from "react-icons/fa";
 import { Link } from "gatsby";
+import Img from "gatsby-image";
+import { FaLinkedin } from "react-icons/fa";
 
 import { colors, mq } from "./../../utils/theme";
 import _Container from "./../../components/Container";
@@ -27,6 +29,8 @@ export default class extends React.Component<WhoIsProps, {}> {
     super(props, context);
   }
   public render() {
+    const { profiles } = this.props;
+    
     const Section = styled("section")`
       display: flex;
       align-items: center;
@@ -35,6 +39,11 @@ export default class extends React.Component<WhoIsProps, {}> {
       padding-top: ${rem("190px")};
       padding-bottom: ${rem("80px")};
       text-align: center;
+
+      & h1 {
+        font-weight: 500 !important;
+        font-size: ${rem("36px")};
+      }
     `;
 
     const Container = styled(_Container)`
@@ -43,6 +52,7 @@ export default class extends React.Component<WhoIsProps, {}> {
 
     const Content = styled("p")`
       margin: 0 auto 20px;
+      font-size: ${rem("16px")};
       ${mq[0]} {
         width: 100%
       }
@@ -63,19 +73,52 @@ export default class extends React.Component<WhoIsProps, {}> {
       font-weight: bold;
       cursor: pointer;
       margin-bottom: 100px;
+      font-weight: 500;
     `;
 
     const FaArrowRight = styled(_FaArrowRight)`
       margin: 0 0.5rem;
+      font-weight: 500;
     `;
 
     const LeadersGrid = styled("div")`
       display: flex;
       justify-content: center;
+      flex-direction: column;
       & h1 {
-        font-size: 1.5rem !important;
+        font-size: ${rem("28px")} !important;
+        height: 52px !important;
       }
     `
+
+    const Profile = styled("div")`
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      ${mq[0]} {
+        margin: 0 0 35px;
+      }
+      ${mq[2]} {
+        margin: 0 80px;
+      }
+      & h2 {
+        margin-bottom: 5px;
+        color: ${colors.darkBlue};
+        font-size: ${rem('20px')};
+        font-weight: 500;
+      }
+      & p {
+        font-size: ${rem('15px')};
+        opacity: 0.85;
+        margin-bottom: 5px;
+      }
+    `
+    
+    const Picture = styled(Img)`
+      border-radius: 50%;
+      margin-bottom: 25px;
+    `;
 
     const RoundBorderBottom = styled("div")`
       background-image: url(${WhiteRound});
@@ -93,6 +136,25 @@ export default class extends React.Component<WhoIsProps, {}> {
       }
     `;
 
+    const LinkedinIcon = styled(FaLinkedin)`
+      background-color: #cccccc;
+      color: #fff;
+      font-size: 24px;
+      cursor: pointer;
+    `;
+
+    const ProfileGrid = styled('div')`
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      ${mq[0]} {
+        flex-direction: column;
+      }
+      ${mq[2]} {
+        flex-direction: row;
+      }
+    `
+
     return (
       <Section>
         <Container>
@@ -107,11 +169,20 @@ export default class extends React.Component<WhoIsProps, {}> {
           <TeamLink to="/team">
             Our team & jobs <FaArrowRight />
           </TeamLink>
-
           <LeadersGrid>
             <Title primary color={colors.darkBlue}>
               Who started it all?
             </Title>
+            <ProfileGrid>
+              {profiles.map(profile => (
+                <Profile key={profile.name}>
+                  <Picture fixed={profile.picture} />
+                  <h2>{profile.name}</h2>
+                  <p>{profile.position}</p>
+                  {profile.linkedin && <a href={profile.linkedin}><LinkedinIcon /></a>}
+                </Profile>
+              ))}
+            </ProfileGrid>
           </LeadersGrid>
         </Container>
         <RoundBorderBottom />

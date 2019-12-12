@@ -29,6 +29,10 @@ const Section = styled("section")`
   ${mq[3]} {
     padding-top: ${rem("150px")};
   }
+  & h1 {
+    font-weight: 500;
+    font-size ${rem("36px")};
+  }
 `;
 
 const Input = styled(_Input)`
@@ -36,7 +40,7 @@ const Input = styled(_Input)`
 `;
 
 const Form = styled("form")`
-  margin: 0 auto;
+  margin: 20px auto 0;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -49,7 +53,14 @@ const Form = styled("form")`
 `;
 
 const Button = styled(_Button)`
-  margin-top: 20px;
+  margin-top: ${rem("25px")};
+  font-size: ${rem("14px")};
+  font-weight: normal;
+  border-radius: 4px;
+  padding: 0.1rem 1.8rem;
+  ${mq[0]} {
+    margin-bottom: 20px;
+  }
   ${mq[0]} {
     align-self: center;
   }
@@ -60,9 +71,10 @@ const Button = styled(_Button)`
 
 const TextArea = styled("textarea")`
   display: block;
-  margin: 0;
+  margin-top: 8px;
   height: 20vh;
-  padding: 0.8rem 1.6rem;
+  opacity: 0.6;
+  padding: 0.6rem;
   width: 100%;
   border: none;
   border-radius: 0.4rem;
@@ -70,6 +82,7 @@ const TextArea = styled("textarea")`
   box-shadow: ${colors.inputBoxShadow};
   outline: none;
   resize: none;
+  font-size: ${rem("14px")};
 `;
 
 const RoundBorderBottom = styled("div")`
@@ -127,10 +140,9 @@ export default class extends React.Component<GetInTouchProps, GetInTouchState> {
     return (
       <Section>
         <Container>
-          <Title primary color={"black"}>
+          <Title primary color={colors.darkBlue}>
             Get in touch!
           </Title>
-          <p>Leave us a message and we'll get back to you!</p>
           <Form
             name="contact"
             method="post"

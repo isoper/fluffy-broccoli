@@ -4,6 +4,7 @@ import styled from "@emotion/styled";
 import { css, keyframes } from "@emotion/core";
 import { FaArrowDown, FaArrowRight } from "react-icons/fa";
 import { Link } from "gatsby";
+import Img from "gatsby-image";
 
 import { colors, mq } from "./../../utils/theme";
 import _Button from "./../Button";
@@ -13,6 +14,8 @@ import Circles from "../../images/Circles.svg";
 
 interface HeaderProps {
   data: any;
+  team: boolean;
+  bannerLogo: string;
 }
 
 export default class extends React.Component<HeaderProps, {}> {
@@ -20,6 +23,8 @@ export default class extends React.Component<HeaderProps, {}> {
     super(props, context);
   }
   public render() {
+    const { team, bannerLogo } = this.props;
+
     const Wrapper = styled("div")`
       overflow: hidden;
       position: relative;
@@ -45,9 +50,12 @@ export default class extends React.Component<HeaderProps, {}> {
       );
       background-repeat: no-repeat;
       background-position: bottom;
+      position: relative;
     `;
 
     const Container = styled(_Container)`
+      display: flex;
+      align-items: center;
       ${mq[0]} {
         padding-top: 5rem;
       }
@@ -59,6 +67,22 @@ export default class extends React.Component<HeaderProps, {}> {
       }
     `;
 
+    const BannerLogo = styled(Img)`
+      width: ${rem("400px")};
+      height: auto;
+      right: -25%;
+      z-index: 0;
+      ${mq[0]} {
+        display: none;
+      }
+      ${mq[2]} {
+        display: block;
+      }
+      @media (min-width: px) {
+
+      }
+    `;
+
     const HeaderText = styled("div")`
       color: white;
       display: flex;
@@ -67,79 +91,62 @@ export default class extends React.Component<HeaderProps, {}> {
       ${mq[0]} {
         width: 100%;
         & h1 {
-          font-size: 2.5rem;
+          font-size: ${rem("44px")};
+          font-weight: normal;
+          letter-spacing: 1.55px;
         }
         & p {
-          font-size: 1.3rem;
+          font-size: ${rem("14px")};
+          opacity: 0.85;
         }
       }
       ${mq[2]} {
         width: 650px;
-        & h1 {
-          font-size: 62px;
-          margin-bottom: 20px;
-        }
-        & p {
-          font-size: 18px;
-        }
       }
       & p {
         margin-bottom: 0px;
       }
-    `;
-
-    const wave = keyframes`
-      0% {
-          margin-left: 0;
-      }
-      100% {
-          margin-left: -1600px;
-      }
-
-      `;
-
-    const swell = keyframes`
-      0%, 100% {
-          transform: translate3d(0, 25px,0);
-      }
-      50% {
-          transform: translate3d(0,-5px,0);
+      & h1 {
+        border-bottom: ${team && `5px ${colors.orange}`};
       }
     `;
 
     const Button = styled(_Button)`
-      margin-top: ${rem("45px")};
+      margin-top: ${rem("30px")};
+      font-size: ${rem("14px")};
+      font-weight: normal;
+      border-radius: 4px;
+      padding: 0.2rem 2rem;
       ${mq[0]} {
         margin-bottom: 20px;
       }
     `;
 
-    const ButtonContent = styled("span")`
+    const MoreButton = styled("div")`
+      margin-bottom: 5px;
+      color: white;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-top: 6px;
+      padding-left: 2px;
+      width: 50px;
+      height: 50px;
+      opacity: 0.8;
+      background-color: rgba(0, 36, 100, 0.2);
+      background-clip: padding-box;
+      border: solid 1px rgba(112, 112, 112, 0.08);
+      border-radius: 50%;
+      cursor: pointer;
       position: absolute;
-      bottom: 15%;
+      bottom: 9%;
       ${mq[0]} {
         display: none;
       }
       ${mq[1]} {
-        display: block;
+        display: flex;
       }
-    `;
-
-    const MoreButton = styled("div")`
-      margin-top: ${rem("45px")};
-      margin-bottom: 5px;
-      color: white;
-      font-size: 25px;
-      padding-left: 8px;
-      padding-top: 5px;
-      width: 50px;
-      height: 50px;
-      opacity: 0.8;
-      background-color: rgba(0, 0, 0, 0.6);
-      background-clip: padding-box;
-      border: 4px solid rgba(0, 0, 0, 0.3);
-      border-radius: 25px;
-      cursor: pointer;
     `;
 
     const WhiteCircles = styled("div")`
@@ -163,32 +170,17 @@ export default class extends React.Component<HeaderProps, {}> {
                 visit the website so that they can do what they understand what
                 Ludo is about and be inspired.
               </p>
-              <Button primary>We are hiring</Button>
+              {!team && <Button primary>We are hiring</Button>}
             </HeaderText>
+            <BannerLogo fluid={bannerLogo} />
           </Container>
-          <div
-            style={{
-              width: "586px",
-              height: "586px",
-              backgroundColor: "black",
-              position: "absolute",
-              right: "-100px",
-              display: "none"
-            }}
-          ></div>
-          <ButtonContent>
-            <MoreButton>
-              <Link to="/#our-services">
-                <FaArrowDown />
-              </Link>
-            </MoreButton>
-          </ButtonContent>
+          <MoreButton>
+            <Link to={team ? "/team/#core-team" : "/#our-services"}>
+              <FaArrowDown />
+            </Link>
+          </MoreButton>
           <WhiteCircles />
         </Section>
-        {/* <WaveContainer>
-          <Wave />
-          <Wave />
-        </WaveContainer> */}
       </Wrapper>
     );
   }

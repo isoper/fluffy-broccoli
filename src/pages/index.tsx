@@ -19,13 +19,21 @@ const parseData = (data, title) => {
     .node;
   return {
     title: item.title,
-    // image: item.image.childImageSharp.fixed,
+    image: item.image.childImageSharp.fixed,
     content: item.content.childMarkdownRemark.html
   };
 };
 
 const Index = ({ data }) => {
-  console.log(parseData);
+  console.log(data);
+  const profiles = data.allProfilesJson.edges.map(item => {
+    return {
+      ...item.node,
+      bio: item.node.bio.childMarkdownRemark.html,
+      picture: item.node.picture.childImageSharp.fixed
+    }
+  })
+  console.log(profiles);
   const build = parseData(data, "build");
   const run = parseData(data, "run");
   const innovate = parseData(data, "innovate");
@@ -33,15 +41,19 @@ const Index = ({ data }) => {
   const leadership = parseData(data, "leadership");
   const talent = parseData(data, "talent");
 
+  // const lightLogo = data.lightLogo.childImageSharp.fluid;
+  // const darkLogo = data.logo.childImageSharp.fluid;
+  const bannerLogo = data.bannerLogo.childImageSharp.fluid;
+
   return (
     <Layout data={data}>
       <div className="index-container">
         <Helmet title={config.siteTitle} />
-        <Header data={data} />
+        <Header data={data} bannerLogo={bannerLogo} />
         <div id="our-services">
           <Methodology run={run} build={build} innovate={innovate} />
         </div>
-        <WhoIs />
+        <WhoIs profiles={profiles} />
         <div id="ethos">
           <Ethos learning={learning} talent={talent} leadership={leadership} />
         </div>
@@ -72,6 +84,26 @@ export const HomeFragment = graphql`
   }
 `;
 
+export const ProfileFragment = graphql`
+  fragment ProfileFragment on ProfilesJson {
+    name
+    position
+    linkedin
+    bio {
+      childMarkdownRemark {
+        html
+      }
+    }
+    picture {
+      childImageSharp {
+        fixed(width: 200, height: 200) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`;
+
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query IndexQuery {
@@ -82,9 +114,16 @@ export const pageQuery = graphql`
         }
       }
     }
-    logo: file(relativePath: { eq: "logo.png" }) {
+    allProfilesJson {
+      edges {
+        node {
+          ...ProfileFragment
+        }
+      }
+    }
+    bannerLogo: file(relativePath: { eq: "BannerLogo.png" }) {
       childImageSharp {
-        fluid(maxHeight: 200) {
+        fluid(maxHeight: 400) {
           ...GatsbyImageSharpFluid
         }
       }

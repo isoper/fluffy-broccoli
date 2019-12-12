@@ -42,7 +42,7 @@ export default class extends React.Component<TeamProps, {}> {
         ${colors.darkBlue}
       );
       & h1 {
-        font-size: 54px;
+        font-size: ${rem("36px")};
         height: 68px;
       }
     `;
@@ -77,7 +77,8 @@ export default class extends React.Component<TeamProps, {}> {
     const TeamInfo = styled("p")`
       color: #fff;
       opacity: 0.85;
-      font-size: "21px";
+      padding-right: ${rem("30px")};
+      font-size: ${rem("15px")};
       line-height: 1.33;
     `;
 

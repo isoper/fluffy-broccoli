@@ -3,19 +3,22 @@
   "intro": "intro.md",
   "offer": "offer.md",
   "where": "where.md",
-  "map": "../../src/images/map_gvg.png",
+  "map": "../../src/images/Map.png",
   "jobs": [
     {
-      "title": "React Developer"
+      "title": "Frontend Developer",
+      "location": "Headquarter — Gevgelija, Macedonia — Full-time",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna, auctor faucibus ligula nec, lobortis aliquet mi. Sed ut finibus mi. Vestibulum nec turpis diam."
     },
     {
-      "title": "React Native Developer"
+      "title": "DevOps",
+      "location": "Field Mission — Paris, France — 3 months",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna, auctor faucibus ligula nec, lobortis aliquet mi. Sed ut finibus mi. Vestibulum nec turpis diam."
     },
     {
-      "title": "Node.js Developer"
-    },
-    {
-      "title": "Python Developer"
+      "title": "Business Developer",
+      "location": "Paris, France — Full-time",
+      "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna, auctor faucibus ligula nec, lobortis aliquet mi. Sed ut finibus mi. Vestibulum nec turpis diam."
     }
   ],
   "values": [

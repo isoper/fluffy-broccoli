@@ -3,7 +3,6 @@ import Helmet from "react-helmet";
 import { graphql } from "gatsby";
 
 import Layout from "../layout";
-import OurStory from "../components/OurStory";
 import Header from "../components/Header";
 import Team from "../components/Team";
 import WhereAreWe from "../components/WhereAreWe";
@@ -12,6 +11,7 @@ import Footer from "../components/Footer";
 
 const TeamPage = ({ data }) => {
   const profiles = [];
+  console.log(data);
   data.allProfilesJson.edges.forEach((item, index, array) => {
     profiles.push({
       ...item.node,
@@ -19,14 +19,19 @@ const TeamPage = ({ data }) => {
       picture: item.node.picture.childImageSharp.fixed
     });
   });
+  const whereAreWe = data.jobsJson.where.childMarkdownRemark.html;
+  const map = data.jobsJson.map.childImageSharp.fluid;
+
   return (
     <Layout data={data}>
       <div className="index-container">
         <Helmet title={"LUDO Team"} />
         {/* <OurStory content={ourStory} /> */}
-        <Header />
-        <Team profiles={profiles} />
-        <WhereAreWe title="Where are we?" />
+        <Header team />
+        <div id="core-team">
+          <Team profiles={profiles} />
+        </div>
+        <WhereAreWe title="Where are we?" content={whereAreWe} map={map} />
         <JobsCard />
         <Footer />
       </div>
@@ -71,6 +76,25 @@ export const pageQuery = graphql`
       content {
         childMarkdownRemark {
           html
+        }
+      }
+    }
+    jobsJson {
+      title {
+        childMarkdownRemark {
+          html
+        }
+      }
+      where {
+        childMarkdownRemark {
+          html
+        }
+      }
+      map {
+        childImageSharp {
+          fluid(maxHeight: 1200) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
         }
       }
     }

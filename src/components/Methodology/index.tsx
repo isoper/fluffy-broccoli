@@ -13,6 +13,7 @@ import startup from "./../../images/startups.svg";
 import sme from "./../../images/sme.svg";
 import corporates from "./../../images/corporates.svg";
 import BlueRound from "../../images/BlueRound.svg";
+import Circles from "../../images/CircleWavesBottom.svg";
 
 interface MethodologyProps {
   run: { title: string; content: string; image: any };
@@ -29,12 +30,10 @@ export default class extends React.Component<MethodologyProps, {}> {
       display: flex;
       position: relative;
       align-items: center;
-      padding-top: ${rem("45px")};
-      background-image: linear-gradient(
-        180deg,
-        ${colors.blue},
-        ${colors.darkBlue}
-      );
+      padding-top: 105px;
+      background-image: url(${Circles}),
+        linear-gradient(180deg, ${colors.blue}, ${colors.darkBlue});
+      background-position: center;
     `;
 
     const Container = styled(_Container)`
@@ -63,6 +62,11 @@ export default class extends React.Component<MethodologyProps, {}> {
         width: 22%;
       }
       padding: 0 10px;
+      & p {
+        opacity: 0.85;
+        font-size: ${rem("12px")};
+        line-height: 1.88;
+      }
     `;
 
     const Img = styled(_Img)`
@@ -77,7 +81,8 @@ export default class extends React.Component<MethodologyProps, {}> {
 
     const Step = styled("h2")`
       color: white;
-      font-size: 32px;
+      font-size: ${rem("26px")};
+      font-weight: normal;
     `;
 
     const TitleGrid = styled('div')`
@@ -116,7 +121,6 @@ export default class extends React.Component<MethodologyProps, {}> {
       display: flex;
       justify-content: space-evenly;
       align-items: center;
-      z-index: 1;
       ${mq[0]} {
         height: ${rem("200px")};
         width: 100%;
@@ -168,6 +172,7 @@ export default class extends React.Component<MethodologyProps, {}> {
       background-image: url(${BlueRound});
       position: absolute;
       bottom: -72px;
+      z-index: -2;
       width: 100%;
       height: 100px;
       background-repeat: no-repeat;
@@ -190,21 +195,21 @@ export default class extends React.Component<MethodologyProps, {}> {
           </TitleGrid>
           <Grid>
             <Item>
-              {/* <Img fixed={run.image} /> */}
+              <Img fixed={run.image} />
               <Content>
                 <Step>Scale</Step>
                 <p dangerouslySetInnerHTML={{ __html: run.content }} />
               </Content>
             </Item>
             <Item>
-              {/* <Img fixed={build.image} /> */}
+              <Img fixed={build.image} />
               <Content>
                 <Step>Build</Step>
                 <p dangerouslySetInnerHTML={{ __html: build.content }} />
               </Content>
             </Item>
             <Item>
-              {/* <Img fixed={innovate.image} /> */}
+              <Img fixed={innovate.image} />
               <Content>
                 <Step>Innovate</Step>
                 <p dangerouslySetInnerHTML={{ __html: innovate.content }} />

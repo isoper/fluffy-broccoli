@@ -42,18 +42,20 @@ export default class extends React.Component<JobCardsProps, {}> {
       & h2 {
         margin-bottom: 10px;
         color: ${colors.darkBlue};
-        font-size: 28px;
+        font-size: ${rem("20px")};
       }
 
       & h3 {
         margin-bottom: 10px;
-        font-size: 21px;
+        font-size: ${rem("16px")};
+        font-weight: normal;
         color: ${colors.orange};
         opacity: 0.75;
       }
 
       & p {
-        font-size: 18px;
+        font-size: ${rem("14px")};
+        line-height: 1.94;
         opacity: 0.85;
       }
     `;
