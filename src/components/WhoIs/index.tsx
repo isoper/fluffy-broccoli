@@ -1,17 +1,14 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css } from "emotion";
 import { FaArrowRight as _FaArrowRight } from "react-icons/fa";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
-import { FaLinkedin } from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaCloud, FaGithub } from "react-icons/fa";
 
 import { colors, mq } from "./../../utils/theme";
 import _Container from "./../../components/Container";
 import Title from "./../../components/Title";
-import Profile from "./../../components/Profile";
-import Team from "./../Team"
 import WhiteRound from '../../images/WhiteRound.svg';
 
 interface WhoIsProps {
@@ -20,7 +17,10 @@ interface WhoIsProps {
     position: string;
     bio: string;
     picture: any;
-    linkedin: string;
+    linkedin?: string;
+    twitter?: string;
+    cloud?: string;
+    github?: string;
   }[]
 }
 
@@ -105,15 +105,28 @@ export default class extends React.Component<WhoIsProps, {}> {
       & h2 {
         margin-bottom: 5px;
         color: ${colors.darkBlue};
-        font-size: ${rem('20px')};
+        font-size: ${rem("20px")};
         font-weight: 500;
       }
       & p {
-        font-size: ${rem('15px')};
+        font-size: ${rem("15px")};
         opacity: 0.85;
         margin-bottom: 5px;
       }
-    `
+
+      & a {
+        display: flex;
+        align-items: center;
+      }
+
+      & a > * {
+        background-color: #fff;
+        margin: 0 7.5px;
+        color: #cccccc;
+        font-size: 24px;
+        cursor: pointer;
+      }
+    `;
     
     const Picture = styled(Img)`
       border-radius: 50%;
@@ -136,13 +149,6 @@ export default class extends React.Component<WhoIsProps, {}> {
       }
     `;
 
-    const LinkedinIcon = styled(FaLinkedin)`
-      background-color: #cccccc;
-      color: #fff;
-      font-size: 24px;
-      cursor: pointer;
-    `;
-
     const ProfileGrid = styled('div')`
       display: flex;
       justify-content: center;
@@ -153,6 +159,10 @@ export default class extends React.Component<WhoIsProps, {}> {
       ${mq[2]} {
         flex-direction: row;
       }
+    `
+
+    const IconGrid = styled('div')`
+      display: flex;
     `
 
     return (
@@ -179,7 +189,28 @@ export default class extends React.Component<WhoIsProps, {}> {
                   <Picture fixed={profile.picture} />
                   <h2>{profile.name}</h2>
                   <p>{profile.position}</p>
-                  {profile.linkedin && <a href={profile.linkedin}><LinkedinIcon /></a>}
+                  <IconGrid>
+                    {profile.linkedin && (
+                      <a href={profile.linkedin} target="_blank">
+                        <FaLinkedin />
+                      </a>
+                    )}
+                    {profile.twitter && (
+                      <a href={profile.twitter} target="_blank">
+                        <FaTwitter />
+                      </a>
+                    )}
+                    {profile.github && (
+                      <a href={profile.github} target="_blank">
+                        <FaGithub />
+                      </a>
+                    )}
+                    {profile.cloud && (
+                      <a href={profile.cloud} target="_blank">
+                        <FaCloud />
+                      </a>
+                    )}
+                  </IconGrid>
                 </Profile>
               ))}
             </ProfileGrid>

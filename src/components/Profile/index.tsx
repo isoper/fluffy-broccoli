@@ -3,8 +3,8 @@ import { rem } from "polished";
 import styled from "@emotion/styled";
 import Img from "gatsby-image";
 
-import { colors, mq } from "./../../utils/theme";
-import { FaLinkedin } from "react-icons/fa";
+import { mq } from "./../../utils/theme";
+import { FaLinkedin, FaTwitter, FaCloud, FaGithub } from "react-icons/fa";
 
 interface ProfileProps {
   name: string;
@@ -12,6 +12,9 @@ interface ProfileProps {
   bio: string;
   picture: any;
   linkedin?: string;
+  twitter?: string;
+  cloud?: string;
+  github?: string;
 }
 
 export default class extends React.Component<ProfileProps, {}> {
@@ -19,7 +22,7 @@ export default class extends React.Component<ProfileProps, {}> {
     super(props, context);
   }
   public render() {
-    const { name, position, bio, picture, linkedin } = this.props;
+    const { name, position, bio, picture, linkedin, twitter, github, cloud } = this.props;
 
     const Container = styled("section")`
       padding-top: ${rem("45px")};
@@ -41,7 +44,8 @@ export default class extends React.Component<ProfileProps, {}> {
 
     const Picture = styled(Img)`
       border-radius: 50%;
-      width: ${rem("173px")};
+      align-self: center;
+      justify-self: center;
       ${mq[0]} {
         margin-bottom: 25px;
       }
@@ -83,14 +87,15 @@ export default class extends React.Component<ProfileProps, {}> {
       }
     `;
 
-    const SocialMedias = styled("div")``;
-
-    const LinkedinIcon = styled(FaLinkedin)`
-      background-color: transparent;
-      color: #508aa8;
-      font-size: 24px;
-      opacity: 0.5;
-      cursor: pointer;
+    const SocialMedias = styled("div")`
+      & a > * {
+        background-color: transparent;
+        margin-right: 15px;
+        color: #cccccc;
+        opacity: 0.4;
+        font-size: 24px;
+        cursor: pointer;
+      }
     `;
 
     return (
@@ -102,8 +107,23 @@ export default class extends React.Component<ProfileProps, {}> {
           <Bio dangerouslySetInnerHTML={{ __html: bio }} />
           <SocialMedias>
             {linkedin && (
-              <a href={linkedin}>
-                <LinkedinIcon />
+              <a href={linkedin} target="_blank">
+                <FaLinkedin />
+              </a>
+            )}
+            {twitter && (
+              <a href={twitter} target="_blank">
+                <FaTwitter />
+              </a>
+            )}
+            {github && (
+              <a href={github} target="_blank">
+                <FaGithub />
+              </a>
+            )}
+            {cloud && (
+              <a href={cloud} target="_blank">
+                <FaCloud />
               </a>
             )}
           </SocialMedias>

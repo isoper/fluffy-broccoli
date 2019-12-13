@@ -1,20 +1,15 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css, keyframes } from "@emotion/core";
-import { FaArrowDown, FaArrowRight } from "react-icons/fa";
-import { Link } from "gatsby";
-import Img from "gatsby-image";
 
 import { colors, mq } from "./../../utils/theme";
 import _Container from "./../../components/Container";
-import waveIllustration from "./wave.svg";
 import Title from "./../../components/Title";
 import _Button from "./../Button";
 import WhiteRound from "../../images/WhiteRound.svg";
 
 interface JobCardsProps {
-  jobs: { title: string; location: string; level: string }[];
+  jobs: { title: string; location: string; content: string }[];
 }
 
 export default class extends React.Component<JobCardsProps, {}> {
@@ -26,6 +21,9 @@ export default class extends React.Component<JobCardsProps, {}> {
       padding-top: ${rem("70px")};
       padding-bottom: ${rem("70px")};
       position: relative;
+      & h1 {
+        font-weight: 500;
+      }
     `;
 
     const Container = styled(_Container)`
@@ -100,39 +98,16 @@ export default class extends React.Component<JobCardsProps, {}> {
             <Title primary color={colors.darkBlue}>
               We're Hiring!
             </Title>
-            <JobDetails>
-              <h2>Frontend Developer</h2>
-              <h3>Headquarter — Gevgelija, Macedonia — Full-time</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna,
-                auctor faucibus ligula nec, lobortis aliquet mi. Sed ut finibus
-                mi. Vestibulum nec turpis diam.
-              </p>
-              <Button primary>Apply</Button>
-            </JobDetails>
-            <JobDetails>
-              <h2>DevOps</h2>
-              <h3>Field Mission — Paris, France — 3 months</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna,
-                auctor faucibus ligula nec, lobortis aliquet mi. Sed ut finibus
-                mi. Vestibulum nec turpis diam.
-              </p>
-              <Button primary>Apply</Button>
-            </JobDetails>
-            <JobDetails>
-              <h2>Business Developer</h2>
-              <h3>Paris, France — Full-time</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-                amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna,
-                auctor faucibus ligula nec, lobortis aliquet mi. Sed ut finibus
-                mi. Vestibulum nec turpis diam.
-              </p>
-              <Button primary>Apply</Button>
-            </JobDetails>
+            {jobs.map(job => (
+              <JobDetails key={job.title}>
+                <h2>{job.title}</h2>
+                <h3>{job.location}</h3>
+                <p>
+                  {job.content}
+                </p>
+                <Button primary>Apply</Button>
+              </JobDetails>
+            ))}
           </Grid>
         </Container>
         <RoundBorderBottom />

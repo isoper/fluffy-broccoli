@@ -1,2 +1,0 @@
-Why Gevgelija? Because it offers sunny weather,
-proximity to nature and has a strong sense of community. Above all, traffic jam isn't a concern as you can go to work on foot and save a serious amount of money as the cost of living is 30% cheaper than in Skopje! The city is surrounded by really cool point of interest so you can enjoy your weekends with family or friends.

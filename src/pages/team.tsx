@@ -7,33 +7,33 @@ import Header from "../components/Header";
 import Team from "../components/Team";
 import WhereAreWe from "../components/WhereAreWe";
 import JobsCard from "../components/JobCards";
-import Footer from "../components/Footer";
 
 const TeamPage = ({ data }) => {
   const profiles = [];
-  console.log(data);
-  data.allProfilesJson.edges.forEach((item, index, array) => {
+  data.allProfilesJson.edges.forEach((item) => {
     profiles.push({
       ...item.node,
       bio: item.node.bio.childMarkdownRemark.html,
       picture: item.node.picture.childImageSharp.fixed
     });
   });
-  const whereAreWe = data.jobsJson.where.childMarkdownRemark.html;
-  const map = data.jobsJson.map.childImageSharp.fluid;
+  const whereAreWe = data.teamJson.where.childMarkdownRemark.html;
+  const map = data.teamJson.map.childImageSharp.fluid;
+  const bannerLogo = data.bannerLogo.childImageSharp.fluid;
+  const jobs = data.teamJson.jobs;
+  const teamText = data.teamJson.teamText.childMarkdownRemark.html;
+  const headerText = data.teamJson.headerText.childMarkdownRemark.html;
 
   return (
     <Layout data={data}>
       <div className="index-container">
         <Helmet title={"LUDO Team"} />
-        {/* <OurStory content={ourStory} /> */}
-        <Header team />
+        <Header team bannerLogo={bannerLogo} title={"The story of Ludō"} headerText={headerText} />
         <div id="core-team">
-          <Team profiles={profiles} />
+          <Team profiles={profiles} title="Core Team" teamText={teamText} />
         </div>
         <WhereAreWe title="Where are we?" content={whereAreWe} map={map} />
-        <JobsCard />
-        <Footer />
+        <JobsCard jobs={jobs} />
       </div>
     </Layout>
   );
@@ -47,6 +47,9 @@ export const ProfileFrahment = graphql`
     name
     position
     linkedin
+    twitter
+    github
+    cloud
     bio {
       childMarkdownRemark {
         html
@@ -54,13 +57,14 @@ export const ProfileFrahment = graphql`
     }
     picture {
       childImageSharp {
-        fixed(width: 200, height: 200) {
+        fixed(width: 160, height: 160) {
           ...GatsbyImageSharpFixed
         }
       }
     }
   }
 `;
+
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
@@ -73,14 +77,7 @@ export const pageQuery = graphql`
       }
     }
     teamJson {
-      content {
-        childMarkdownRemark {
-          html
-        }
-      }
-    }
-    jobsJson {
-      title {
+      headerText {
         childMarkdownRemark {
           html
         }
@@ -93,15 +90,60 @@ export const pageQuery = graphql`
       map {
         childImageSharp {
           fluid(maxHeight: 1200) {
-            ...GatsbyImageSharpFluid_withWebp
+            ...GatsbyImageSharpFluid
           }
         }
       }
+      teamText { 
+        childMarkdownRemark {
+          html
+        }
+      }
+      jobs {
+        title
+        location
+        content
+      }
     }
-    logo: file(relativePath: { eq: "logo.png" }) {
+    darkLogo: file(relativePath: { eq: "LogoLightBackground.png" }) {
       childImageSharp {
-        fluid(maxHeight: 200) {
-          ...GatsbyImageSharpFluid_withWebp_noBase64
+        fixed(width: 120 height: 34) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    lightLogo: file(relativePath: { eq: "LogoDarkBackground.png" }) {
+      childImageSharp {
+        fixed(width: 120 height: 34) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    bannerLogo: file(relativePath: { eq: "BannerLogo.png" }) {
+      childImageSharp {
+        fluid(maxHeight: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    enFlag: file(relativePath: { eq: "en.png" }) {
+      childImageSharp {
+        fixed(width: 24 height: 24) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    frFlag: file(relativePath: { eq: "fr.png" }) {
+      childImageSharp {
+        fixed(width: 24 height: 24) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    mkFlag: file(relativePath: { eq: "mk.png" }) {
+      childImageSharp {
+        fixed(width: 24 height: 24) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

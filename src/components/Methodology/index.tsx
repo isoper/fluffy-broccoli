@@ -1,7 +1,6 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css } from "emotion";
 import _Img from "gatsby-image";
 import { FaReact, FaPython, FaAws } from "react-icons/fa";
 
@@ -9,9 +8,6 @@ import { colors, mq } from "./../../utils/theme";
 import RoundImage from "./../../components/RoundImage";
 import _Container from "./../../components/Container";
 import Title from "./../../components/Title";
-import startup from "./../../images/startups.svg";
-import sme from "./../../images/sme.svg";
-import corporates from "./../../images/corporates.svg";
 import BlueRound from "../../images/BlueRound.svg";
 import Circles from "../../images/CircleWavesBottom.svg";
 
@@ -37,7 +33,7 @@ export default class extends React.Component<MethodologyProps, {}> {
     `;
 
     const Container = styled(_Container)`
-      margin-bottom: -80px;
+      margin-bottom: -140px;
     `;
 
     const Grid = styled("div")`
@@ -54,7 +50,7 @@ export default class extends React.Component<MethodologyProps, {}> {
     const Item = styled("div")`
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       ${mq[0]} {
         width: 100%;
         padding: 0 30px;
@@ -71,6 +67,7 @@ export default class extends React.Component<MethodologyProps, {}> {
 
     const Img = styled(_Img)`
       margin-bottom: 30px;
+      right: 50px;
       ${mq[0]} {
         display: none !important;
       }
@@ -83,6 +80,7 @@ export default class extends React.Component<MethodologyProps, {}> {
       color: white;
       font-size: ${rem("26px")};
       font-weight: normal;
+      margin-bottom: 10px;
     `;
 
     const TitleGrid = styled('div')`
@@ -107,13 +105,13 @@ export default class extends React.Component<MethodologyProps, {}> {
       align-items: center;
       position: relative;
       ${mq[0]} {
-        top: 125px;
+        top: 103px;
       }
       ${mq[1]} {
-        top: 110px;
+        top: 85px;
       }
       ${mq[3]} {
-        top: 145px;
+        top: 120px;
       }
     `;
 
@@ -184,7 +182,6 @@ export default class extends React.Component<MethodologyProps, {}> {
       }
     `;
 
-
     const { run, build, innovate } = this.props;
 
     return (
@@ -223,16 +220,19 @@ export default class extends React.Component<MethodologyProps, {}> {
                 content={<ReactIcon />}
                 firstColor={"#c8dff4"}
                 secondColor={"#64707a"}
+                name={"React"}
               />
               <RoundImage
                 content={<PythonIcon />}
                 firstColor={"#508AA8"}
                 secondColor={"#284554"}
+                name={"Python"}
               />
               <RoundImage
                 content={<AwsIcon />}
                 firstColor={"#1E4396"}
                 secondColor={"#0F224B"}
+                name={"AWS"}
               />
             </TechnologiesIcons>
           </TechnologiesContainer>

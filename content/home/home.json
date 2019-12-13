@@ -33,5 +33,10 @@
     "title": "talent",
     "content": "talent.md",
     "image": "../../src/images/talent.png"
+  },
+  {
+    "title": "headerText",
+    "content": "headerText.md",
+    "image": "../../src/images/BannerLogo.png"
   }
 ]

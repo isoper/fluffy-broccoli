@@ -1,9 +1,6 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css, keyframes } from "@emotion/core";
-import { FaArrowDown, FaArrowRight } from "react-icons/fa";
-import { Link } from "gatsby";
 import _Img from "gatsby-image";
 
 import { colors, mq } from "./../../utils/theme";
@@ -27,6 +24,7 @@ export default class extends React.Component<WhereAreWeProps, {}> {
       padding-top: ${rem("120px")};
       & h1 {
         font-size: ${rem("36px")};
+        font-weight: 500;
       }
     `;
 

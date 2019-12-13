@@ -1,14 +1,8 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css, keyframes } from "@emotion/core";
-import { FaArrowDown, FaArrowRight } from "react-icons/fa";
-import { Link } from "gatsby";
-
-import { colors, mq } from "./../../utils/theme";
 import _Button from "./../Button";
 import Container from "./../../components/Container";
-import waveIllustration from "./wave.svg";
 import Title from "./../../components/Title";
 
 interface OurOfferProps {

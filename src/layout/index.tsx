@@ -4,6 +4,7 @@ import { Global, css } from "@emotion/core";
 
 import config from "../../data/SiteConfig";
 import NavBar from "../components/NavBar";
+import Footer from "../components/Footer";
 
 interface MainLayoutProps {
   data: any;
@@ -36,6 +37,7 @@ export default class MainLayout extends React.Component {
         </Helmet>
         <NavBar data={this.props.data} />
         {children}
+        <Footer data={this.props.data} />
       </div>
     );
   }

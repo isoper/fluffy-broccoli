@@ -86,27 +86,8 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       background-color: ${colors.white};
     `;
 
-    const DivLogo = styled("div")`
-      display: flex;
-      font-weight: bold;
-      font-size: ${rem("30px")};
-    `;
-
     const ImgLogo = styled(Img)`
-      width: 120px;
       cursor: pointer;
-    `;
-
-    const Logo = styled('img')`
-      width: 120px;
-      cursor: pointer;
-    `
-
-    const Span = styled("span")`
-      color: white;
-      font-weight: 700;
-      font-size: 1.8rem;
-      margin-left: 10px;
     `;
 
     const UlLinks = styled("ul")`
@@ -127,8 +108,8 @@ export default class extends React.Component<NavBarProps, NavBarState> {
     `;
 
     const A = styled(Link)`
-      color: ${this.state.isSolid ? colors.primaryDark : colors.white};
-      opacity: 0.5;
+      color: ${this.state.isSolid ? colors.darkBlue : colors.white};
+      opacity: ${this.state.isSolid ? '1' : '0.5'};
       text-decoration: none;
       font-size: 0.8rem;
       padding: ${rem("10px")} 0;
@@ -139,6 +120,12 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       &:focus {
         border-bottom: 2px solid ${colors.orange};
         opacity: 1;
+      }
+    `;
+
+    const MobileLogoLink = styled(Link)`
+      ${mq[0]} {
+        display: flex;
       }
     `;
 
@@ -209,31 +196,47 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       }
     `;
 
+    const FlagsGrid = styled("div")`
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: ${rem("5px")};
+      & div:not(:first-of-type) {
+        opacity: 0.3;
+        margin-left: 10px;
+      }
+    `;
+
+    const FlagImg = styled(Img)`
+      cursor: pointer;
+    `;
+
     return (
       <div>
         <nav className={cx(Nav, { [solidNavBar]: this.state.isSolid })}>
           <Container>
-            <Link to="/">
+            <MobileLogoLink to="/">
               {this.state.isSolid ? (
-                // <ImgLogo
-                //   fluid={this.props.data.logo.childImageSharp.fluid}
-                //   fadeIn={false}
-                // />
-                <Logo
-                  src={"./../../images/LogoDarkBackground.png"}
-                  alt="logo"
+                <ImgLogo
+                  fixed={this.props.data.darkLogo.childImageSharp.fixed}
+                  fadeIn={false}
                 />
               ) : (
-                <Logo
-                  src={"../../../static/logos/LogoLightBackground.png"}
-                  alt="logo"
+                <ImgLogo
+                  fixed={this.props.data.lightLogo.childImageSharp.fixed}
+                  fadeIn={false}
                 />
               )}
-            </Link>
+            </MobileLogoLink>
             <UlLinks>
               <Li>
                 <A to="/team">Team & Hiring</A>
               </Li>
+              <FlagsGrid>
+                <FlagImg fixed={this.props.data.enFlag.childImageSharp.fixed} />
+                <FlagImg fixed={this.props.data.frFlag.childImageSharp.fixed} />
+                <FlagImg fixed={this.props.data.mkFlag.childImageSharp.fixed} />
+              </FlagsGrid>
             </UlLinks>
             <SidePanelOpener
               onClick={() => this.setState({ isSidePanelOpened: true })}
@@ -248,7 +251,7 @@ export default class extends React.Component<NavBarProps, NavBarState> {
                 onClick={() => this.setState({ isSidePanelOpened: false })}
               >
                 <ImgLogo
-                  fluid={this.props.data.logo.childImageSharp.fluid}
+                  fixed={this.props.data.darkLogo.childImageSharp.fixed}
                   fadeIn={false}
                 />
               </Link>
@@ -266,6 +269,17 @@ export default class extends React.Component<NavBarProps, NavBarState> {
                 >
                   Team & Hiring
                 </Link>
+                <FlagsGrid>
+                  <FlagImg
+                    fixed={this.props.data.enFlag.childImageSharp.fixed}
+                  />
+                  <FlagImg
+                    fixed={this.props.data.frFlag.childImageSharp.fixed}
+                  />
+                  <FlagImg
+                    fixed={this.props.data.mkFlag.childImageSharp.fixed}
+                  />
+                </FlagsGrid>
               </SidePanelLink>
             </SidePanelContent>
           </SidePanel>

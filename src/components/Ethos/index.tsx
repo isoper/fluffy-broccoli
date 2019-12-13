@@ -1,12 +1,10 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css } from "emotion";
 import _Img from "gatsby-image";
 
 import { colors, mq } from "./../../utils/theme";
 import Container from "./../../components/Container";
-import RoundImage from "./../../components/RoundImage";
 import Title from "./../../components/Title";
 import BlueRound from "../../images/BlueRound.svg";
 import Circles from "../../images/CircleWavesBottom.svg";
@@ -67,7 +65,7 @@ export default class extends React.Component<EthosProps, {}> {
     const Item = styled("div")`
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: flex-end;
       ${mq[0]} {
         width: 100%;
         padding: 0 30px;
@@ -81,11 +79,11 @@ export default class extends React.Component<EthosProps, {}> {
       color: white;
       font-size: ${rem("22px")};
       font-weight: normal;
+      margin-bottom: 10px;
     `;
 
     const Img = styled(_Img)`
-      margin-bottom: 20px;
-      width: 90% !important;
+      margin-bottom: 30px;
       ${mq[0]} {
         display: none !important;
       }

@@ -3,7 +3,10 @@
     "position": "Business Lead",
     "bio": "bio/david.md",
     "picture": "../../src/images/profiles/david.jpg",
-    "linkedin": "test"
+    "linkedin": "https://www.linkedin.com/in/david-c-038331185/",
+    "github": "",
+    "twitter": "",
+    "cloud": ""
   },
 
   {
@@ -11,6 +14,9 @@
     "position": "Tech Lead",
     "bio": "bio/bruno.md",
     "picture": "../../src/images/profiles/bruno.jpg",
-    "linkedin": "test"
+    "linkedin": "https://www.linkedin.com/in/bruno-pereira-39769ab4/",
+    "github": "https://github.com/brunopereira27",
+    "twitter": "",
+    "cloud": ""
   }
 ]

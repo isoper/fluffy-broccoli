@@ -1,7 +1,6 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css } from "emotion";
 import { navigateTo } from "gatsby-link";
 
 import { colors, mq } from "./../../utils/theme";
@@ -73,7 +72,6 @@ const TextArea = styled("textarea")`
   display: block;
   margin-top: 8px;
   height: 20vh;
-  opacity: 0.6;
   padding: 0.6rem;
   width: 100%;
   border: none;

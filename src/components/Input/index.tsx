@@ -1,8 +1,7 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css } from "emotion";
-import { colors, mq } from "./../../utils/theme";
+import { colors } from "./../../utils/theme";
 
 type InputProps = {
   placeholder: string;
@@ -17,7 +16,6 @@ const InputContainer = styled("div")`
 const Input = styled("input")`
   display: block;
   margin: 0;
-  opacity: 0.6;
   height: ${({ area }) => (area ? "20vh" : "")};
   padding: 0.6rem;
   width: 100%;

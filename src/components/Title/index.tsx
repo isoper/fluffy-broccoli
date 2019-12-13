@@ -1,7 +1,6 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css } from "emotion";
 
 import { colors, mq } from "./../../utils/theme";
 

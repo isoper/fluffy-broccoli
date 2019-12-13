@@ -5,14 +5,10 @@ import { graphql } from "gatsby";
 import Layout from "../layout";
 import Header from "../components/Header";
 import Methodology from "../components/Methodology";
-import { query as methodologyQuery } from "../components/Methodology";
 import WhoIs from "../components/WhoIs";
 import Ethos from "../components/Ethos";
 import GetInTouch from "../components/GetInTouch";
-import PostListing from "../components/PostListing/PostListing";
-import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
-import Footer from "../components/Footer";
 
 const parseData = (data, title) => {
   const item = data.allHomeJson.edges.find(item => item.node.title === title)
@@ -25,7 +21,6 @@ const parseData = (data, title) => {
 };
 
 const Index = ({ data }) => {
-  console.log(data);
   const profiles = data.allProfilesJson.edges.map(item => {
     return {
       ...item.node,
@@ -33,23 +28,20 @@ const Index = ({ data }) => {
       picture: item.node.picture.childImageSharp.fixed
     }
   })
-  console.log(profiles);
   const build = parseData(data, "build");
   const run = parseData(data, "run");
   const innovate = parseData(data, "innovate");
   const learning = parseData(data, "learning");
   const leadership = parseData(data, "leadership");
   const talent = parseData(data, "talent");
-
-  // const lightLogo = data.lightLogo.childImageSharp.fluid;
-  // const darkLogo = data.logo.childImageSharp.fluid;
+  const headerText = parseData(data, "headerText");
   const bannerLogo = data.bannerLogo.childImageSharp.fluid;
 
   return (
     <Layout data={data}>
       <div className="index-container">
         <Helmet title={config.siteTitle} />
-        <Header data={data} bannerLogo={bannerLogo} />
+        <Header data={data} bannerLogo={bannerLogo} title={"A tech team that flows"} headerText={headerText.content} />
         <div id="our-services">
           <Methodology run={run} build={build} innovate={innovate} />
         </div>
@@ -58,7 +50,6 @@ const Index = ({ data }) => {
           <Ethos learning={learning} talent={talent} leadership={leadership} />
         </div>
         <GetInTouch />
-        <Footer />
       </div>
     </Layout>
   );
@@ -77,7 +68,7 @@ export const HomeFragment = graphql`
     image {
       childImageSharp {
         fixed(width: 330) {
-          ...GatsbyImageSharpFixed_withWebp
+          ...GatsbyImageSharpFixed
         }
       }
     }
@@ -85,10 +76,13 @@ export const HomeFragment = graphql`
 `;
 
 export const ProfileFragment = graphql`
-  fragment ProfileFragment on ProfilesJson {
+  fragment TeamFragment on ProfilesJson {
     name
     position
     linkedin
+    twitter
+    github
+    cloud
     bio {
       childMarkdownRemark {
         html
@@ -117,7 +111,21 @@ export const pageQuery = graphql`
     allProfilesJson {
       edges {
         node {
-          ...ProfileFragment
+          ...TeamFragment
+        }
+      }
+    }
+    darkLogo: file(relativePath: { eq: "LogoLightBackground.png" }) {
+      childImageSharp {
+        fixed(width: 120 height: 34) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    lightLogo: file(relativePath: { eq: "LogoDarkBackground.png" }) {
+      childImageSharp {
+        fixed(width: 120 height: 34) {
+          ...GatsbyImageSharpFixed
         }
       }
     }
@@ -125,6 +133,27 @@ export const pageQuery = graphql`
       childImageSharp {
         fluid(maxHeight: 400) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    enFlag: file(relativePath: { eq: "en.png" }) {
+      childImageSharp {
+        fixed(width: 24 height: 24) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    frFlag: file(relativePath: { eq: "fr.png" }) {
+      childImageSharp {
+        fixed(width: 24 height: 24) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    mkFlag: file(relativePath: { eq: "mk.png" }) {
+      childImageSharp {
+        fixed(width: 24 height: 24) {
+          ...GatsbyImageSharpFixed
         }
       }
     }

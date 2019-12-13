@@ -1,13 +1,13 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css, keyframes } from "@emotion/core";
-import { FaArrowDown, FaArrowRight } from "react-icons/fa";
+import { FaArrowDown } from "react-icons/fa";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 
 import { colors, mq } from "./../../utils/theme";
 import _Button from "./../Button";
+import Title from "./../Title";
 import _Container from "./../../components/Container";
 import Divider from "../../images/Waves.svg";
 import Circles from "../../images/Circles.svg";
@@ -16,6 +16,8 @@ interface HeaderProps {
   data: any;
   team: boolean;
   bannerLogo: string;
+  title: string;
+  headerText: string;
 }
 
 export default class extends React.Component<HeaderProps, {}> {
@@ -23,7 +25,7 @@ export default class extends React.Component<HeaderProps, {}> {
     super(props, context);
   }
   public render() {
-    const { team, bannerLogo } = this.props;
+    const { team, bannerLogo, title, headerText } = this.props;
 
     const Wrapper = styled("div")`
       overflow: hidden;
@@ -78,8 +80,8 @@ export default class extends React.Component<HeaderProps, {}> {
       ${mq[2]} {
         display: block;
       }
-      @media (min-width: px) {
-
+      @media (min-width: 1600px) {
+        right: -15%;
       }
     `;
 
@@ -91,13 +93,23 @@ export default class extends React.Component<HeaderProps, {}> {
       ${mq[0]} {
         width: 100%;
         & h1 {
-          font-size: ${rem("44px")};
+          font-size: ${rem("32px")};
           font-weight: normal;
-          letter-spacing: 1.55px;
+          margin-bottom: 20px;
+          padding-left: 0 !important;
+          height: 77px !important;
         }
         & p {
           font-size: ${rem("14px")};
           opacity: 0.85;
+        }
+      }
+      padding-top: ${rem("40px")};
+      ${mq[1]} {
+        padding-top: 0;
+        & h1 {
+          font-size: ${rem("44px")};
+          letter-spacing: 1.55px;
         }
       }
       ${mq[2]} {
@@ -105,9 +117,6 @@ export default class extends React.Component<HeaderProps, {}> {
       }
       & p {
         margin-bottom: 0px;
-      }
-      & h1 {
-        border-bottom: ${team && `5px ${colors.orange}`};
       }
     `;
 
@@ -164,13 +173,13 @@ export default class extends React.Component<HeaderProps, {}> {
         <Section>
           <Container>
             <HeaderText>
-              <h1>A tech team that flows</h1>
-              <p>
-                Some text here saying what really matters to the people that
-                visit the website so that they can do what they understand what
-                Ludo is about and be inspired.
-              </p>
-              {!team && <Button primary>We are hiring</Button>}
+              {team ? <Title primary>{title}</Title> : <h1>{title}</h1>}
+              <p dangerouslySetInnerHTML={{ __html: headerText }} />
+              {!team && (
+                <Link to='/team'>
+                  <Button primary>We are hiring</Button>
+                </Link>
+              )}
             </HeaderText>
             <BannerLogo fluid={bannerLogo} />
           </Container>
