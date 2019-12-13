@@ -25,12 +25,20 @@ const Section = styled("section")`
   text-align: center;
   padding-top: ${rem("130px")};
   padding-bottom: ${rem("80px")};
+  ${mq[0]} {
+    & h1 {
+      font-weight: 500;
+      font-size ${rem("30px")};
+    }
+  }
+  ${mq[1]} {
+    & h1 {
+      font-weight: 500;
+      font-size ${rem("36px")};
+    }
+  }
   ${mq[3]} {
     padding-top: ${rem("150px")};
-  }
-  & h1 {
-    font-weight: 500;
-    font-size ${rem("36px")};
   }
 `;
 

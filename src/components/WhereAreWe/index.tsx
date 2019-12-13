@@ -22,9 +22,16 @@ export default class extends React.Component<WhereAreWeProps, {}> {
   public render() {
     const Section = styled("section")`
       padding-top: ${rem("120px")};
-      & h1 {
-        font-size: ${rem("36px")};
-        font-weight: 500;
+      ${mq[0]} {
+        & h1 {
+          font-size: ${rem("30px")};
+          font-weight: 500;
+        }
+      }
+      ${mq[1]} {
+        & h1 {
+          font-size: ${rem("36px")};
+        }
       }
     `;
 

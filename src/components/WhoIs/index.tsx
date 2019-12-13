@@ -40,9 +40,16 @@ export default class extends React.Component<WhoIsProps, {}> {
       padding-bottom: ${rem("80px")};
       text-align: center;
 
-      & h1 {
-        font-weight: 500 !important;
-        font-size: ${rem("36px")};
+      ${mq[0]} {
+        & h1 {
+          font-weight: 500 !important;
+          font-size: ${rem("30px")};
+        }
+      }
+      ${mq[1]} {
+        & h1 {
+          font-size: ${rem("36px")};
+        }
       }
     `;
 
@@ -85,11 +92,18 @@ export default class extends React.Component<WhoIsProps, {}> {
       display: flex;
       justify-content: center;
       flex-direction: column;
-      & h1 {
-        font-size: ${rem("28px")} !important;
-        height: 52px !important;
+      ${mq[0]} {
+        & h1 {
+          font-size: ${rem("24px")} !important;
+          height: 52px !important;
+        }
       }
-    `
+      ${mq[1]} {
+        & h1 {
+          font-size: ${rem("28px")} !important;
+        }
+      }
+    `;
 
     const Profile = styled("div")`
       display: flex;
@@ -169,7 +183,7 @@ export default class extends React.Component<WhoIsProps, {}> {
       <Section>
         <Container>
           <Title primary color={colors.darkBlue}>
-            Who is LUDŌ?
+            Who is Ludō?
           </Title>
           <Content>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
