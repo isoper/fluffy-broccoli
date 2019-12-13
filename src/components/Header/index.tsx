@@ -108,7 +108,7 @@ export default class extends React.Component<HeaderProps, {}> {
       ${mq[1]} {
         padding-top: 0;
         & h1 {
-          font-size: ${rem("44px")};
+          font-size: ${rem("42px")};
           letter-spacing: 1.55px;
           height: 77px !important;
         }
