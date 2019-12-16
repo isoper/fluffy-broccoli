@@ -136,6 +136,7 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       ${mq[2]} {
         display: none !important;
       }
+      color: ${this.state.isSolid ? colors.darkBlue : colors.white};
       cursor: pointer;
       font-size: 30px;
     `;

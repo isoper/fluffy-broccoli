@@ -61,10 +61,12 @@ export default class extends React.Component<WhoIsProps, {}> {
       margin: 0 auto 20px;
       font-size: ${rem("16px")};
       ${mq[0]} {
-        width: 100%
+        width: 100%;
+        text-align: left;
       }
       ${mq[1]} {
         width: 700px;
+        text-align: center;
       }
       ${mq[2]} {
         width: 768px;
