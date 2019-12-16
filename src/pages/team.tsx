@@ -28,12 +28,19 @@ const TeamPage = ({ data }) => {
     <Layout data={data}>
       <div className="index-container">
         <Helmet title={"LUDO Team"} />
-        <Header team bannerLogo={bannerLogo} title={"The story of Ludō"} headerText={headerText} />
+        <Header
+          team
+          bannerLogo={bannerLogo}
+          title={"The story of Ludō"}
+          headerText={headerText}
+        />
         <div id="core-team">
           <Team profiles={profiles} title="Core Team" teamText={teamText} />
         </div>
         <WhereAreWe title="Where are we?" content={whereAreWe} map={map} />
-        <JobsCard jobs={jobs} />
+        <div id="hiring">
+          <JobsCard jobs={jobs} />
+        </div>
       </div>
     </Layout>
   );

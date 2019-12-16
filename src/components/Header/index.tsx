@@ -176,7 +176,7 @@ export default class extends React.Component<HeaderProps, {}> {
               {team ? <Title primary>{title}</Title> : <h1>{title}</h1>}
               <p dangerouslySetInnerHTML={{ __html: headerText }} />
               {!team && (
-                <Link to='/team'>
+                <Link to='/team/#hiring'>
                   <Button primary>We are hiring</Button>
                 </Link>
               )}
