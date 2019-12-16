@@ -154,7 +154,7 @@ export default class extends React.Component<FooterProps, FooterState> {
             <FooterGrid>
               <Heading>Address</Heading>
               <FooterInfo>
-                Deko Kovacev 11 <br /> 1480 Gevgelija <br /> North Macedonia
+                7-mi Noemvri 72 <br /> 1480 Gevgelija <br /> North Macedonia
               </FooterInfo>
             </FooterGrid>
             <FooterGrid>

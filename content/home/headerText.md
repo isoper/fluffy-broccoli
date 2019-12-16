@@ -1,1 +1,1 @@
-Some text here saying what really matters to the people that visit the website  so that they can do what they understand what Ludo is about and be inspired.
+Focus on your business, we scale your team on demand.

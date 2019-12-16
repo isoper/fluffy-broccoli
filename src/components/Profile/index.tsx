@@ -44,7 +44,7 @@ export default class extends React.Component<ProfileProps, {}> {
 
     const Picture = styled(Img)`
       border-radius: 50%;
-      align-self: center;
+      align-self: flex-start;
       justify-self: center;
       ${mq[0]} {
         margin-bottom: 25px;
