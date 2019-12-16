@@ -139,6 +139,11 @@ export default class extends React.Component<WhoIsProps, {}> {
         color: #cccccc;
         font-size: 24px;
         cursor: pointer;
+        transition: 0.3s;
+      }
+
+      & a > *:hover {
+        color: ${colors.blue};
       }
     `;
     

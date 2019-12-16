@@ -200,10 +200,15 @@ export default class extends React.Component<NavBarProps, NavBarState> {
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      padding-top: ${rem("5px")};
       & div:not(:first-of-type) {
         opacity: 0.3;
         margin-left: 10px;
+      }
+      & div {
+        transition: 0.3s;
+      }
+      & div:hover {
+        opacity: 1;
       }
     `;
 

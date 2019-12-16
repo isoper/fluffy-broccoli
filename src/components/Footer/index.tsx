@@ -87,9 +87,14 @@ const FlagsGrid = styled("div")`
       margin: 0;
     }
     & div:not(:first-of-type) {
-      opacity: 0.3;
       margin-left: 10px;
     }
+  }
+  & div {
+    transition: 0.3s;
+  }
+  & div:hover {
+    opacity: 1;
   }
 `;
 
@@ -108,7 +113,15 @@ const FooterInfo = styled('p')`
 
 const Icons = styled("div")`
   font-size: ${rem("16px")};
-  opacity: 0.4;
+  & a > * {
+    opacity: 0.4;
+    transition: 0.3s;
+  }
+
+  & a > *:hover {
+    color: #fff;
+    opacity: 1;
+  }
   ${mq[0]} {
     & a {
       margin: 0 10px;

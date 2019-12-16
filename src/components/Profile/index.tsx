@@ -95,6 +95,12 @@ export default class extends React.Component<ProfileProps, {}> {
         opacity: 0.4;
         font-size: 24px;
         cursor: pointer;
+        trainsition: 0.3s;
+      }
+
+      & a > *:hover {
+        color: #fff;
+        opacity: 1;
       }
     `;
 
