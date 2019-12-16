@@ -1,0 +1,23 @@
+{
+    "headerText": "headerText.md",
+    "where": "where.md",
+    "map": "../../src/images/Map.png",
+    "teamText": "teamText.md",
+    "jobs": [
+        {
+            "title": "Frontend Developer",
+            "location": "Headquarter — Gevgelija, Macedonia — Full-time",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna, auctor faucibus ligula nec, lobortis aliquet mi. Sed ut finibus mi. Vestibulum nec turpis diam."
+        },
+        {
+            "title": "DevOps",
+            "location": "Field Mission — Paris, France — 3 months",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna, auctor faucibus ligula nec, lobortis aliquet mi. Sed ut finibus mi. Vestibulum nec turpis diam."
+        },
+        {
+            "title": "Business Developer",
+            "location": "Paris, France — Full-time",
+            "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna, auctor faucibus ligula nec, lobortis aliquet mi. Sed ut finibus mi. Vestibulum nec turpis diam."
+        }
+    ]
+}

@@ -1,17 +1,15 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css } from "emotion";
 import _Img from "gatsby-image";
 import { FaReact, FaPython, FaAws } from "react-icons/fa";
 
 import { colors, mq } from "./../../utils/theme";
 import RoundImage from "./../../components/RoundImage";
-import Container from "./../../components/Container";
+import _Container from "./../../components/Container";
 import Title from "./../../components/Title";
-import startup from "./../../images/startups.svg";
-import sme from "./../../images/sme.svg";
-import corporates from "./../../images/corporates.svg";
+import BlueRound from "../../images/BlueRound.svg";
+import Circles from "../../images/CircleWavesBottom.svg";
 
 interface MethodologyProps {
   run: { title: string; content: string; image: any };
@@ -26,30 +24,50 @@ export default class extends React.Component<MethodologyProps, {}> {
   public render() {
     const Section = styled("section")`
       display: flex;
+      position: relative;
       align-items: center;
-      padding-top: ${rem("45px")};
-      background-image: linear-gradient(
-        180deg,
-        ${colors.secondary} 0%,
-        ${colors.secondaryDark} 100%
-      );
-      border-bottom-left-radius: 50% 5%;
-      border-bottom-right-radius: 50% 5%;
+      padding-top: 105px;
+      background-image: url(${Circles}),
+        linear-gradient(180deg, ${colors.blue}, ${colors.darkBlue});
+      background-position: center;
+    `;
+
+    const Container = styled(_Container)`
+      margin-bottom: -140px;
     `;
 
     const Grid = styled("div")`
       display: flex;
-      flex-direction: column;
+      justify-content: space-between;
+      ${mq[0]} {
+        flex-direction: column;
+      }
+      ${mq[2]} {
+        flex-direction: row;
+      }
     `;
 
     const Item = styled("div")`
       display: flex;
-      align-self: center;
-      justify-content: space-between;
-      padding: 1rem 0;
+      flex-direction: column;
+      align-items: flex-start;
+      ${mq[0]} {
+        width: 100%;
+        padding: 0 30px;
+      ${mq[2]} {
+        width: 22%;
+      }
+      padding: 0 10px;
+      & p {
+        opacity: 0.85;
+        font-size: ${rem("12px")};
+        line-height: 1.88;
+      }
     `;
 
     const Img = styled(_Img)`
+      margin-bottom: 30px;
+      right: 50px;
       ${mq[0]} {
         display: none !important;
       }
@@ -60,18 +78,24 @@ export default class extends React.Component<MethodologyProps, {}> {
 
     const Step = styled("h2")`
       color: white;
+      font-size: ${rem("26px")};
+      font-weight: normal;
+      margin-bottom: 10px;
     `;
 
-    const Content = styled("div")`
+    const TitleGrid = styled('div')`
       display: flex;
-      flex-direction: column;
       justify-content: center;
-      color: white;
-      ${mq[0]} {
-        width: 100%;
+      & h1 {
+        padding-right: 0
       }
-      ${mq[2]} {
-        width: 65%;
+      margin-bottom: 50px;
+    `
+
+    const Content = styled("div")`
+      color: white;
+      & p {
+        font-size: 16px;
       }
     `;
 
@@ -80,7 +104,15 @@ export default class extends React.Component<MethodologyProps, {}> {
       flex-direction: column;
       align-items: center;
       position: relative;
-      top: 120px;
+      ${mq[0]} {
+        top: 103px;
+      }
+      ${mq[1]} {
+        top: 85px;
+      }
+      ${mq[3]} {
+        top: 120px;
+      }
     `;
 
     const TechnologiesIcons = styled("div")`
@@ -89,7 +121,11 @@ export default class extends React.Component<MethodologyProps, {}> {
       align-items: center;
       ${mq[0]} {
         height: ${rem("200px")};
-        width: 320px;
+        width: 100%;
+      }
+      ${mq[1]} {
+        width: 500px;
+        padding-top: 25px;
       }
       ${mq[2]} {
         height: ${rem("200px")};
@@ -99,7 +135,7 @@ export default class extends React.Component<MethodologyProps, {}> {
 
     const ReactIcon = styled(FaReact)`
       background-color: transparent;
-      color: #508aa8;
+      color: #fff;
       ${mq[0]} {
         font-size: ${rem("20px")};
       }
@@ -110,7 +146,7 @@ export default class extends React.Component<MethodologyProps, {}> {
 
     const PythonIcon = styled(FaPython)`
       background-color: transparent;
-      color: #c8dff4;
+      color: #fff;
       ${mq[0]} {
         font-size: ${rem("20px")};
       }
@@ -121,7 +157,7 @@ export default class extends React.Component<MethodologyProps, {}> {
 
     const AwsIcon = styled(FaAws)`
       background-color: transparent;
-      color: #c8dff4;
+      color: #fff;
       ${mq[0]} {
         font-size: ${rem("20px")};
       }
@@ -130,12 +166,30 @@ export default class extends React.Component<MethodologyProps, {}> {
       }
     `;
 
+    const RoundBorderBottom = styled("div")`
+      background-image: url(${BlueRound});
+      position: absolute;
+      bottom: -72px;
+      z-index: -2;
+      width: 100%;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+      ${mq[3]} {
+        height: 104px;
+        bottom: -103px;
+      }
+    `;
+
     const { run, build, innovate } = this.props;
 
     return (
       <Section>
         <Container>
-          <Title primary>Our Services</Title>
+          <TitleGrid>
+            <Title primary>Methodology</Title>
+          </TitleGrid>
           <Grid>
             <Item>
               <Img fixed={run.image} />
@@ -145,11 +199,11 @@ export default class extends React.Component<MethodologyProps, {}> {
               </Content>
             </Item>
             <Item>
+              <Img fixed={build.image} />
               <Content>
                 <Step>Build</Step>
                 <p dangerouslySetInnerHTML={{ __html: build.content }} />
               </Content>
-              <Img fixed={build.image} />
             </Item>
             <Item>
               <Img fixed={innovate.image} />
@@ -160,26 +214,30 @@ export default class extends React.Component<MethodologyProps, {}> {
             </Item>
           </Grid>
           <TechnologiesContainer>
-            <Title>Technologies</Title>
+            <Title primary>Technologies</Title>
             <TechnologiesIcons>
               <RoundImage
                 content={<ReactIcon />}
                 firstColor={"#c8dff4"}
                 secondColor={"#64707a"}
+                name={"React"}
               />
               <RoundImage
                 content={<PythonIcon />}
                 firstColor={"#508AA8"}
                 secondColor={"#284554"}
+                name={"Python"}
               />
               <RoundImage
                 content={<AwsIcon />}
                 firstColor={"#1E4396"}
                 secondColor={"#0F224B"}
+                name={"AWS"}
               />
             </TechnologiesIcons>
           </TechnologiesContainer>
         </Container>
+        <RoundBorderBottom />
       </Section>
     );
   }

@@ -1,14 +1,14 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css } from "emotion";
 import { navigateTo } from "gatsby-link";
 
-import { colors } from "./../../utils/theme";
-import Button from "./../Button";
+import { colors, mq } from "./../../utils/theme";
+import _Button from "./../Button";
 import Title from "./../../components/Title";
 import Container from "./../../components/Container";
 import _Input from "./../../components/Input";
+import WhiteRound from "../../images/WhiteRound.svg";
 
 interface GetInTouchProps {}
 interface GetInTouchState {
@@ -20,7 +20,26 @@ interface GetInTouchState {
 const Section = styled("section")`
   display: flex;
   align-items: center;
-  padding-top: ${rem("90px")};
+  position: relative;
+  justify-content: center;
+  text-align: center;
+  padding-top: ${rem("130px")};
+  padding-bottom: ${rem("80px")};
+  ${mq[0]} {
+    & h1 {
+      font-weight: 500;
+      font-size ${rem("30px")};
+    }
+  }
+  ${mq[1]} {
+    & h1 {
+      font-weight: 500;
+      font-size ${rem("36px")};
+    }
+  }
+  ${mq[3]} {
+    padding-top: ${rem("150px")};
+  }
 `;
 
 const Input = styled(_Input)`
@@ -28,10 +47,64 @@ const Input = styled(_Input)`
 `;
 
 const Form = styled("form")`
-  height: 30rem;
+  margin: 20px auto 0;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   flex-direction: column;
+  ${mq[0]} {
+    width: 100%;
+  }
+  ${mq[1]} {
+    width: 600px;
+  }
+`;
+
+const Button = styled(_Button)`
+  margin-top: ${rem("25px")};
+  font-size: ${rem("14px")};
+  font-weight: normal;
+  border-radius: 4px;
+  padding: 0.1rem 1.8rem;
+  ${mq[0]} {
+    margin-bottom: 20px;
+  }
+  ${mq[0]} {
+    align-self: center;
+  }
+  ${mq[1]} {
+    align-self: flex-start;
+  }
+`;
+
+const TextArea = styled("textarea")`
+  display: block;
+  margin-top: 8px;
+  height: 20vh;
+  padding: 0.6rem;
+  width: 100%;
+  border: none;
+  border-radius: 0.4rem;
+  transition: box-shadow 300ms;
+  box-shadow: ${colors.inputBoxShadow};
+  outline: none;
+  resize: none;
+  font-size: ${rem("14px")};
+`;
+
+const RoundBorderBottom = styled("div")`
+  background-image: url(${WhiteRound});
+  position: absolute;
+  z-index: 1;
+  bottom: -72px;
+  width: 100%;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  ${mq[3]} {
+    height: 106px;
+    bottom: -103px;
+  }
 `;
 
 export default class extends React.Component<GetInTouchProps, GetInTouchState> {
@@ -73,10 +146,9 @@ export default class extends React.Component<GetInTouchProps, GetInTouchState> {
     return (
       <Section>
         <Container>
-          <Title primary color={"black"}>
+          <Title primary color={colors.darkBlue}>
             Get in touch!
           </Title>
-          <p>Leave us a message and we'll get back to you!</p>
           <Form
             name="contact"
             method="post"
@@ -99,11 +171,10 @@ export default class extends React.Component<GetInTouchProps, GetInTouchState> {
               onChange={e => this.handleChange(e)}
               value={this.state.email}
             />
-            <Input
+            <TextArea
               type="text"
               name="content"
               placeholder="How can we help you?"
-              area
               onChange={this.handleChange}
               value={this.state.content}
             />
@@ -112,6 +183,7 @@ export default class extends React.Component<GetInTouchProps, GetInTouchState> {
             </Button>
           </Form>
         </Container>
+        <RoundBorderBottom />
       </Section>
     );
   }

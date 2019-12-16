@@ -3,8 +3,8 @@ import { rem } from "polished";
 import styled from "@emotion/styled";
 import Img from "gatsby-image";
 
-import { colors, mq } from "./../../utils/theme";
-import { FaLinkedin } from "react-icons/fa";
+import { mq } from "./../../utils/theme";
+import { FaLinkedin, FaTwitter, FaCloud, FaGithub } from "react-icons/fa";
 
 interface ProfileProps {
   name: string;
@@ -12,6 +12,9 @@ interface ProfileProps {
   bio: string;
   picture: any;
   linkedin?: string;
+  twitter?: string;
+  cloud?: string;
+  github?: string;
 }
 
 export default class extends React.Component<ProfileProps, {}> {
@@ -19,7 +22,7 @@ export default class extends React.Component<ProfileProps, {}> {
     super(props, context);
   }
   public render() {
-    const { name, position, bio, picture, linkedin } = this.props;
+    const { name, position, bio, picture, linkedin, twitter, github, cloud } = this.props;
 
     const Container = styled("section")`
       padding-top: ${rem("45px")};
@@ -30,14 +33,25 @@ export default class extends React.Component<ProfileProps, {}> {
       }
       ${mq[2]} {
         display: grid;
-        grid-template-columns: 15% 85%;
-        align-items: unset;
+        width: 100%;
+        justify-content: center;
+        grid-template-columns: ${rem("160px")} auto;
+        align-items: flex-start;
+        padding-left: ${rem("50px")};
+        padding-right: ${rem("50px")};
       }
     `;
 
     const Picture = styled(Img)`
       border-radius: 50%;
-      width: 200px;
+      align-self: center;
+      justify-self: center;
+      ${mq[0]} {
+        margin-bottom: 25px;
+      }
+      ${mq[2]} {
+        margin-bottom: 0;
+      }
     `;
 
     const Content = styled("div")`
@@ -45,33 +59,43 @@ export default class extends React.Component<ProfileProps, {}> {
         margin-left: 0;
       }
       ${mq[2]} {
-        margin-left: ${rem("40px")};
+        margin-left: ${rem("20px")};
       }
     `;
 
-    const Name = styled("h1")`
-      margin: 0px;
-      font-size: ${rem("28px")};
-      color: #041826;
+    const Name = styled("h2")`
+      margin-bottom: 5px;
+      font-size: 28px;
+      color: #fff;
+      opacity: 0.85;
     `;
 
-    const Position = styled("h2")`
-      font-size: ${rem("21px")};
-      color: #041826;
-      opacity: 0.5;
-      margin: 0px;
+    const Position = styled("h3")`
+      font-size: 21px;
+      color: #fff;
+      opacity: 0.85;
+      margin-bottom: 15px;
     `;
 
-    const Bio = styled("p")``;
+    const Bio = styled("p")`
+      margin-bottom: 10px;
+      font-size: 18px;
+      color: #fff;
+      opacity: 0.85;
+      ${mq[2]} {
+        width: 80%;
+      }
+    `;
 
-    const SocialMedias = styled("div")``;
-
-    const LinkedinIcon = styled(FaLinkedin)`
-      background-color: transparent;
-      color: #508aa8;
-      font-size: 24px;
-      opacity: 0.5;
-      cursor: pointer;
+    const SocialMedias = styled("div")`
+      & a > * {
+        background-color: transparent;
+        margin-right: 15px;
+        color: #cccccc;
+        opacity: 0.4;
+        font-size: 24px;
+        cursor: pointer;
+      }
     `;
 
     return (
@@ -83,8 +107,23 @@ export default class extends React.Component<ProfileProps, {}> {
           <Bio dangerouslySetInnerHTML={{ __html: bio }} />
           <SocialMedias>
             {linkedin && (
-              <a href={linkedin}>
-                <LinkedinIcon />
+              <a href={linkedin} target="_blank">
+                <FaLinkedin />
+              </a>
+            )}
+            {twitter && (
+              <a href={twitter} target="_blank">
+                <FaTwitter />
+              </a>
+            )}
+            {github && (
+              <a href={github} target="_blank">
+                <FaGithub />
+              </a>
+            )}
+            {cloud && (
+              <a href={cloud} target="_blank">
+                <FaCloud />
               </a>
             )}
           </SocialMedias>

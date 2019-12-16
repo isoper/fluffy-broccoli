@@ -1,16 +1,11 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css } from "emotion";
 import _Img from "gatsby-image";
-import { Link } from "gatsby";
 
 import { colors, mq } from "./../../utils/theme";
 import Container from "./../../components/Container";
 import Title from "./../../components/Title";
-import startup from "./../../images/startups.svg";
-import sme from "./../../images/sme.svg";
-import corporates from "./../../images/corporates.svg";
 
 interface OurStoryProps {
   content: string;
@@ -29,8 +24,8 @@ export default class extends React.Component<OurStoryProps, {}> {
       border-bottom-right-radius: 50% 5%;
       background-image: linear-gradient(
         180deg,
-        ${colors.secondary} 0%,
-        ${colors.secondaryDark} 100%
+        ${colors.secondary},
+        ${colors.secondaryDark}
       );
       color: white;
     `;

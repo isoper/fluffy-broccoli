@@ -1,7 +1,6 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css } from "emotion";
 
 import { colors, mq } from "./../../utils/theme";
 
@@ -21,20 +20,20 @@ export default class extends React.Component<TitleProps, {}> {
 
     const H1 = styled("h1")`
       display: inline-block;
+      font-weight: normal;
+      font-size: ${rem("32px")};
       color: ${(props: { color: string }) =>
         props.color ? props.color : "white"};
-      height: 53px;
-      border-bottom: 9px solid
-        ${(props: { primary: boolean }) =>
-          props.primary ? colors.accent : "#508aa8"};
-
-      ${mq[0]} {
-        padding-right: 0px;
-      }
+      height: 63px;
       ${mq[2]} {
         padding-right: ${(props: { primary: boolean }) =>
-          props.primary ? rem("35px") : "0px"};
+          props.primary ? rem("5px") : "0px"};
+        padding-left: ${(props: { primary: boolean }) =>
+          props.primary ? rem("5px") : "0px"};
       }
+      border-bottom: 5px solid
+        ${(props: { primary: boolean }) =>
+          props.primary ? colors.orange : "#508aa8"};
     `;
 
     return (

@@ -2,35 +2,41 @@
   {
     "title": "run",
     "content": "run.md",
-    "image": "../../src/images/run.png"
+    "image": "../../src/images/scale_new.png"
   },
   {
     "title": "build",
     "content": "build.md",
-    "image": "../../src/images/build.png"
+    "image": "../../src/images/build_new.png"
   },
 
   {
     "title": "innovate",
     "content": "innovate.md",
-    "image": "../../src/images/innovate.png"
+    "image": "../../src/images/innovate_new.png"
   },
 
   {
     "title": "learning",
     "content": "learning.md",
-    "image": "../../src/images/continuous_learning.png"
+    "image": "../../src/images/learning.png"
   },
+
 
   {
     "title": "leadership",
     "content": "leadership.md",
-    "image": "../../src/images/leadership.png"
+    "image": "../../src/images/strong_leadership.png"
   },
 
   {
     "title": "talent",
     "content": "talent.md",
-    "image": "../../src/images/top_talent.png"
+    "image": "../../src/images/talent.png"
+  },
+  {
+    "title": "headerText",
+    "content": "headerText.md",
+    "image": "../../src/images/BannerLogo.png"
   }
 ]

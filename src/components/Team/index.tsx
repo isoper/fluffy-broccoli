@@ -1,26 +1,27 @@
 import * as React from "react";
 import { rem } from "polished";
 import styled from "@emotion/styled";
-import { css } from "emotion";
 import _Img from "gatsby-image";
-import { Link } from "gatsby";
 import { FaArrowRight as _FaArrowRight } from "react-icons/fa";
 
 import { colors, mq } from "./../../utils/theme";
 import Container from "./../../components/Container";
 import Title from "./../../components/Title";
-import startup from "./../../images/startups.svg";
-import sme from "./../../images/sme.svg";
-import corporates from "./../../images/corporates.svg";
 import Profile from "./../../components/Profile";
+import BlueRound from "../../images/BlueRound.svg";
 
 interface TeamProps {
+  title: string;
+  teamText: string;
   profiles: {
     name: string;
     position: string;
     bio: string;
     picture: any;
     linkedin: string;
+    twitter: string;
+    github: string;
+    cloud: string;
   }[];
 }
 
@@ -31,17 +32,19 @@ export default class extends React.Component<TeamProps, {}> {
   public render() {
     const Section = styled("section")`
       display: flex;
+      position: relative;
       align-items: center;
-      padding: ${rem("90px")} 0;
-    `;
-
-    const JobsLink = styled(Link)`
-      display: flex;
-      align-items: center;
-      text-transform: uppercase;
-      color: ${colors.accent};
-      font-weight: bold;
-      cursor: pointer;
+      padding-top: ${rem("90px")};
+      padding-bottom: ${rem("110px")};
+      background-image: linear-gradient(
+        180deg,
+        ${colors.blue},
+        ${colors.darkBlue}
+      );
+      & h1 {
+        font-size: ${rem("36px")};
+        height: 68px;
+      }
     `;
 
     const Content = styled("div")`
@@ -56,20 +59,42 @@ export default class extends React.Component<TeamProps, {}> {
       }
     `;
 
-    const FaArrowRight = styled(_FaArrowRight)`
-      margin: 0 0.5rem;
+    const RoundBorderBottom = styled("div")`
+      background-image: url(${BlueRound});
+      position: absolute;
+      bottom: -72px;
+      width: 100%;
+      height: 100px;
+      background-repeat: no-repeat;
+      background-position: bottom;
+      background-size: cover;
+      ${mq[3]} {
+        height: 104px;
+        bottom: -103px;
+      }
     `;
 
-    const { profiles } = this.props;
+    const TeamInfo = styled("p")`
+      color: #fff;
+      opacity: 0.85;
+      font-size: ${rem("15px")};
+      line-height: 1.33;
+      ${mq[2]} {
+        padding-right: ${rem("30px")};
+      }
+    `;
+
+    const { profiles, title, teamText } = this.props;
 
     return (
       <Section>
         <Container>
-          <Title primary color={"black"}>
-            The Team
+          <Title primary color={"white"}>
+            {title}
           </Title>
+          <TeamInfo dangerouslySetInnerHTML={{ __html: teamText }} />
           <Content />
-          {profiles.map((profile, index) => {
+          {profiles.map(profile => {
             return (
               <Profile
                 key={profile.name}
@@ -78,13 +103,14 @@ export default class extends React.Component<TeamProps, {}> {
                 bio={profile.bio}
                 picture={profile.picture}
                 linkedin={profile.linkedin}
+                twitter={profile.twitter}
+                github={profile.github}
+                cloud={profile.cloud}
               />
             );
           })}
-          <JobsLink to="/jobs">
-            We're Hiring, join us! <FaArrowRight />
-          </JobsLink>
         </Container>
+        <RoundBorderBottom />
       </Section>
     );
   }
