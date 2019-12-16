@@ -186,9 +186,12 @@ export default class extends React.Component<WhoIsProps, {}> {
             Who is Ludō?
           </Title>
           <Content>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam sit
-            amet ligula at tellus rutrum tempor ut et nibh. Mauris mi urna,
-            auctor faucibus ligula nec, lobortis aliquet mi. Sed ut finibus mi.
+            Ludo is a development agency helping partners scaling their teams on
+            demand. Whenever you have a problem, we provide you a tailor-made
+            teams. As a partner building long-term relationship We are driven by
+            your success. Our strong culture of continuous learning allow us to
+            stay ahead of the technological curve. Our Software craftsmanship
+            experts can turn any of your dream into reality.
           </Content>
           <TeamLink to="/team">
             Our team & jobs <FaArrowRight />
