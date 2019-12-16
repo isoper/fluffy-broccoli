@@ -34,7 +34,6 @@ export default class extends React.Component<HeaderProps, {}> {
 
     const Section = styled("section")`
       display: flex;
-      // flex-direction: column;
       justify-content: center;
       ${mq[0]} {
         align-items: flex-start;
