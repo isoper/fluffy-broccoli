@@ -27,17 +27,32 @@ const ThanksPage = ({ data }) => {
     color: white;
     ${mq[0]} {
       padding-top: 0;
+      & h1 {
+        font-size: ${rem("26px")};
+        font-weight: normal;
+        margin-bottom: 0;
+        padding-left: 0 !important;
+        height: 57px !important;
+      }
+      & p {
+        font-size: ${rem("14px")};
+        opacity: 0.85;
+      }
+    }
+    padding-top: ${rem("40px")};
+    ${mq[1]} {
+      & h1 {
+        font-size: ${rem("42px")};
+        letter-spacing: 1.55px;
+        height: 77px !important;
+      }
     }
     ${mq[2]} {
       align-items: center;
       padding-top: ${rem("90px")};
     }
     min-height: 100vh;
-    background: linear-gradient(
-      180deg,
-      rgba(47, 70, 82, 1),
-      rgba(75, 114, 134, 1)
-    );
+    background: linear-gradient(180deg, ${colors.darkBlue}, ${colors.blue});
   `;
   return (
     <Layout data={data}>
@@ -52,3 +67,51 @@ const ThanksPage = ({ data }) => {
 };
 
 export default ThanksPage;
+
+/* eslint no-undef: "off" */
+export const pageQuery = graphql`
+  query ThanksQuery {
+    darkLogo: file(relativePath: { eq: "LogoLightBackground.png" }) {
+      childImageSharp {
+        fixed(width: 120 height: 34) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    lightLogo: file(relativePath: { eq: "LogoDarkBackground.png" }) {
+      childImageSharp {
+        fixed(width: 120 height: 34) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    bannerLogo: file(relativePath: { eq: "BannerLogo.png" }) {
+      childImageSharp {
+        fluid(maxHeight: 400) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    enFlag: file(relativePath: { eq: "en.png" }) {
+      childImageSharp {
+        fixed(width: 24 height: 24) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    frFlag: file(relativePath: { eq: "fr.png" }) {
+      childImageSharp {
+        fixed(width: 24 height: 24) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+    mkFlag: file(relativePath: { eq: "mk.png" }) {
+      childImageSharp {
+        fixed(width: 24 height: 24) {
+          ...GatsbyImageSharpFixed
+        }
+      }
+    }
+  }
+`;
